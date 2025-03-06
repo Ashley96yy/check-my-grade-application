@@ -1,5 +1,6 @@
 import csv
 import time
+from course import Course, courses # Import the Course class and the courses dictionary
 
 ##### Initialize data #####
 # Use a dictionary (harsh table) to store all the professors
@@ -8,7 +9,7 @@ professors = {}
 ##### Class Professor #####
 class Professor:
    
-    def __init__(self, professor_id, name, rank):
+    def __init__(self, professor_id=None, name=None, rank=None):
         self.professor_id = professor_id # Unique professor ID (primary key)
         self.name = name # Professor name
         self.rank = rank # Professor rank
@@ -75,29 +76,110 @@ class Professor:
         new_professor_id = input("Enter the new professor ID: ").strip()
         new_name = input("Enter the new professor name: ").strip()
         new_rank = input("Enter the new professor rank: ").strip()  
-        new_course_id_str = input("Enter the new course IDs (comma-separated): ").strip()
+        new_course_id_str = input("Enter the new course IDs (comma-separated, or leave blank): ").strip()
 
-        # if professor not in professors, create new Professor object
-        if new_professor_id not in professors:
-            professors[new_professor_id] = Professor(new_professor_id, new_name, new_rank)
-        professors[new_professor_id].add_course(new_course_id_str)
+        # Check if the professor ID already exists
+        if new_professor_id in professors:
+            print(f"Professor ID: {new_professor_id} already exists.")
+            return
+        
+        # Check if all course IDs in courses (if provided)
+        invalid_course_ids = [cid for cid in new_course_id_str if cid not in courses]
+        if invalid_course_ids:
+            print(f"The following course IDs do not exist: {', '.join(invalid_course_ids)}")
+            return
+        
+        # Create new Professor object
+        professors[new_professor_id] = Professor(new_professor_id, new_name, new_rank)
+        if new_course_id_str:
+            professors[new_professor_id].add_course(new_course_id_str)
         print(f"New professor {new_name} added successfully")
 
         # Save the data to CSV file
-        Professor.save_professors_to_csv("Professor.csv")
+        Professor.save_professors_to_csv()
 
     def delete_professor(self):
-        professor_id = input("Enter the professor ID to delete: ").strip()
-        if professor_id in professors:
-            del professors[professor_id]
-            print(f"Professor ID: {professor_id} deleted successfully.")
-
-            # Save the data to CSV file
-            Professor.save_professors_to_csv("Professor.csv")
-        else:
+        """ Delete a professor and his/her related course data from all files """
+        professor_id = input("Enter the professor ID of the professor you want to delete: ").strip()
+        
+        # Check if the professor exists
+        if professor_id not in professors:
             print(f"Professor ID: {professor_id} not found.")
+            return
+        
+        # Get the course IDs associated with the professor
+        course_ids_to_delete = [course["course_id"] for course in professors[professor_id].courses]
+
+        # Delete the professor from the professors dictionary
+        del professors[professor_id]
+        print(f"Professor ID: {professor_id} deleted successfully from memory.")
+
+        # Delete the professor from Professor.csv
+        try:
+            with open("Professor.csv", mode="r") as professor_file:
+                reader = csv.reader(professor_file)
+                rows = [row for row in reader if row[0] != professor_id]
+            
+            with open("Professor.csv", mode="w", newline="") as professor_file:
+                writer = csv.writer(professor_file)
+                writer.writerows(rows)
+            print(f"Professor ID: {professor_id} deleted successfully from Professor.csv")
+        
+        except Exception as e:
+            print(f"Error deleting professor from Professor.csv: {e}")
+        
+        # Delete related course data from Grades.csv
+        try:
+            with open("Grades.csv", mode="r") as grades_file:
+                reader = csv.reader(grades_file)
+                rows = [row for row in reader if row[1] not in course_ids_to_delete] # Filter out related courses
+            
+            with open("Grades.csv", mode="w", newline="") as grades_file:
+                writer = csv.writer(grades_file)
+                writer.writerows(rows)
+            print(f"Grades for courses {', '.join(course_ids_to_delete)} deleted from Grades.csv.")
+        
+        except Exception as e:
+            print(f"Error deleting grades from Grades.csv: {e}")
+        
+        # Delete related course data from Student.csv
+        try:
+            with open("Student.csv", mode="r") as student_file:
+                reader = csv.reader(student_file)
+                rows = [row for row in reader]
+            
+            # Remove the course IDs from students' course lists
+            updated_rows = []
+            for row in rows:
+                student_course_ids = row[3].split(",") if row[3] else []
+                student_course_ids = [cid for cid in student_course_ids if cid not in course_ids_to_delete]
+                row[3] = ",".join(student_course_ids)  # Update the course IDs
+                updated_rows.append(row)
+
+            with open("Student.csv", mode="w", newline="") as student_file:
+                writer = csv.writer(student_file)
+                writer.writerows(updated_rows)
+            print(f"Course IDs {', '.join(course_ids_to_delete)} removed from Student.csv.")
+        
+        except Exception as e:
+            print(f"Error updating Student.csv: {e}")
+        
+        # Delete related course data from Course.csv
+        try:
+            with open("Course.csv", mode="r") as course_file:
+                reader = csv.reader(course_file)
+                rows = [row for row in reader if row[0] not in course_ids_to_delete] # Filter out related courses
+
+                with open("Course.csv", mode="w", newline="") as course_file:
+                    writer = csv.writer(course_file)
+                    writer.writerows(rows)
+                print(f"Course IDs {', '.join(course_ids_to_delete)} deleted from Course.csv.")
+        
+        except Exception as e:
+            print(f"Error deleting courses from Course.csv: {e}")
 
     def modify_professor_details(self):
+        """ Delete a professor and his/her related course data from all files """
         professor_id = input("Enter the professor ID to modify: ").strip()
         if professor_id in professors:
             professor = professors[professor_id]
@@ -135,14 +217,14 @@ class Professor:
         for course in self.courses:
             print(f"  Course ID: {course['course_id']}")
     
-    def save_professors_to_csv(filename):
-        with open(filename, mode="w", newline="") as professor_file:
+    def save_professors_to_csv():
+        with open("Professor.csv", mode="w", newline="") as professor_file:
             writer = csv.writer(professor_file)
             writer.writerow(["Professor_id", "Professor_name", "Rank", "Course_id"])
             for professor in professors.values():
                 course_ids = ",".join([course["course_id"] for course in professor.courses])
                 writer.writerow([professor.professor_id, professor.name, professor.rank, course_ids])
-        print(f"Professor data saved to {filename}")
+        print(f"Professor data saved to Professor.csv successfully")
 
 ##### Read the Professor File ######
 def load_professor_data():

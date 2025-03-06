@@ -1,4 +1,5 @@
 import csv
+import time
 
 ##### Initialize data #####
 # Use a dictionary (hash table) to store all the grades, with (student_id, course_id) as the key
@@ -50,7 +51,45 @@ class Grades:
         
     def display_chosen_grade_records(self):
         # Display the chosen grade's details and measure lookup time
-        pass
+        student_id = input("Enter the student ID (or leave bland to see all students): ").strip()
+        course_id = input("Enter the course ID (or leave blank to see all courses): ").strip()
+        start_time = time.time() # Record the start time
+
+        if student_id and course_id:
+            # Case 1: Both student_id and course_id are provided
+            if (student_id, course_id) in grades:
+                grade = grades[(student_id, course_id)]
+                print(f"Student ID: {grade.student_id}, Course ID: {grade.course_id}, Grades: {grade.grades}, Marks: {grade.marks}")
+            else:
+                print("Grade not found.")
+        
+        elif student_id:
+            # Case 2: Only student_id is provided
+            found = False
+            for key, grade in grades.items():
+                if key[0] == student_id:
+                    print(f"Student ID: {grade.student_id}, Course ID: {grade.course_id}, Grades: {grade.grades}, Marks: {grade.marks}")
+                    found = True
+            if not found:
+                print("No grades found for the student.")
+        
+        elif course_id:
+            # Case 3: Only course_id is provided
+            found = False
+            for key, grade in grades.items():
+                if key[1] == course_id:
+                    print(f"Student ID: {grade.student_id}, Course ID: {grade.course_id}, Grades: {grade.grades}, Marks: {grade.marks}")
+                    found = True
+            if not found:
+                print("No grades found for the course.")
+        
+        else:
+            # Case 4: Both student_id and course_id are not provided
+            print("Please provide at least a student ID or course ID to lookup a grade.")
+
+        end_time = time.time() # Record the end time
+        elapsed_time = end_time - start_time
+        print(f"Time taken to lookup the grade: {elapsed_time:.6f} seconds")
 
     def add_grade(self):
         # Add a grade for a student in a course by a professor

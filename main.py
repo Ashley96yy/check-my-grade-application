@@ -2,7 +2,7 @@ from login_user import LoginUser
 from course import Course, courses # Import the Course class and the courses dictionary
 from student import Student, students # Import the Student class and the students dictionary
 from professor import Professor, professors # Import the Professor class and the professors dictionary
-from grades import Grades
+from grades import Grades, grades # Import the Grades class and the grades dictionary
 import getpass
 import shutil
 
@@ -101,7 +101,7 @@ def admin_menu():
             else:
                 print("Invalid choice, please enter again.")
         
-        elif choice == "3": #sort
+        elif choice == "3": 
             print("\n Display Course Records Menu:")
             print("1. Display all courses details")
             print("2. Display chosen course details")
@@ -121,7 +121,7 @@ def admin_menu():
             else:
                 print("Invalid choice, please enter again.")
         
-        elif choice == "4": #sort
+        elif choice == "4": 
             print("\n Display Grades Records Menu:")
             print("1. Display all grades details")
             print("2. Display chosen grade details")
@@ -129,29 +129,41 @@ def admin_menu():
             sub_choice = input("Enter your choice: ").strip()
 
             if sub_choice == "1":
-                pass
+                sort_by = input("Enter the sort by (student_id, course_id, grades, marks): ").strip()
+                grades[list(grades.keys())[0]].display_all_grades_records(sort_by)
+
             elif sub_choice == "2":
-                pass
+                grades[list(grades.keys())[0]].display_chosen_grade_records()
+
             elif sub_choice == "3":
-                break
+                continue # Return to previous menu
+
             else:
                 print("Invalid choice, please enter again.")
 
-        elif choice == "5":
+        elif choice == "5":###有空加一个2次确认的功能
             print("\n Add/Delete/Modify Student Menu:")
             print("1. Add new student")
             print("2. Delete student")
             print("3. Modify student details")
             print("4. Return to previous menu")
-            choice = input("Enter your choice: ").strip()
-            if choice == "1":
-                pass
-            elif choice == "2":
-                pass
-            elif choice == "3":
-                pass#修改学生iD，姓名，课程
-            elif choice == "4":
-                break
+            sub_choice = input("Enter your choice: ").strip()
+
+            if sub_choice == "1":
+                student_instance = Student()
+                student_instance.add_new_student()
+
+            elif sub_choice == "2":
+                student_instance = Student()
+                student_instance.delete_student()
+
+            elif sub_choice == "3":
+                student_instance = Student()
+                student_instance.modify_student_records()
+
+            elif sub_choice == "4":
+                continue # Return to previous menu
+
             else:
                 print("Invalid choice, please enter again.")
         
@@ -161,16 +173,21 @@ def admin_menu():
             print("2. Delete professor")
             print("3. Modify professor details")
             print("4. Return to previous menu")
-            choice = input("Enter your choice: ").strip()
+            sub_choice = input("Enter your choice: ").strip()
 
-            if choice == "1":
+            if sub_choice == "1":
+                professor_instance = Professor()
+                professor_instance.add_new_professor()
+
+            elif sub_choice == "2":
                 pass
-            elif choice == "2":
-                pass
-            elif choice == "3":
+
+            elif sub_choice == "3":
                 pass#修改教授ID，姓名，课程，职称，课程需确认是否在课程列表中
-            elif choice == "4":
-                break
+
+            elif sub_choice == "4":
+                continue # Return to previous menu
+
             else:
                 print("Invalid choice, please enter again.")
         
