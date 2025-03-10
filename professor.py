@@ -72,6 +72,17 @@ class Professor:
         elapsed_time = end_time - start_time # Calculate the elapsed time
         print(f"Time taken to lookup the professor: {elapsed_time:.6f} seconds")
 
+    def display_professor_himself(self, email_id):
+        """ Display the professor's own details """
+        professor_id = email_id
+        if professor_id in professors:
+            professor = professors[professor_id]
+            print(f"\nProfessor ID: {professor.professor_id}, Name: {professor.name}, Rank: {professor.rank}")
+            for course in professor.courses:
+                print(f"  Course ID: {course['course_id']}")
+        else:
+            print(f"Professor ID: {professor_id} not found.")
+
     def add_new_professor(self):
         new_professor_id = input("Enter the new professor ID: ").strip()
         new_name = input("Enter the new professor name: ").strip()
@@ -177,10 +188,15 @@ class Professor:
         
         except Exception as e:
             print(f"Error deleting courses from Course.csv: {e}")
+        
+        # Remove the course ID from courses dictionary
+        for course in course_ids_to_delete:
+            if course in courses:
+                del courses[course] 
+                print(f"Course ID {course} removed from courses dictionary.")
 
-    def modify_professor_details(self):
+    def modify_professor_details(self, professor_id=None):
         """ Delete a professor and his/her related course data from all files """
-        professor_id = input("Enter the professor ID to modify: ").strip()
         if professor_id in professors:
             professor = professors[professor_id]
             print("1. Modify professor name")
@@ -189,20 +205,141 @@ class Professor:
             choice = input("Enter your choice: ").strip()
 
             if choice == "1":
+                # Modify professor name
                 new_name = input("Enter the new name: ").strip()
                 professor.name = new_name
                 print("Name updated successfully.")
+
             elif choice == "2":
+                # Modify professor rank
                 new_rank = input("Enter the new rank: ").strip()
                 professor.rank = new_rank
                 print("Rank updated successfully.")
+
             elif choice == "3":
-                new_course_id_str = input("Enter the new course IDs (comma-separated): ")
-                professor.courses = [] # Clear existing courses
-                professor.add_course(new_course_id_str)
-                print("Course IDs updated successfully.")
+                # Modify course IDs
+                print("Current course IDs:", ", ".join([course["course_id"] for course in professor.courses]))
+                print("1. Modify a course ID")
+                print("2. Add a new course ID")
+                print("3. Delete a course ID")
+                sub_choice = input("Enter your choice: ").strip()
+
+                if sub_choice == "1":
+                    # Modify a course ID
+                    old_course_id = input("Enter the course ID you want to modify: ").strip()
+                    new_course_id = input("Enter the new course ID: ").strip()
+
+                    # Check if the new course ID exists in courses
+                    if new_course_id not in courses:
+                        print(f"Course ID: {new_course_id} does not exist.")
+                        return
+                    
+                    # Check if the new course ID already exists in the professor's courses
+                    if new_course_id in [course["course_id"] for course in professor.courses]:
+                        print(f"Course ID {new_course_id} already exists in the professor's course list.")
+                        return
+                    
+                    # Find and update the course ID in the professor's courses
+                    for course in professor.courses:
+                        if course["course_id"] == old_course_id:
+                            course["course_id"] = new_course_id
+                            print(f"Couse ID {old_course_id} updated to {new_course_id} from memory.")
+                            break
+
+                        else:
+                            print(f"Course ID: {old_course_id} not found.")
+                
+                elif sub_choice == "2":
+                    # Add a new course ID
+                    new_course_id = input("Enter the new course ID: ").strip()
+
+                    # Check if the new course ID exists in courses
+                    if new_course_id not in courses:
+                        print(f"Course ID: {new_course_id} does not exist.")
+                        return
+
+                    # Check if the new course ID already exists in the professor's courses
+                    if new_course_id in [course["course_id"] for course in professor.courses]:
+                        print(f"Course ID {new_course_id} already exists in the professor's course list.")
+                        return
+                    
+                    # Add the new course ID to the professor's courses
+                    professor.courses.append({"course_id": new_course_id})
+                    print(f"Course ID {new_course_id} added successfully.")
+                
+                elif sub_choice == "3":
+                    # Delete a course ID
+                    if len(professor.courses) <= 1:
+                        print("Cannot delete the only course. A professor must have at lease one course.")
+                        return
+
+                    course_id_to_delete = input("Enter the course ID you want to delete: ")
+
+                    # Remove the course ID from the professor's courses
+                    professor.courses = [course for course in professor.courses if course["course_id"] != course_id_to_delete]
+                    print(f"Course ID {course_id_to_delete} deleted from memory successfully.")
+
+                    # Delete related data from Grades.csv
+                    try:
+                        with open("Grades.csv", mode="r") as grades_file:
+                            reader = csv.reader(grades_file)
+                            rows = [row for row in reader if row[1] != course_id_to_delete]
+
+                        with open("Grades.csv", mode="w", newline="") as grades_file:
+                            writer = csv.writer(grades_file)
+                            writer.writerows(rows)
+                        print(f"Grades for Course ID {course_id_to_delete} deleted from Grades.csv.")
+                    
+                    except Exception as e:
+                        print(f"Error deleting grades from Grades.csv: {e}")
+
+                    # Delete related data from Student.csv
+                    try:
+                        with open("Student.csv", mode="r") as student_file:
+                            reader = csv.reader(student_file)
+                            rows = [row for row in reader]
+
+                        # Remove the course ID from students' course lists
+                        updated_rows = []
+                        for row in rows:
+                            if row[3]:  # Check if the course_id column is not empty
+                                course_ids = row[3].split(",")
+                                course_ids = [cid for cid in course_ids if cid != course_id_to_delete]
+                                row[3] = ",".join(course_ids)
+                            updated_rows.append(row)
+
+                        with open("Student.csv", mode="w", newline="") as student_file:
+                            writer = csv.writer(student_file)
+                            writer.writerows(updated_rows)
+                        print(f"Course ID {course_id_to_delete} removed from Student.csv.")
+                    except Exception as e:
+                        print(f"Error updating Student.csv: {e}")
+                    
+                    # Delete related data from Course.csv
+                    try:
+                        with open("Course.csv", mode="r") as course_file:
+                            reader = csv.reader(course_file)
+                            rows = [row for row in reader if row[0] != course_id_to_delete]
+
+                        with open("Course.csv", mode="w", newline="") as course_file:
+                            writer = csv.writer(course_file)
+                            writer.writerows(rows)
+                        print(f"Course ID {course_id_to_delete} deleted from Course.csv.")
+                    except Exception as e:
+                        print(f"Error deleting course from Course.csv: {e}")
+                    
+                    # Remove the course ID from courses dictionary
+                    if course_id_to_delete in courses:
+                        del courses[course_id_to_delete] 
+                        print(f"Course ID {course_id_to_delete} removed from courses dictionary.")
+
+                else:
+                    print("Invalid choice, please enter again.")
+                    return
+                
             else:
                 print("Invalid choice, please enter again.")
+                return
             
             # Save the data to CSV file
             Professor.save_professors_to_csv("Professor.csv")

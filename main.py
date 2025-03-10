@@ -32,7 +32,7 @@ def main_menu():
 
             if choice == "1":
                 if role == "admin":
-                    admin_menu()
+                    admin_menu(role, email_id)
                 elif role == "professor":
                     pass
                     # professor_menu(professor, grades)
@@ -47,7 +47,7 @@ def main_menu():
             else:
                 print("Invalid choice, please enter again.") 
 
-def admin_menu():
+def admin_menu(role, email_id):
     while True:
         print("\nAdmin Menu:")
         print("1. Display Student Records")
@@ -180,10 +180,13 @@ def admin_menu():
                 professor_instance.add_new_professor()
 
             elif sub_choice == "2":
-                pass
+                professor_instance = Professor()
+                professor_instance.delete_professor()
 
             elif sub_choice == "3":
-                pass#修改教授ID，姓名，课程，职称，课程需确认是否在课程列表中
+                professor_id = input("Enter the professor ID to modify: ").strip()
+                professor_instance = Professor()
+                professor_instance.modify_professor_details(professor_id)
 
             elif sub_choice == "4":
                 continue # Return to previous menu
@@ -197,35 +200,48 @@ def admin_menu():
             print("2. Delete course")
             print("3. Modify course details")
             print("4. Return to previous menu")
-            choice = input("Enter your choice: ").strip()
+            sub_choice = input("Enter your choice: ").strip()
 
-            if choice == "1":
-                pass
-            elif choice == "2":
-                pass
-            elif choice == "3":
-                pass#修改课程ID，名称，描述
-            elif choice == "4":
-                break
+            if sub_choice == "1":
+                course_instance = Course()
+                course_instance.add_new_course()
+                
+            elif sub_choice == "2":
+                course_instance = Course()
+                course_instance.delete_course()
+
+            elif sub_choice == "3":
+                course_instance = Course()
+                course_instance.modify_course()
+
+            elif sub_choice == "4":
+                continue # Return to previous menu
+
             else:
                 print("Invalid choice, please enter again.")
         
-        elif choice == "8":#需要输入学生ID，课程ID
+        elif choice == "8":
             print("\n Add/Delete/Modify Grades Menu:")
-            print("1. Add new grade")#添加grade和mark
+            print("1. Add new grade")
             print("2. Delete grade")
             print("3. Modify grade details")
             print("4. Return to previous menu")
-            choice = input("Enter your choice: ").strip()
+            sub_choice = input("Enter your choice: ").strip()
 
-            if choice == "1":
-                pass
-            elif choice == "2":
-                pass
-            elif choice == "3":
-                pass
-            elif choice == "4":
-                break
+            if sub_choice == "1":
+                grades_instance = Grades()
+                grades_instance.add_new_grade(role, email_id)
+
+            elif sub_choice == "2":
+                grades_instance = Grades()
+                grades_instance.delete_grade(role, email_id)
+
+            elif sub_choice == "3":
+                grades_instance = Grades()
+                grades_instance.modify_grade(role, email_id)
+
+            elif sub_choice == "4":
+                continue # Return to previous menu
             else:
                 print("Invalid choice, please enter again.")
         
@@ -235,32 +251,39 @@ def admin_menu():
             print("2. Generate grade report for a professor")
             print("3. Generate grade report for a course")
             print("4. Return to previous menu")
-            choice = input("Enter your choice: ").strip()
+            sub_choice = input("Enter your choice: ").strip()
 
-            if choice == "1":
-                pass
-            elif choice == "2":
-                pass
-            elif choice == "3":
-                pass
-            elif choice == "4":
-                break
+            if sub_choice == "1":
+                grades_instance = Grades()
+                grades_instance.grade_report_student(role, email_id)
+
+            elif sub_choice == "2":
+                grades_instance = Grades()
+                grades_instance.grade_report_professor(role, email_id)
+                
+            elif sub_choice == "3":
+                grades_instance = Grades()
+                grades_instance.grade_report_course(role, email_id)
+
+            elif sub_choice == "4":
+                continue # Return to previous menu
+
             else:
                 print("Invalid choice, please enter again.")
         
         elif choice == "10":
-            break
+            break # Return to main menu
 
         else:
             print("Invalid choice, please enter again.")
 
-def professor_menu():
+def professor_menu(role, email_id):
     while True:
         print("\nProfessor Menu:")
-        print("1. Display Professor Records")
-        print("2. Display Course Records")
-        print("3. Display Grades Records")
-        print("4. Display Student Records")
+        print("1. Display Student Records")
+        print("2. Display Professor Records")
+        print("3. Display Course Records")
+        print("4. Display Grades Records")
         print("5. Modify My Details") #只能修改教授自己的个人信息
         print("6. Add/Delete/Modify Course")
         print("7. Add/Delete/Modify Grades")
@@ -269,79 +292,6 @@ def professor_menu():
         choice = input("Enter your choice: ").strip()
 
         if choice == "1":
-            print("\n Display Professor Records Menu:")
-            print("1. Display my details")
-            print("2. Display all professors details")#sort
-            print("3. Display chosen professor details")
-            print("4. Return to previous menu")
-            choice = input("Enter your choice: ").strip()
-
-            if choice == "1":
-                pass
-            elif choice == "2":
-                pass
-            elif choice == "3":
-                pass
-            elif choice == "4":
-                break
-            else:
-                print("Invalid choice, please enter again.")
-        
-        elif choice == "2":#sort
-            print("\n Display Course Records Menu:")
-            print("1. Display the details of all courses which I teach")
-            print("2. Display all courses details")
-            print("3. Display chosen course details")
-            print("4. Return to previous menu")
-            choice = input("Enter your choice: ").strip()
-
-            if choice == "1":
-                pass
-            elif choice == "2":
-                pass
-            elif choice == "3":
-                pass
-            elif choice == "4":
-                break
-            else:  
-                print("Invalid choice, please enter again.")
-        
-        elif choice == "3":#sort
-            print("\n Display Grades Records Menu:")
-            print("1. Display the grades of all courses which I teach")
-            print("2. Display the grades of chosen course which I teach")
-            print("3. Return to previous menu")
-            choice = input("Enter your choice: ").strip()
-            
-            if choice == "1":
-                pass
-            elif choice == "2":
-                #课程ID，学生ID，grade，mark
-                print("1. Display Average Mark")
-                print("2. Display Median Mark")
-                print("3. Display Highest Mark")
-                print("4. Display Lowest Mark")
-                print("5. Return to previous menu")
-                choice = input("Enter your choice: ").strip()
-
-                if choice == "1":
-                    pass
-                elif choice == "2":
-                    pass
-                elif choice == "3":
-                    pass
-                elif choice == "4":
-                    pass
-                elif choice == "5":
-                    pass
-                else:
-                    print("Invalid choice, please enter again.")
-            elif choice == "3":
-                break
-            else:
-                print("Invalid choice, please enter again.")
-        
-        elif choice == "4":#sort
             print("\n Display Student Records Menu:")
             print("1. Display the details of all students in my courses")
             print("2. Display all students details")
@@ -350,7 +300,9 @@ def professor_menu():
             sub_choice = input("Enter your choice: ").strip()
 
             if sub_choice == "1":
-                pass
+                sort_by = input("Enter the sort by (student_id, first_name, last_name): ").strip()
+                professor_instance = Professor()
+                professor_instance.display_professor_student_records(sort_by)
 
             elif sub_choice == "2":
                 sort_by = input("Enter the sort by (student_id, first_name, last_name): ").strip()
@@ -360,13 +312,100 @@ def professor_menu():
                 students[list(students.keys())[0]].display_chosen_student_records()
 
             elif sub_choice == "4":
-                continue # Return to previous menu
+                break # Return to previous menu
+
+            else:
+                print("Invalid choice, please enter again.")
+
+        elif choice == "2":
+            print("\n Display Professor Records Menu:")
+            print("1. Display my details")
+            print("2. Display all professors details")#sort
+            print("3. Display chosen professor details")
+            print("4. Return to previous menu")
+            sub_choice = input("Enter your choice: ").strip()
+
+            if sub_choice == "1":
+                professor_instance = Professor()
+                professor_instance.display_professor_himself(email_id)
+
+            elif sub_choice == "2":
+                sort_by = input("Enter the sort by (professor_id, name): ").strip()
+                professors[list(professors.keys())[0]].display_all_professors_records(sort_by)
+
+            elif sub_choice == "3":
+                professors[list(professors.keys())[0]].display_chosen_professor_records()
+
+            elif sub_choice == "4":
+                break   # Return to previous menu
+
+            else:
+                print("Invalid choice, please enter again.")
+        
+        elif choice == "3":
+            print("\n Display Course Records Menu:")
+            print("1. Display the details of all courses which I teach")
+            print("2. Display all courses details")
+            print("3. Display chosen course details")
+            print("4. Return to previous menu")
+            sub_choice = input("Enter your choice: ").strip()
+
+            if sub_choice == "1":
+                course_instance = Course()
+                course_instance.display_professor_course_records(email_id)
+
+            elif sub_choice == "2":
+                sort_by = input("Enter the sort by (course_id, course_name): ").strip()
+                courses[list(courses.keys())[0]].display_all_courses_records(sort_by)
+
+            elif sub_choice == "3":
+                courses[list(courses.keys())[0]].display_chosen_course_records()
+
+            elif sub_choice == "4":
+                break  # Return to previous menu
+
+            else:  
+                print("Invalid choice, please enter again.")
+        
+        elif choice == "4":#sort
+            print("\n Display Grades Records Menu:")
+            print("1. Display the grades of all courses which I teach")
+            print("2. Display the grades of chosen course which I teach")
+            print("3. Return to previous menu")
+            sub_choice = input("Enter your choice: ").strip()
+            
+            if sub_choice == "1":
+                pass
+            elif sub_choice == "2":
+                #课程ID，学生ID，grade，mark
+                print("1. Display Average Mark")
+                print("2. Display Median Mark")
+                print("3. Display Highest Mark")
+                print("4. Display Lowest Mark")
+                print("5. Return to previous menu")
+                sub_choice = input("Enter your choice: ").strip()
+
+                if sub_choice == "1":
+                    pass
+                elif sub_choice == "2":
+                    pass
+                elif sub_choice == "3":
+                    pass
+                elif sub_choice == "4":
+                    pass
+                elif sub_choice == "5":
+                    break # Return to previous menu
+                else:
+                    print("Invalid choice, please enter again.")
+            elif sub_choice == "3":
+                break
 
             else:
                 print("Invalid choice, please enter again.")
         
         elif choice == "5":
-            pass
+            professor_instance = Professor()
+            professor_instance.modify_professor_details(email_id)
 
         elif choice == "6": #只能删除、修改自己教授的课程,一旦教授增加课程，代表默认上该课程
             print("\n Add/Delete/Modify Course Menu:")
@@ -374,14 +413,14 @@ def professor_menu():
             print("2. Delete course")
             print("3. Modify course details")
             print("4. Return to previous menu")
-            choice = input("Enter your choice: ").strip()
-            if choice == "1":
+            sub_choice = input("Enter your choice: ").strip()
+            if sub_choice == "1":
                 pass
-            elif choice == "2":
+            elif sub_choice == "2":
                 pass
-            elif choice == "3":
+            elif sub_choice == "3":
                 pass#修改课程ID，名称，描述
-            elif choice == "4":
+            elif sub_choice == "4":
                 break
             else:
                 print("Invalid choice, please enter again.")
@@ -392,15 +431,19 @@ def professor_menu():
             print("2. Delete grade")
             print("3. Modify grade details")
             print("4. Return to previous menu")
-            choice = input("Enter your choice: ").strip()
-            if choice == "1":
+            sub_choice = input("Enter your choice: ").strip()
+            if sub_choice == "1":
                 pass
-            elif choice == "2":
+
+            elif sub_choice == "2":
                 pass
-            elif choice == "3":
+
+            elif sub_choice == "3":
                 pass
-            elif choice == "4":
-                break
+
+            elif sub_choice == "4":
+                break # Return to previous menu
+
             else:
                 print("Invalid choice, please enter again.")
         
@@ -416,7 +459,7 @@ def professor_menu():
         else:
             print("Invalid choice, please enter again.")
 
-def student_menu():
+def student_menu(role, email_id):
     while True:
         print("\nStudent Menu:")
         print("1. Display My Records")#显示学生的基本信息,不包括成绩
@@ -436,13 +479,16 @@ def student_menu():
             pass
 
         elif choice == "3":
-            pass
+            student_instance = Student()
+            student_instance.check_my_grades(email_id)
 
         elif choice == "4":
-            pass
+            student_instance = Student()
+            student_instance.check_my_marks(email_id)
 
         elif choice == "5":
-            pass
+            grades_instance = Grades()
+            grades_instance.grade_report_student(role, email_id)
 
         elif choice == "6":
             print("\n Discover Courses Menu:")
@@ -452,9 +498,12 @@ def student_menu():
             choice = input("Enter your choice: ").strip()
 
             if choice == "1":
-                pass
+                sort_by = input("Enter the sort by (course_id, course_name): ").strip()
+                courses[list(courses.keys())[0]].display_all_courses_records(sort_by)
+
             elif choice == "2":
-                pass
+                courses[list(courses.keys())[0]].display_chosen_course_records()
+
             elif choice == "3":
                 break
             else:
@@ -468,16 +517,20 @@ def student_menu():
             choice = input("Enter your choice: ").strip()
 
             if choice == "1":
-                pass
+                sort_by = input("Enter the sort by (professor_id, name): ").strip()
+                professors[list(professors.keys())[0]].display_all_professors_records(sort_by)
+
             elif choice == "2":
-                pass
+                professors[list(professors.keys())[0]].display_chosen_professor_records()
+
             elif choice == "3":
-                break
+                break # Return to previous menu
+
             else:
                 print("Invalid choice, please enter again.")
 
         elif choice == "8":
-            break
+            break # Return to main menu
 
         else:
             print("Invalid choice, please enter again.")

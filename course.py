@@ -1,5 +1,6 @@
 import csv
 import time
+from professor import Professor, professors
 
 ##### Initialize data ######
 # Use a dictionary (hash table) to store all the courses
@@ -58,121 +59,190 @@ class Course:
         end_time = time.time() # Record the end time
         elapsed_time = end_time - start_time
         print(f"Time taken to loopuo the course: {elapsed_time:.6f} seconds")
+    
+    def display_course_taught_by_professor_records(self, email_id):
+        """ Display the courses taught by the professor"""
+        professor_id = email_id
+        professor_course_ids = professors[professor_id].courses
+        for course_id in professor_course_ids:
+            if course_id in courses:
+                course = courses[course_id]
+                print(f"Course ID: {course.course_id}, Course Name: {course.course_name}, Description: {course.description}")
+            else:
+                print(f"Course ID {course_id} not found.")
 
     def modify_course(self):
-        """ Modify course by the professor """
-        global course_data
-        modify_course_id = input("Enter the course ID (letters + numbers) you want to modify: ").strip().upper()
-        print(modify_course_id)
-        modify_course_data = course_data[course_data.Course_id == modify_course_id]
-
-        # Check if course exists
-        if modify_course_data.empty:
-            print(f"No data found for the course {modify_course_id}.")
+        """ Modify course details """
+        modify_course_id = input("Enter the course ID you want to modify: ").strip()
+        if modify_course_id not in courses:
+            print(f"Course ID {modify_course_id} not found.")
             return
         
+        print("Current course details:")
+        course = courses[modify_course_id]
+        print(f"Course ID: {course.course_id}, Course Name: {course.course_name}, Description: {course.description}")
+        print("1. Modify course Name")
+        print("2. Modify description")
+        choice = input("Enter your choice: ").strip()
+
+        if choice == "1":
+            new_course_name = input("Enter the new course name: ").strip()
+            course.course_name = new_course_name
+            print(f"Course Name updated to {new_course_name}.")
+        
+        elif choice == "2":
+            new_description = input("Enter the new description: ").strip()
+            course.description = new_description
+            print(f"Description updated to {new_description}.")
         else:
-            print("Below is the details of the course to be modified:")
-            print(tabulate(modify_course_data, headers='keys', tablefmt='pretty'))
-            print("\n")
-            print("1. Modify course ID")
-            print("2. Modify course name")
-            print("3. Modify the description of the course")
-            choice = input("Enter your choice: ")
-            if choice == "1":
-                course_id_modified = input("Enter the course ID to be modified: ").strip().upper()
-
-                # Modify course_id (Primary Key) info in Course.CSV file
-                course_data.loc[course_data.Course_id == modify_course_id, "Course_id"] = course_id_modified
-                course_data.to_csv("Course.csv", index=False)
-
-                # Modify course_id (Foreign Key) info in Student.CSV file
-                student_data.loc[student_data.Course_id == modify_course_id, "Course_id"] = course_id_modified
-                student_data.to_csv("Student.csv", index=False)
-
-                # Modify course_id (Foreign Key) info in Professor.CSV file
-                professor_data.loc[professor_data.Course_id == modify_course_id, "Course_id"] = course_id_modified
-                professor_data.to_csv("Professor.csv", index=False)
-
-                print(f"Convert {modify_course_id} to {course_id_modified}.\nModify course ID successfully.")
+            print("Invalid choice. Please try again.")
+        
+        # Save the updated course data to Course.csv
+        try:
+            with open("Course.csv", mode="r") as course_file:
+                reader = csv.reader(course_file)
+                rows = [row for row in reader]
             
-            elif choice == "2":
-                course_name_modified = input("Enter the course name to be modified: ").strip()
-                original_course_name = course_data[course_data.Course_id == modify_course_id]["Course_name"].values[0]
-
-                # Modify course name info in Course.CSV file
-                course_data.loc[course_data.Course_id == modify_course_id, "Course_name"] = course_name_modified
-                course_data.to_csv("Course.csv", index=False)
-
-                print(f"Convert {original_course_name} to {course_name_modified}.\nModify course name successfully.")
+            updated_rows = []
+            for row in rows:
+                if row[0] == modify_course_id:
+                    row[1] = course.course_name
+                    row[2] = course.description
+                updated_rows.append(row)
             
-            elif choice == "3":
-                course_description_modified = input("Enter the description of the course which is to be modified: ").strip()
-                original_course_description = course_data[course_data.Course_id == modify_course_id["Description"]].values[0]
-
-                # Modify the description of the course in Course.CSV file
-                course_data.loc[course_data.Course_id == modify_course_id, "Description"] == course_description_modified
-                course_data.to_csv("Course.csv", index=False)
-
-                print(f"Convert {original_course_description} to {course_description_modified}.\nModify the description of the course successfully.")
-
+            with open("Course.csv", mode="w", newline="") as course_file:
+                writer = csv.writer(course_file)
+                writer.writerows(updated_rows)
+            print(f"Course {modify_course_id} updated successfully in Course.csv.")
+        
+        except Exception as e:
+            print(f"Error updating course in Course.csv: {e}")
+        
     def add_new_course(self):
-        """ Add new course by the professor """
-        global course_data
-        course_id = capitalize_letters(input("Enter the new course ID (letters + numbers): ").strip())
-        course_name = input("Enter the new course name: ").strip().title()
-        description = input("Enter the description of the course: ").strip().capitalize()
+        """ Add a new course """
+        course_id = input("Enter the new course ID: ").strip()
+        course_name = input("Enter the new course name: ").strip()
+        description = input("Enter the description of the course: ").strip()
 
-        # check if course_id exists
-        if course_id in course_data.Course_id.to_list():
+        # Check if the course ID already exists
+        if course_id in courses:
             print("Course ID already exists.")
-        else:
-            # Add a new row
-            new_course = pandas.DataFrame({
-                "Course_id": [course_id],
-                "Course_name": [course_name],
-                "Description": [description]
-            })
-            # Add new data into the existing DataFrame
-            course_data = pandas.concat([course_data, new_course], ignore_index=True)
-            # Save to CSV file
-            course_data.to_csv("Course.csv", index=False)
-            print("New course added successfully!")
-        
-    def delete_course(self):
-        """ Delete new course by the professor """
-        global course_data 
-        deleted_course_file = Path("deleted_Course.csv")
-
-        course_id = capitalize_letters(input("Enter the new course ID (letters + numbers): ").strip())
-        course_deleted = course_data[course_data.Course_id == course_id]
-        
-        # Check if course exists
-        if course_deleted.empty:
-            print(f"No data found for the deleted course {course_id}.")
             return
         
-        else:
-            # Check if the deleted_course_file exists
-            if deleted_course_file.exists():
-                deleted_course_data = pandas.read_csv("deleted_Course.csv")
-                deleted_course_data = pandas.concat([deleted_course_data, course_deleted]).drop_duplicates()
+        # Add the new course to the courses dictionary
+        courses[course_id] = Course(course_id, course_name, description)
+
+        # Save the new course data to Course.csv
+        self.save_courses_to_csv(course_id, course_name, description)
+
+        print(f"New course {course_id} added successfully.") 
+
+    def delete_course(self):
+        """ Delete a new course and its related records from courses, Professor.csv, Student.csv, and Grades.csv"""
+        course_id = input("Enter the course ID you want to delete: ").strip()
+
+        # Check if the course ID exists in the courses dictionary
+        if course_id not in courses:
+            print(f"Course ID {course_id} not found.")
+            return
+
+        # Delete the course from the courses dictionary
+        del courses[course_id]
+        print(f"Course ID {course_id} deleted from the memory successfully.")
+
+        # Delete the course from the Course.csv file
+        try:
+            with open("Course.csv", mode="r") as course_file:
+                reader = csv.reader(course_file)
+                rows = [row for row in reader if row[0] != course_id]
             
-            else:
-                # If there is no the deleted_course_file, use course_deleted data to create a new DataFrame
-                deleted_course_data = course_deleted
+            with open("Course.csv", mode="w", newline="") as course_file:
+                writer = csv.writer(course_file)
+                writer.writerows(rows)
+            print(f"Course ID {course_id} deleted from Course.csv successfully.")
+        
+        except Exception as e:
+            print(f"Error deleting course from Course.csv: {e}")
+        
+        # Delete the course from the Professor.csv file
+        try:
+            with open("Professor.csv", mode="r") as professor_file:
+                reader = csv.reader(professor_file)
+                rows = [row for row in reader]
+            
+            header = rows[0] # Get the header row
+            data_rows = rows[1:] # Get the data rows
 
-            # Save the deleted course to the CSV file
-            deleted_course_data.to_csv("deleted_Course.csv", index=False)
+            # Remove the course ID from professors' course list
+            updated_rows = []
+            for row in data_rows:
+                if row[3]: # Check if the course_id column is not empty
+                    course_ids = row[3].split(",")
+                    course_ids = [cid for cid in course_ids if cid != course_id]
+                    row[3] = ",".join(course_ids)
+                updated_rows.append(row)
+            
+            with open("Professor.csv", mode="w", newline="") as professor_file:
+                writer = csv.writer(professor_file)
+                writer.writerow(header) # Write the header row
+                writer.writerows(updated_rows) # Write the updated data rows
+            print(f"Course ID {course_id} deleted from Professor.csv successfully.")
 
-            # Remove the deleted course from the original file
-            course_data = course_data[course_data.Course_id != course_id]
-            # Save to CSV file
-            course_data.to_csv("Course.csv", index=False)
+        except Exception as e:
+            print(f"Error deleting course from Professor.csv: {e}")
+        
+        # Delete the course from the Student.csv file
+        try:
+            with open("Student.csv", mode="r") as student_file:
+                reader = csv.reader(student_file)
+                rows = [row for row in reader]
+            
+            header = rows[0] # Get the header row
+            data_rows = rows[1:] # Get the data rows
 
-            print(f"The data of {course_id} has been deleted successfully!"
-                        f"\nThe data of {course_id} saved to 'deleted_course_file.csv'.")
+            updated_rows = []
+            for row in data_rows:
+                if row[3]: # Check if the course_id column is not empty
+                    course_ids = row[3].split(",")
+                    course_ids = [cid for cid in course_ids if cid != course_id]
+                    row[3] = ",".join(course_ids)
+                updated_rows.append(row)
+            
+            with open("Student.csv", mode="w", newline="") as student_file:
+                writer = csv.writer(student_file)
+                writer.writerow(header)
+                writer.writerows(updated_rows)
+            print(f"Course ID {course_id} deleted from Student.csv successfully.")
+        except Exception as e:
+            print(f"Error deleting course from Student.csv: {e}")
+        
+        # Delete the course from the Grades.csv file
+        try:
+            with open("Grades.csv", mode="r") as grades_file:
+                reader = csv.reader(grades_file)
+                rows = [row for row in reader if row[1] != course_id]
+            
+            header = rows[0] # Get the header row
+            data_rows = rows[1:] # Get the data rows
 
+            with open("Grades.csv", mode="w", newline="") as grades_file:
+                writer = csv.writer(grades_file)
+                writer.writerow(header)
+                writer.writerows(data_rows)
+            print(f"Course ID {course_id} deleted from Grades.csv successfully.")
+
+        except Exception as e:
+            print(f"Error deleting course from Grades.csv: {e}")
+
+    def save_courses_to_csv(self, course_id, course_name, description):
+        """ Save the courses data to the CSV file """
+        try:
+            with open("Course.csv", mode="a") as course_file:
+                writer = csv.writer(course_file)
+                writer.writerow([course_id, course_name, description])
+
+        except Exception as e:
+            print(f"Error saving courses data to CSV: {e}")
 
 ##### Read the Course.csv file #####
 def load_course_data():

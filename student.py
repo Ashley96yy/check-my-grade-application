@@ -1,6 +1,8 @@
 import csv
 import time
 from course import Course, courses # Import the Course class and the courses dictionary
+from professor import Professor, professors # Import the Professor class and the professors dictionary
+from grades import Grades, grades # Import the grades dictionary
 
 ##### Initialize data #####
 # Use a dictionary (hash table) to store all the students
@@ -74,50 +76,107 @@ class Student:
         end_time = time.time() # Record the end time
         elapsed_time = end_time - start_time # Calculate the elapsed time
         print(f"Time taken to lookup student information: {elapsed_time:.6f} seconds")
-
-    def check_my_grades(self):
-        if not self.courses:
-            print("No grades found.")
-            return
+    
+    def display_professor_student_records(self, email_id, sorted_by="student_id"):
+        """ Display the professor's students' details, sorted by student ID 
+        Parameters:
+            sorted_by (str): The field to sort the students by
+            -- Options: "student_id", "first_name", "last_name"
+        """
+        # Validate the sorted_by field
+        if sort_by not in ["student_id", "first_name", "last_name"]:
+            print("Invalid field to sort by. Sorting by student_id by default.")
+            sort_by = "student_id"
         
+        # Get the professor's courses
+        professor = professors[email_id]
+        professor_courses = professor.courses
+        for course_id in professor_courses:
+            print(f"\nCourse ID: {course_id}")
+
+            # Get the students for the course
+            students_in_course = []
+            for student in students.values():
+                student_course_ids = [course["course_id"] for course in student.courses]
+                if course_id in student_course_ids:
+                    students_in_course.append(student)
+            if not students_in_course:
+                print("No students found for this course.")
+                continue
+            # Sort the students based on the specific field
+            if sort_by == "student_id":
+                students_in_course.sort(key=lambda x: x.student_id)
+            elif sort_by == "first_name":   
+                students_in_course.sort(key=lambda x: x.first_name)
+            elif sort_by == "last_name":
+                students_in_course.sort(key=lambda x: x.last_name)
+            # Display the sorted students records
+            print(f"\nDisplaying all students records for course {course_id} (sorted by {sort_by}):")
+            for student in students_in_course:
+                print(f"Student ID: {student.student_id}, Name: {student.first_name} {student.last_name}")
+        
+        # Convert the students dictionary to a list of students for sorting
+        students_list = list(students.values())
+
+        # Sort the students based on the specific field
+        if sort_by == "student_id":
+            students_list.sort(key=lambda x: x.student_id)
+        elif sort_by == "first_name":
+            students_list.sort(key=lambda x: x.first_name)
+        elif sort_by == "last_name":
+            students_list.sort(key=lambda x: x.last_name)
+
+        # Display the sorted students records
+        print(f"\nDisplaying all students records (sorted by {sort_by}):")
+        for student in students_list:
+            print(f"Student ID: {student.student_id}, Name: {student.first_name} {student.last_name}")
+            for course in student.courses:
+                print(f"  Course ID: {course['course_id']}")
+            print("-" * 30)
+
+    def check_my_grades(self, email_id):
+        """ Check the student's grades for all courses or a specific course """
         while True:
             print("1. Check grades for all courses you took.")
             print("2. Check grades for a specific course you took.")
             choice = input("Enter you choice: ").strip()
             if choice == "1":
-                print(f"Grades for {self.first_name} {self.last_name}:")
-                for course in self.courses:
-                    print(f"  Course ID: {course['course_id']}, Grade: {course['grade']}")
+                print(f"Grades for {students[email_id].first_name} {students[email_id].last_name}:")
+                for course in students[email_id].courses:
+                    student_grade = grades[(email_id, course)].grades
+                    print(f"  Course ID: {course}, Grade: {student_grade}")
 
             elif choice == "2":
                 course_id = input("Enter the course ID: ").strip()
-                for course in self.courses:
-                    if course["course_id"] == course_id:
-                        print(f"Course ID: {course['course_id']}, Grade: {course['grade']}")
+                for course in students[email_id].courses:
+                    if course == course_id:
+                        student_grade = grades[(email_id, course)].grades
+                        print(f"Course ID: {course}, Grade: {student_grade}")
                         return
                     print(f"No grades found for course ID: {course_id}")
             else:
                 print("Invalid choice. Please try again.")
 
-    def check_my_marks(self):
-        if not self.courses:
-            print("No marks found.")
-            return
-        
+    def check_my_marks(self, email_id):
+        """ Check the student's marks for all courses or a specific course """
         while True:
             print("1. Check marks for all courses you took.")
             print("2. Check marks for a specific course you took.")
             choice = input("Enter you choice: ").strip()
             if choice == "1":
-                print(f"Grades for {self.first_name} {self.last_name}:")
+                print(f"Grades for {students[email_id].first_name} {students[email_id].last_name}:")
                 for course in self.courses:
-                    print(f"  Course ID: {course['course_id']}, Grade: {course['grade']}, Mark: {course['mark']}")
+                    student_grade = grades[(email_id, course)].grades
+                    student_mark = grades[(email_id, course)].marks
+                    print(f"  Course ID: {course}, Grade: {student_grade}, Mark: {student_mark}")
 
             elif choice == "2":
                 course_id = input("Enter the course ID: ").strip()
-                for course in self.courses:
-                    if course["course_id"] == course_id:
-                        print(f"Course ID: {course['course_id']}, Grade: {course['grade']}, Mark: {course['mark']}")
+                for course in students[email_id].courses:
+                    student_grade = grades[(email_id, course)].grades
+                    student_mark = grades[(email_id, course)].marks
+                    if course == course_id:
+                        print(f"Course ID: {course}, Grade: {student_grade}, Mark: {student_mark}")
                         return
                     print(f"No grades found for course ID: {course_id}")
             else:
@@ -164,7 +223,7 @@ class Student:
         """ Delete a student and his/her related records from students, Student.csv, and Grades.csv """
         student_id = input("Enter the student ID of the student you want to delete: ").strip()
         
-        # Check if the student exists in the students dictionary
+        # Check if the student ID exists in the students dictionary
         if student_id not in students:
             print(f"Student ID: {student_id} not found.")
             return
@@ -354,6 +413,7 @@ class Student:
                 grades = grades if grades else "N/A"
                 marks = marks if marks else "N/A"
                 writer.writerow([student_id, course_id, grades, marks])
+                
         except Exception as e:
             print(f"Error saving grades data to CSV: {e}")
 
