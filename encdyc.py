@@ -28,7 +28,7 @@ class TextSecurity:
 
 # if __name__ == '__main__':
 #     cipher = TextSecurity(5)
-#     message = "DY20!341"
+#     message = "x4L*~WGc0jmn"
 #     coded = cipher.encrypt(message)
 #     print('Secret: ', coded)
 #     answer = cipher.decrypt(coded)

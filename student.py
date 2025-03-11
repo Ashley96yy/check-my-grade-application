@@ -134,6 +134,13 @@ class Student:
                 print(f"  Course ID: {course['course_id']}")
             print("-" * 30)
 
+    def display_student_himself_records(self, email_id):
+        """ Display the student's own details """
+        student = students[email_id]
+        print(f"Student ID: {student.student_id}, Name: {student.first_name} {student.last_name}")
+        for course in student.courses:
+            print(f"  Course ID: {course['course_id']}")
+
     def check_my_grades(self, email_id):
         """ Check the student's grades for all courses or a specific course """
         while True:
@@ -258,140 +265,163 @@ class Student:
         except Exception as e:
             print(f"Error deleting student from Grades.csv: {e}")
 
-    def modify_student_records(self):
-        """ Modify a student's first name, last name, or course_ids"""
-        student_id = input("Enter the student ID of the student you want to modify: ").strip()
-        if student_id in students:
-            student = students[student_id]
-            print("1. Modify student's frist name.")
-            print("2. Modify student's last name.")
-            print("3. Mofidy student's course ID.")
-            sub_choice = input("Enter your choice: ").strip()
+    def modify_student_records(self, role, email_id):
+        """
+        Modify a student's first name, last name, or course IDs.
+        If role is "student", the student can only modify their own information.
 
-            if sub_choice == "1":
-                # Modify first name
-                new_first_name = input("Enter the new first name: ").strip()
-                student.first_name = new_first_name
-                print("First name updated successfully.")
+        Args:
+            role (str): The role of the user ("admin" or "student").
+            email_id (str): The email ID of the user (used if role is "student").
+        """
+        if role == "student":
+            # Students can only modify their own records
+            student_id = email_id  # Assuming email_id is the student ID
+        else:
+            # Admins can modify any student's records
+            student_id = input("Enter the student ID of the student you want to modify: ").strip()
 
-            elif sub_choice == "2":
-                # Modify last name
-                new_last_name = input("Enter the new last name: ").strip()
-                student.last_name = new_last_name
-                print("Last name updated successfully.")
+        if student_id not in students:
+            print(f"Student ID {student_id} not found.")
+            return
 
-            elif sub_choice == "3":
-                # Modify course IDs
-                print("Current course IDs:", ", ".join([course["course_id"] for course in student.courses]))
-                print("1. Modify a course ID.")
-                print("2. Delete a course ID.")
-                print("3. Add a new course ID.")
-                sub_option = input("Enter you choice: ").strip()
+        student = students[student_id]
+        print("1. Modify student's first name.")
+        print("2. Modify student's last name.")
+        print("3. Modify student's course IDs.")
+        sub_choice = input("Enter your choice: ").strip()
 
-                if sub_option == "1":
-                    # Modify a course ID
-                    old_course_id = input("Enter the course Id you want to modify: ").strip()
-                    new_course_id = input("Enter the new course ID: ").strip()
+        if sub_choice == "1":
+            # Modify first name
+            new_first_name = input("Enter the new first name: ").strip()
+            student.first_name = new_first_name
+            print("First name updated successfully.")
 
-                    # Check if the new course ID exists in courses
-                    if new_course_id not in courses:
-                        print(f"Course ID: {new_course_id} does not exist")
-                        return
-                    
-                    # Check if the new course ID exists in student.courses
-                    if new_course_id in student.courses:
-                        print(f"Course ID {new_course_id} has existed in the student's course IDs list")
-                        return
-                    
-                    # Find and update the course ID in the student's courses
-                    for course in student.courses:
-                        if course["course_id"] == old_course_id:
-                            course["course_id"] = new_course_id
-                            print(f"Course ID {old_course_id} updated to {new_course_id}")
-                            break
-                    else:
-                        print(f"Course ID: {old_course_id} not found")
-                        return
-                    
-                    # Update grades.csv
-                    try:
-                        with open("Grades.csv", mode="r") as grades_file:
-                            reader = csv.reader(grades_file)
-                            rows = [row for row in reader]
-                        
-                        with open("Grades.csv", "w", newline="") as grades_files:
-                            writer= csv.writer(grades_file)
-                            for row in rows:
-                                if row[0] == student_id and row[1] == old_course_id:
-                                    row[1] = new_course_id # Update the course ID
-                                writer.writerow(row)
+        elif sub_choice == "2":
+            # Modify last name
+            new_last_name = input("Enter the new last name: ").strip()
+            student.last_name = new_last_name
+            print("Last name updated successfully.")
 
-                    except Exception as e:
-                        print(f"Error updating Grades.csv: {e}")
-                
-                elif sub_option == "2":
-                    # Delete a course ID
-                    if len(student.courses) <= 1:
-                        print("Cannot delete the only course. A student must have at least one course.")
-                        return
+        elif sub_choice == "3":
+            # Modify course IDs
+            print("Current course IDs:", ", ".join([course["course_id"] for course in student.courses]))
+            print("1. Modify a course ID.")
+            print("2. Delete a course ID.")
+            print("3. Add a new course ID.")
+            sub_option = input("Enter your choice: ").strip()
 
-                    course_id_to_delete = input("Enter the course ID you want to delete: ").strip()
+            if sub_option == "1":
+                # Modify a course ID
+                old_course_id = input("Enter the course ID you want to modify: ").strip()
+                new_course_id = input("Enter the new course ID: ").strip()
 
-                    # Remove the course ID from the sutdent's courses
-                    student.courses = [course for course in student.courses if course["course_id"] != course_id_to_delete]
-                    print(f"Course ID {course_id_to_delete} deleted successfully.") 
+                # Check if the new course ID exists in courses
+                if new_course_id not in courses:
+                    print(f"Course ID: {new_course_id} does not exist.")
+                    return
 
-                    # Delete the corresponding grades from Grades.csv
-                    try:
-                        with open("Grades.csv", mode="r") as grades_file:
-                            reader = csv.reader(grades_file)
-                            rows = [row for row in reader if not (row[0] == student_id and row[1] == course_id_to_delete)]
-    
-                        with open("Grades.csv", mode="w", newline="") as grades_file:
-                            writer = csv.writer(grades_file)
-                            writer.writerows(rows)
-                    
-                    except Exception as e:
-                        print(f"Error deleting grades from Grades.csv: {e}")
-                
-                elif sub_option == "3":
-                    # Add a new course ID
-                    new_course_id = input("Enter the new cours ID: ").strip()
+                # Check if the new course ID already exists in student.courses
+                if new_course_id in [course["course_id"] for course in student.courses]:
+                    print(f"Course ID {new_course_id} already exists in the student's course IDs list.")
+                    return
 
-                    # Check if the new course ID exists in courses
-                    if new_course_id not in courses:
-                        print(f"Course ID: {new_course_id} does not exist.")
-                        return
-                    
-                    # Add the new course ID to the student's courses
-                    student.courses.append ({"course_id": new_course_id})
-                    print(f"Course ID {new_course_id} added successsfully")
+                # Find and update the course ID in the student's courses
+                for course in student.courses:
+                    if course["course_id"] == old_course_id:
+                        course["course_id"] = new_course_id
+                        print(f"Course ID {old_course_id} updated to {new_course_id}.")
+                        break
+                else:
+                    print(f"Course ID: {old_course_id} not found.")
+                    return
 
-                    # Optionally, prompt for grade and mark and add to Grade.csv
+                # Update Grades.csv
+                try:
+                    with open("Grades.csv", mode="r") as grades_file:
+                        reader = csv.reader(grades_file)
+                        rows = [row for row in reader]
+
+                    with open("Grades.csv", mode="w", newline="") as grades_file:
+                        writer = csv.writer(grades_file)
+                        for row in rows:
+                            if row[0] == student_id and row[1] == old_course_id:
+                                row[1] = new_course_id  # Update the course ID
+                            writer.writerow(row)
+                    print("Grades.csv updated successfully.")
+
+                except Exception as e:
+                    print(f"Error updating Grades.csv: {e}")
+
+            elif sub_option == "2":
+                # Delete a course ID
+                if len(student.courses) <= 1:
+                    print("Cannot delete the only course. A student must have at least one course.")
+                    return
+
+                course_id_to_delete = input("Enter the course ID you want to delete: ").strip()
+
+                # Remove the course ID from the student's courses
+                student.courses = [course for course in student.courses if course["course_id"] != course_id_to_delete]
+                print(f"Course ID {course_id_to_delete} deleted successfully.")
+
+                # Delete the corresponding grades from Grades.csv
+                try:
+                    with open("Grades.csv", mode="r") as grades_file:
+                        reader = csv.reader(grades_file)
+                        rows = [row for row in reader if not (row[0] == student_id and row[1] == course_id_to_delete)]
+
+                    with open("Grades.csv", mode="w", newline="") as grades_file:
+                        writer = csv.writer(grades_file)
+                        writer.writerows(rows)
+                    print("Grades.csv updated successfully.")
+
+                except Exception as e:
+                    print(f"Error deleting grades from Grades.csv: {e}")
+
+            elif sub_option == "3":
+                # Add a new course ID
+                new_course_id = input("Enter the new course ID: ").strip()
+
+                # Check if the new course ID exists in courses
+                if new_course_id not in courses:
+                    print(f"Course ID: {new_course_id} does not exist.")
+                    return
+
+                # Add the new course ID to the student's courses
+                student.courses.append({"course_id": new_course_id})
+                print(f"Course ID {new_course_id} added successfully.")
+
+                # If role is "admin", prompt for grade and mark
+                if role == "admin":
                     grade = input(f"Enter the grade for course ID {new_course_id} (or leave blank if not available): ").strip()
                     mark_input = input(f"Enter the mark for course ID {new_course_id} (or leave blank if not available): ").strip()
                     mark = float(mark_input) if mark_input else None
                     self.save_grades_to_csv(student_id, new_course_id, grade, mark)
-
                 else:
-                    print("Invalid choice. Please try again.")
-                    return
-                
+                    # Students cannot input grades or marks
+                    print("Students cannot input grades or marks. Please contact an administrator.")
+
             else:
                 print("Invalid choice. Please try again.")
-            
-            # Save changes to Student.csv
-            try:
-                with open("Student.csv", mode="w", newline="") as student_file:
-                    writer = csv.writer(student_file)
-                    for student in students.values():
-                        # Convert course IDs to a comma-separated string
-                        course_ids_str = ",".join([course["course_id"] for course in student.courses])
-                        writer.writerow([student.student_id, student.first_name, student.last_name, course_ids_str])
-                print("Student data saved to Student.csv successfully.")
-            except Exception as e:
-                print(f"Error saving student data to Student.csv: {e}")
+                return
 
+        else:
+            print("Invalid choice. Please try again.")
+            return
+
+        # Save changes to Student.csv
+        try:
+            with open("Student.csv", mode="w", newline="") as student_file:
+                writer = csv.writer(student_file)
+                for student in students.values():
+                    # Convert course IDs to a comma-separated string
+                    course_ids_str = ",".join([course["course_id"] for course in student.courses])
+                    writer.writerow([student.student_id, student.first_name, student.last_name, course_ids_str])
+            print("Student data saved to Student.csv successfully.")
+        except Exception as e:
+            print(f"Error saving student data to Student.csv: {e}")
+        
     def save_students_to_csv(self, student_id, first_name, last_name, course_ids):
         """ Save the students data to the CSV file """
         try:

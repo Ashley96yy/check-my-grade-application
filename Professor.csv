@@ -1,4 +1,11 @@
-Professor_id,Professor_name,Rank,Course_id
-micheal@mycsu.edu,Micheal John,Senior Professor,"DATA200, DATA 234"
-mike@mycsu.edu,Mike John,Associate Professor,DATA233
-dam@mycsu.edu,Dam Trump,Assistant Professor,DATA202
+Professor_id,Professor Name,Rank,Course_id
+dennis.davis@myscu.edu,Dennis Davis,Assistant Professor,"DATA200, DATA205"
+patrick.wright@myscu.edu,Patrick Wright,Assistant Professor,"DATA213, DATA215, DATA209"
+ricky.warren@myscu.edu,Ricky Warren,Associate Professor,"DATA212, DATA207"
+kristine.zamora@myscu.edu,Kristine Zamora,Senior Professor,"DATA206, DATA202, DATA214, DATA214"
+travis.simmons@myscu.edu,Travis Simmons,Assistant Professor,"DATA210, DATA210, DATA204"
+charles.lawson@myscu.edu,Charles Lawson,Assistant Professor,"DATA203, DATA200, DATA202"
+chad.peters@myscu.edu,Chad Peters,Senior Professor,"DATA218, DATA209, DATA218, DATA208"
+susan.harris@myscu.edu,Susan Harris,Assistant Professor,"DATA216, DATA201, DATA219"
+kathryn.thomas@myscu.edu,Kathryn Thomas,Associate Professor,"DATA215, DATA211"
+joshua.howell@myscu.edu,Joshua Howell,Senior Professor,"DATA201, DATA205, DATA208, DATA217"

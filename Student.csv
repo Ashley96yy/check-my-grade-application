@@ -1,4 +1,1101 @@
-Student_id,First_name,Last_name,Course_id
-sam@mycsu.edu,Sam,Carpenter,"DATA200, DATA201"
-david@mycsu.edu,David,John,DATA201
-lily@mycsu.edu,Lily,Swift,DATA202
+Email,First Name,Last Name,Course IDs
+andre.burke@myscu.edu,Andre,Burke,"DATA210, DATA205, DATA203"
+aaron.harrison@myscu.edu,Aaron,Harrison,"DATA210, DATA216"
+gary.price@myscu.edu,Gary,Price,"DATA215, DATA218, DATA204, DATA202"
+shawn.smith@myscu.edu,Shawn,Smith,"DATA218, DATA208"
+kristen.hernandez@myscu.edu,Kristen,Hernandez,"DATA206, DATA211"
+adam.webb@myscu.edu,Adam,Webb,"DATA207, DATA218"
+lee.ray@myscu.edu,Lee,Ray,"DATA211, DATA208, DATA204, DATA200, DATA206"
+rick.hayes@myscu.edu,Rick,Hayes,DATA208
+beverly.campbell@myscu.edu,Beverly,Campbell,"DATA209, DATA203"
+dana.mccormick@myscu.edu,Dana,Mccormick,DATA216
+mariah.bailey@myscu.edu,Mariah,Bailey,"DATA210, DATA218, DATA215, DATA207, DATA216"
+brian.pineda@myscu.edu,Brian,Pineda,"DATA206, DATA209, DATA213, DATA202"
+christopher.french@myscu.edu,Christopher,French,"DATA208, DATA206, DATA210, DATA218, DATA213"
+james.smith@myscu.edu,James,Smith,"DATA215, DATA213, DATA211"
+margaret.burton@myscu.edu,Margaret,Burton,"DATA215, DATA216, DATA206, DATA219"
+jonathan.bird@myscu.edu,Jonathan,Bird,DATA214
+natalie.berg@myscu.edu,Natalie,Berg,"DATA216, DATA209, DATA211, DATA219"
+michael.mitchell@myscu.edu,Michael,Mitchell,DATA201
+felicia.perez@myscu.edu,Felicia,Perez,"DATA217, DATA200, DATA203, DATA219"
+emily.hickman@myscu.edu,Emily,Hickman,"DATA215, DATA218, DATA201, DATA208, DATA205"
+kimberly.hess@myscu.edu,Kimberly,Hess,"DATA201, DATA207, DATA216"
+kristine.mueller@myscu.edu,Kristine,Mueller,"DATA205, DATA216"
+linda.howard@myscu.edu,Linda,Howard,"DATA201, DATA215, DATA208"
+martin.jackson@myscu.edu,Martin,Jackson,"DATA211, DATA218, DATA204, DATA215, DATA216"
+elizabeth.compton@myscu.edu,Elizabeth,Compton,DATA215
+bradley.trujillo@myscu.edu,Bradley,Trujillo,DATA219
+andrea.klein@myscu.edu,Andrea,Klein,"DATA214, DATA200, DATA203, DATA201, DATA217"
+nicholas.cuevas@myscu.edu,Nicholas,Cuevas,DATA201
+deborah.esparza@myscu.edu,Deborah,Esparza,"DATA213, DATA216, DATA212, DATA218, DATA215"
+robert.gonzalez@myscu.edu,Robert,Gonzalez,"DATA203, DATA206, DATA200"
+traci.ramos@myscu.edu,Traci,Ramos,"DATA208, DATA216"
+melissa.pham@myscu.edu,Melissa,Pham,"DATA212, DATA205, DATA201, DATA216"
+megan.mullins@myscu.edu,Megan,Mullins,"DATA204, DATA217, DATA218, DATA216"
+justin.wilson@myscu.edu,Justin,Wilson,DATA211
+lori.smith@myscu.edu,Lori,Smith,DATA205
+jason.jones@myscu.edu,Jason,Jones,DATA201
+kelly.williams@myscu.edu,Kelly,Williams,"DATA207, DATA204"
+susan.ramos@myscu.edu,Susan,Ramos,DATA217
+aimee.garcia@myscu.edu,Aimee,Garcia,DATA211
+elaine.mays@myscu.edu,Elaine,Mays,"DATA203, DATA205, DATA214"
+angela.ramirez@myscu.edu,Angela,Ramirez,"DATA207, DATA212, DATA201"
+sarah.navarro@myscu.edu,Sarah,Navarro,"DATA206, DATA202, DATA217, DATA210, DATA218"
+john.moss@myscu.edu,John,Moss,DATA202
+thomas.ramirez@myscu.edu,Thomas,Ramirez,"DATA208, DATA200, DATA214"
+george.gardner@myscu.edu,George,Gardner,"DATA212, DATA210"
+sandra.robertson@myscu.edu,Sandra,Robertson,"DATA213, DATA210"
+scott.miller@myscu.edu,Scott,Miller,DATA210
+patricia.castillo@myscu.edu,Patricia,Castillo,"DATA211, DATA217, DATA212, DATA213"
+katherine.murray@myscu.edu,Katherine,Murray,DATA217
+andrew.rodriguez@myscu.edu,Andrew,Rodriguez,"DATA215, DATA206, DATA207"
+daniel.washington@myscu.edu,Daniel,Washington,DATA206
+makayla.lawrence@myscu.edu,Makayla,Lawrence,"DATA212, DATA200, DATA205"
+dylan.castaneda@myscu.edu,Dylan,Castaneda,"DATA210, DATA208"
+thomas.potts@myscu.edu,Thomas,Potts,"DATA219, DATA204, DATA218"
+jason.hardy@myscu.edu,Jason,Hardy,DATA201
+kaylee.maldonado@myscu.edu,Kaylee,Maldonado,"DATA219, DATA206, DATA202"
+ruth.holt@myscu.edu,Ruth,Holt,"DATA212, DATA209"
+michael.leonard@myscu.edu,Michael,Leonard,DATA210
+james.wallace@myscu.edu,James,Wallace,"DATA202, DATA217, DATA200"
+lori.parsons@myscu.edu,Lori,Parsons,"DATA208, DATA203, DATA207"
+tyler.watson@myscu.edu,Tyler,Watson,"DATA203, DATA205, DATA208"
+jeffrey.fitzgerald@myscu.edu,Jeffrey,Fitzgerald,"DATA210, DATA219, DATA212, DATA207"
+gabrielle.frost@myscu.edu,Gabrielle,Frost,"DATA212, DATA203, DATA218, DATA217"
+shawn.hampton@myscu.edu,Shawn,Hampton,"DATA205, DATA213, DATA219, DATA218"
+lisa.simmons@myscu.edu,Lisa,Simmons,"DATA218, DATA207"
+aaron.coleman@myscu.edu,Aaron,Coleman,"DATA203, DATA218"
+sean.conway@myscu.edu,Sean,Conway,"DATA204, DATA207, DATA205"
+timothy.parker@myscu.edu,Timothy,Parker,DATA207
+william.roberts@myscu.edu,William,Roberts,"DATA208, DATA201"
+erica.dixon@myscu.edu,Erica,Dixon,"DATA207, DATA202"
+brittany.fernandez@myscu.edu,Brittany,Fernandez,DATA203
+christian.gonzalez@myscu.edu,Christian,Gonzalez,"DATA204, DATA209, DATA203, DATA211"
+russell.mcpherson@myscu.edu,Russell,Mcpherson,"DATA205, DATA213, DATA208, DATA201"
+lisa.jarvis@myscu.edu,Lisa,Jarvis,"DATA204, DATA212, DATA213"
+aaron.ellis@myscu.edu,Aaron,Ellis,DATA203
+russell.alvarado@myscu.edu,Russell,Alvarado,"DATA214, DATA201, DATA211, DATA209"
+virginia.evans@myscu.edu,Virginia,Evans,"DATA200, DATA205, DATA217"
+kelsey.thomas@myscu.edu,Kelsey,Thomas,DATA213
+ronnie.smith@myscu.edu,Ronnie,Smith,"DATA206, DATA203"
+kelly.johnson@myscu.edu,Kelly,Johnson,"DATA209, DATA201, DATA204, DATA214"
+stephen.armstrong@myscu.edu,Stephen,Armstrong,DATA213
+alexandria.harvey@myscu.edu,Alexandria,Harvey,DATA203
+sheila.green@myscu.edu,Sheila,Green,"DATA200, DATA202, DATA216"
+george.hendricks@myscu.edu,George,Hendricks,"DATA216, DATA215, DATA219, DATA211"
+jacqueline.wheeler@myscu.edu,Jacqueline,Wheeler,"DATA217, DATA203"
+kyle.carson@myscu.edu,Kyle,Carson,"DATA210, DATA214"
+michael.johnston@myscu.edu,Michael,Johnston,"DATA202, DATA211, DATA204"
+marilyn.pham@myscu.edu,Marilyn,Pham,"DATA213, DATA205, DATA211"
+jonathan.sampson@myscu.edu,Jonathan,Sampson,"DATA206, DATA217, DATA200, DATA204"
+brenda.daniels@myscu.edu,Brenda,Daniels,"DATA209, DATA201, DATA211, DATA200"
+christopher.ward@myscu.edu,Christopher,Ward,DATA206
+jacob.olson@myscu.edu,Jacob,Olson,"DATA214, DATA213, DATA212, DATA207"
+matthew.carroll@myscu.edu,Matthew,Carroll,"DATA219, DATA209, DATA210"
+michele.ward@myscu.edu,Michele,Ward,DATA213
+jason.ortiz@myscu.edu,Jason,Ortiz,DATA209
+danny.smith@myscu.edu,Danny,Smith,"DATA210, DATA207, DATA201, DATA208"
+jessica.strong@myscu.edu,Jessica,Strong,DATA219
+terri.palmer@myscu.edu,Terri,Palmer,"DATA200, DATA215"
+james.crawford@myscu.edu,James,Crawford,DATA201
+jessica.gomez@myscu.edu,Jessica,Gomez,DATA206
+hannah.bowman@myscu.edu,Hannah,Bowman,"DATA208, DATA212"
+cynthia.bush@myscu.edu,Cynthia,Bush,"DATA215, DATA208"
+sherry.keller@myscu.edu,Sherry,Keller,"DATA209, DATA210, DATA204, DATA202"
+guy.gibson@myscu.edu,Guy,Gibson,"DATA213, DATA212, DATA201, DATA216"
+joanne.ray@myscu.edu,Joanne,Ray,"DATA212, DATA219, DATA205, DATA209"
+tara.bryan@myscu.edu,Tara,Bryan,"DATA207, DATA202, DATA215, DATA203, DATA206"
+jeremy.murray@myscu.edu,Jeremy,Murray,"DATA211, DATA209, DATA218, DATA203"
+brenda.forbes@myscu.edu,Brenda,Forbes,"DATA203, DATA219, DATA200, DATA205"
+tracy.campbell@myscu.edu,Tracy,Campbell,"DATA201, DATA213, DATA212, DATA200"
+cristina.allen@myscu.edu,Cristina,Allen,"DATA213, DATA215, DATA200, DATA203"
+robert.nelson@myscu.edu,Robert,Nelson,"DATA216, DATA210, DATA208, DATA213, DATA211"
+ashley.booth@myscu.edu,Ashley,Booth,"DATA212, DATA201, DATA203, DATA209, DATA213"
+edward.kirk@myscu.edu,Edward,Kirk,DATA211
+lori.garza@myscu.edu,Lori,Garza,DATA219
+latoya.moore@myscu.edu,Latoya,Moore,"DATA214, DATA207, DATA206, DATA215"
+jill.walton@myscu.edu,Jill,Walton,"DATA209, DATA208"
+ashley.jacobson@myscu.edu,Ashley,Jacobson,"DATA212, DATA206, DATA216"
+jasmine.jackson@myscu.edu,Jasmine,Jackson,DATA207
+terri.hernandez@myscu.edu,Terri,Hernandez,DATA204
+mary.fields@myscu.edu,Mary,Fields,"DATA214, DATA201, DATA219, DATA211, DATA203"
+edward.perez@myscu.edu,Edward,Perez,"DATA201, DATA218"
+emily.morales@myscu.edu,Emily,Morales,"DATA201, DATA207"
+patricia.solomon@myscu.edu,Patricia,Solomon,DATA208
+david.salas@myscu.edu,David,Salas,DATA207
+stacey.williams@myscu.edu,Stacey,Williams,"DATA219, DATA217, DATA212, DATA215"
+jeffrey.torres@myscu.edu,Jeffrey,Torres,"DATA213, DATA211, DATA206, DATA214"
+kevin.gonzales@myscu.edu,Kevin,Gonzales,"DATA212, DATA204, DATA203, DATA214"
+anna.schmidt@myscu.edu,Anna,Schmidt,"DATA204, DATA202, DATA200"
+anna.mcconnell@myscu.edu,Anna,Mcconnell,DATA215
+danny.hanson@myscu.edu,Danny,Hanson,"DATA217, DATA215, DATA209, DATA214"
+victor.palmer@myscu.edu,Victor,Palmer,"DATA207, DATA217, DATA215, DATA218"
+lauren.phillips@myscu.edu,Lauren,Phillips,"DATA209, DATA211"
+morgan.stephenson@myscu.edu,Morgan,Stephenson,"DATA207, DATA219, DATA215, DATA210"
+megan.dennis@myscu.edu,Megan,Dennis,"DATA200, DATA212, DATA202"
+juan.perez@myscu.edu,Juan,Perez,"DATA209, DATA218, DATA212, DATA211, DATA210"
+isaac.carter@myscu.edu,Isaac,Carter,"DATA206, DATA204"
+sergio.smith@myscu.edu,Sergio,Smith,DATA214
+sarah.foster@myscu.edu,Sarah,Foster,"DATA210, DATA214, DATA204, DATA205, DATA202"
+joseph.nguyen@myscu.edu,Joseph,Nguyen,"DATA218, DATA215, DATA211, DATA216, DATA204"
+jennifer.johnson@myscu.edu,Jennifer,Johnson,DATA208
+barry.banks@myscu.edu,Barry,Banks,DATA206
+dylan.ortega@myscu.edu,Dylan,Ortega,DATA213
+ann.collins@myscu.edu,Ann,Collins,"DATA202, DATA203, DATA210, DATA208, DATA212"
+colleen.simmons@myscu.edu,Colleen,Simmons,"DATA209, DATA214, DATA211, DATA206"
+edward.merritt@myscu.edu,Edward,Merritt,"DATA218, DATA213, DATA219"
+william.lopez@myscu.edu,William,Lopez,"DATA204, DATA209"
+jason.brown@myscu.edu,Jason,Brown,DATA211
+steven.martin@myscu.edu,Steven,Martin,"DATA207, DATA213"
+jason.clark@myscu.edu,Jason,Clark,"DATA219, DATA214, DATA209, DATA200, DATA202"
+matthew.hall@myscu.edu,Matthew,Hall,"DATA215, DATA213"
+ronald.martinez@myscu.edu,Ronald,Martinez,"DATA205, DATA201, DATA217, DATA219, DATA202"
+alexander.brennan@myscu.edu,Alexander,Brennan,"DATA213, DATA210, DATA217, DATA219, DATA214"
+randy.baird@myscu.edu,Randy,Baird,"DATA215, DATA213, DATA202, DATA209, DATA212"
+linda.arellano@myscu.edu,Linda,Arellano,DATA204
+juan.lowe@myscu.edu,Juan,Lowe,DATA210
+vincent.ruiz@myscu.edu,Vincent,Ruiz,DATA213
+thomas.parker@myscu.edu,Thomas,Parker,"DATA217, DATA210, DATA214, DATA206"
+rachel.pena@myscu.edu,Rachel,Pena,"DATA218, DATA207, DATA219, DATA213"
+richard.burke@myscu.edu,Richard,Burke,"DATA217, DATA219, DATA212, DATA200"
+michael.tran@myscu.edu,Michael,Tran,"DATA215, DATA204, DATA219, DATA209"
+connie.murray@myscu.edu,Connie,Murray,DATA202
+yvonne.williams@myscu.edu,Yvonne,Williams,"DATA205, DATA203, DATA211, DATA200, DATA212"
+aaron.foster@myscu.edu,Aaron,Foster,"DATA205, DATA206, DATA211, DATA219, DATA217"
+crystal.villanueva@myscu.edu,Crystal,Villanueva,DATA208
+veronica.norman@myscu.edu,Veronica,Norman,"DATA203, DATA202"
+dana.cooper@myscu.edu,Dana,Cooper,"DATA204, DATA213, DATA206"
+kenneth.washington@myscu.edu,Kenneth,Washington,"DATA218, DATA211, DATA217, DATA203"
+jacqueline.olson@myscu.edu,Jacqueline,Olson,"DATA202, DATA211"
+melissa.mcgee@myscu.edu,Melissa,Mcgee,"DATA211, DATA213, DATA206"
+john.delacruz@myscu.edu,John,Delacruz,"DATA200, DATA205"
+dawn.frye@myscu.edu,Dawn,Frye,"DATA203, DATA216, DATA218"
+donald.mckenzie@myscu.edu,Donald,Mckenzie,"DATA203, DATA202"
+raven.nguyen@myscu.edu,Raven,Nguyen,"DATA204, DATA215, DATA203, DATA212"
+james.patterson@myscu.edu,James,Patterson,"DATA204, DATA218, DATA210, DATA208"
+jennifer.perkins@myscu.edu,Jennifer,Perkins,"DATA212, DATA211"
+connie.salazar@myscu.edu,Connie,Salazar,"DATA213, DATA219"
+stephen.robertson@myscu.edu,Stephen,Robertson,"DATA203, DATA212, DATA211, DATA205, DATA213"
+donna.fernandez@myscu.edu,Donna,Fernandez,DATA201
+donald.robinson@myscu.edu,Donald,Robinson,"DATA204, DATA216"
+nicholas.torres@myscu.edu,Nicholas,Torres,"DATA208, DATA218, DATA203, DATA213, DATA209"
+jason.boyd@myscu.edu,Jason,Boyd,"DATA216, DATA209"
+barbara.knight@myscu.edu,Barbara,Knight,"DATA213, DATA214, DATA208"
+blake.hudson@myscu.edu,Blake,Hudson,DATA203
+kyle.costa@myscu.edu,Kyle,Costa,"DATA200, DATA204, DATA218, DATA208"
+warren.duncan@myscu.edu,Warren,Duncan,"DATA201, DATA200, DATA210"
+melissa.tran@myscu.edu,Melissa,Tran,"DATA212, DATA216"
+karen.mendoza@myscu.edu,Karen,Mendoza,DATA215
+kathryn.carter@myscu.edu,Kathryn,Carter,"DATA211, DATA200, DATA210"
+lisa.miller@myscu.edu,Lisa,Miller,DATA206
+jerome.andrews@myscu.edu,Jerome,Andrews,"DATA200, DATA217, DATA215, DATA214, DATA216"
+chad.gilbert@myscu.edu,Chad,Gilbert,"DATA204, DATA209, DATA203"
+cindy.rodgers@myscu.edu,Cindy,Rodgers,"DATA209, DATA207, DATA202"
+john.sanders@myscu.edu,John,Sanders,"DATA211, DATA202, DATA213, DATA207, DATA204"
+craig.morton@myscu.edu,Craig,Morton,DATA208
+dawn.thomas@myscu.edu,Dawn,Thomas,"DATA203, DATA210, DATA215, DATA208, DATA218"
+shawn.gallagher@myscu.edu,Shawn,Gallagher,"DATA219, DATA204, DATA209, DATA202, DATA206"
+samantha.edwards@myscu.edu,Samantha,Edwards,"DATA208, DATA209"
+christopher.parsons@myscu.edu,Christopher,Parsons,"DATA201, DATA218, DATA208"
+patrick.henderson@myscu.edu,Patrick,Henderson,"DATA211, DATA212, DATA214"
+jack.hicks@myscu.edu,Jack,Hicks,"DATA210, DATA212"
+pedro.cohen@myscu.edu,Pedro,Cohen,"DATA207, DATA212, DATA206, DATA203, DATA205"
+misty.wiggins@myscu.edu,Misty,Wiggins,DATA203
+patrick.moore@myscu.edu,Patrick,Moore,"DATA219, DATA207, DATA205, DATA213"
+kimberly.luna@myscu.edu,Kimberly,Luna,"DATA212, DATA216, DATA201, DATA205, DATA217"
+corey.singh@myscu.edu,Corey,Singh,"DATA216, DATA217, DATA219"
+melissa.turner@myscu.edu,Melissa,Turner,"DATA210, DATA212, DATA214"
+rebecca.james@myscu.edu,Rebecca,James,"DATA217, DATA206, DATA218, DATA215"
+julie.hester@myscu.edu,Julie,Hester,"DATA217, DATA207, DATA208"
+louis.perry@myscu.edu,Louis,Perry,"DATA206, DATA205"
+danielle.castillo@myscu.edu,Danielle,Castillo,DATA217
+derek.romero@myscu.edu,Derek,Romero,"DATA211, DATA200, DATA219, DATA210"
+mandy.davis@myscu.edu,Mandy,Davis,"DATA201, DATA214, DATA209"
+breanna.williams@myscu.edu,Breanna,Williams,"DATA200, DATA211, DATA205"
+brenda.stone@myscu.edu,Brenda,Stone,"DATA214, DATA200, DATA218, DATA210"
+jennifer.adams@myscu.edu,Jennifer,Adams,"DATA214, DATA212, DATA201, DATA210"
+jeffrey.baker@myscu.edu,Jeffrey,Baker,"DATA219, DATA209, DATA217"
+daniel.cole@myscu.edu,Daniel,Cole,"DATA219, DATA208"
+jeffrey.garcia@myscu.edu,Jeffrey,Garcia,"DATA210, DATA214, DATA218"
+kevin.sanchez@myscu.edu,Kevin,Sanchez,"DATA212, DATA216, DATA201, DATA211"
+jonathan.jones@myscu.edu,Jonathan,Jones,"DATA217, DATA209"
+brent.smith@myscu.edu,Brent,Smith,"DATA200, DATA201, DATA218, DATA205"
+thomas.gomez@myscu.edu,Thomas,Gomez,"DATA210, DATA202, DATA206, DATA219"
+robert.wallace@myscu.edu,Robert,Wallace,"DATA219, DATA212"
+vincent.maldonado@myscu.edu,Vincent,Maldonado,"DATA205, DATA211"
+yolanda.ramirez@myscu.edu,Yolanda,Ramirez,DATA210
+adam.lopez@myscu.edu,Adam,Lopez,"DATA204, DATA219, DATA205, DATA217"
+stephen.butler@myscu.edu,Stephen,Butler,DATA200
+theresa.barrera@myscu.edu,Theresa,Barrera,DATA209
+kelly.hopkins@myscu.edu,Kelly,Hopkins,"DATA202, DATA206"
+melissa.gallegos@myscu.edu,Melissa,Gallegos,"DATA209, DATA207, DATA203"
+dale.johnson@myscu.edu,Dale,Johnson,"DATA204, DATA211, DATA215"
+david.johnson@myscu.edu,David,Johnson,"DATA206, DATA215, DATA209, DATA213"
+mark.stanley@myscu.edu,Mark,Stanley,"DATA207, DATA215"
+benjamin.merritt@myscu.edu,Benjamin,Merritt,DATA207
+paul.allen@myscu.edu,Paul,Allen,"DATA204, DATA200, DATA219, DATA208, DATA203"
+kenneth.meyer@myscu.edu,Kenneth,Meyer,"DATA215, DATA206"
+rebecca.flores@myscu.edu,Rebecca,Flores,DATA208
+david.cooper@myscu.edu,David,Cooper,"DATA206, DATA201, DATA203, DATA217, DATA205"
+michelle.lewis@myscu.edu,Michelle,Lewis,"DATA207, DATA211"
+courtney.brady@myscu.edu,Courtney,Brady,DATA209
+david.richardson@myscu.edu,David,Richardson,"DATA204, DATA209, DATA203, DATA215, DATA219"
+regina.lucero@myscu.edu,Regina,Lucero,DATA203
+stacey.waters@myscu.edu,Stacey,Waters,DATA202
+samuel.mitchell@myscu.edu,Samuel,Mitchell,"DATA204, DATA212, DATA210"
+julia.gonzalez@myscu.edu,Julia,Gonzalez,"DATA214, DATA211"
+wanda.bell@myscu.edu,Wanda,Bell,"DATA206, DATA201, DATA217"
+calvin.farley@myscu.edu,Calvin,Farley,DATA207
+samantha.johnson@myscu.edu,Samantha,Johnson,DATA204
+jamie.williams@myscu.edu,Jamie,Williams,"DATA213, DATA219, DATA201, DATA214"
+jennifer.buchanan@myscu.edu,Jennifer,Buchanan,"DATA211, DATA214"
+james.trevino@myscu.edu,James,Trevino,"DATA204, DATA212"
+shelly.sellers@myscu.edu,Shelly,Sellers,"DATA218, DATA207, DATA209, DATA202"
+cody.campbell@myscu.edu,Cody,Campbell,"DATA216, DATA206, DATA211, DATA205, DATA214"
+kristen.potter@myscu.edu,Kristen,Potter,"DATA215, DATA205, DATA216, DATA202, DATA218"
+aaron.anderson@myscu.edu,Aaron,Anderson,DATA214
+jessica.willis@myscu.edu,Jessica,Willis,"DATA213, DATA205"
+maureen.morgan@myscu.edu,Maureen,Morgan,DATA216
+ellen.smith@myscu.edu,Ellen,Smith,"DATA208, DATA204, DATA203"
+timothy.mckenzie@myscu.edu,Timothy,Mckenzie,"DATA210, DATA215"
+donald.herrera@myscu.edu,Donald,Herrera,"DATA212, DATA200, DATA206, DATA202"
+darin.edwards@myscu.edu,Darin,Edwards,"DATA212, DATA208, DATA217, DATA203"
+diana.clark@myscu.edu,Diana,Clark,DATA218
+daniel.smith@myscu.edu,Daniel,Smith,"DATA204, DATA201, DATA213, DATA209"
+michelle.carrillo@myscu.edu,Michelle,Carrillo,"DATA205, DATA211, DATA206, DATA209, DATA200"
+larry.wilson@myscu.edu,Larry,Wilson,"DATA213, DATA207"
+marissa.huff@myscu.edu,Marissa,Huff,"DATA213, DATA207, DATA217, DATA210"
+kathryn.jones@myscu.edu,Kathryn,Jones,"DATA206, DATA214"
+william.romero@myscu.edu,William,Romero,"DATA203, DATA205, DATA213, DATA217, DATA208"
+marcus.gomez@myscu.edu,Marcus,Gomez,"DATA208, DATA200, DATA210"
+stanley.bell@myscu.edu,Stanley,Bell,"DATA205, DATA214, DATA216"
+alexander.miller@myscu.edu,Alexander,Miller,DATA201
+jennifer.madden@myscu.edu,Jennifer,Madden,"DATA211, DATA203, DATA205, DATA219, DATA207"
+micheal.hess@myscu.edu,Micheal,Hess,"DATA214, DATA209, DATA207, DATA218"
+brian.everett@myscu.edu,Brian,Everett,"DATA207, DATA209, DATA219, DATA210"
+joshua.cowan@myscu.edu,Joshua,Cowan,"DATA213, DATA214, DATA212, DATA210"
+emily.dillon@myscu.edu,Emily,Dillon,"DATA200, DATA217, DATA219, DATA207"
+gregory.zimmerman@myscu.edu,Gregory,Zimmerman,"DATA219, DATA207, DATA203"
+susan.mccann@myscu.edu,Susan,Mccann,DATA210
+crystal.barnes@myscu.edu,Crystal,Barnes,"DATA210, DATA208, DATA206, DATA209, DATA211"
+juan.coleman@myscu.edu,Juan,Coleman,"DATA218, DATA219"
+elizabeth.brown@myscu.edu,Elizabeth,Brown,"DATA213, DATA209, DATA210, DATA202"
+brenda.hill@myscu.edu,Brenda,Hill,"DATA204, DATA209, DATA203, DATA211"
+justin.diaz@myscu.edu,Justin,Diaz,"DATA211, DATA208, DATA204, DATA214, DATA210"
+jennifer.cunningham@myscu.edu,Jennifer,Cunningham,DATA211
+krystal.nguyen@myscu.edu,Krystal,Nguyen,"DATA200, DATA208, DATA218"
+kylie.hartman@myscu.edu,Kylie,Hartman,"DATA215, DATA210, DATA212"
+erin.burnett@myscu.edu,Erin,Burnett,"DATA210, DATA213"
+michael.moore@myscu.edu,Michael,Moore,"DATA206, DATA214, DATA216"
+eddie.wilcox@myscu.edu,Eddie,Wilcox,"DATA206, DATA205, DATA201, DATA215"
+jill.jacobs@myscu.edu,Jill,Jacobs,"DATA218, DATA219, DATA203"
+erin.levy@myscu.edu,Erin,Levy,"DATA219, DATA216, DATA217, DATA200"
+william.chavez@myscu.edu,William,Chavez,DATA205
+frank.fuller@myscu.edu,Frank,Fuller,"DATA213, DATA209, DATA212, DATA205"
+molly.tran@myscu.edu,Molly,Tran,DATA202
+krista.hale@myscu.edu,Krista,Hale,"DATA216, DATA206, DATA217, DATA201"
+jane.frost@myscu.edu,Jane,Frost,"DATA210, DATA217"
+rebecca.contreras@myscu.edu,Rebecca,Contreras,"DATA210, DATA206, DATA204"
+michelle.joseph@myscu.edu,Michelle,Joseph,"DATA212, DATA201"
+julie.atkinson@myscu.edu,Julie,Atkinson,"DATA200, DATA217"
+john.green@myscu.edu,John,Green,DATA212
+alicia.miller@myscu.edu,Alicia,Miller,"DATA208, DATA215"
+jennifer.williams@myscu.edu,Jennifer,Williams,"DATA213, DATA217, DATA216, DATA215"
+mary.smith@myscu.edu,Mary,Smith,"DATA213, DATA201, DATA212"
+matthew.mcpherson@myscu.edu,Matthew,Mcpherson,"DATA218, DATA208, DATA213, DATA205"
+savannah.turner@myscu.edu,Savannah,Turner,DATA203
+michele.rodriguez@myscu.edu,Michele,Rodriguez,"DATA211, DATA206"
+zachary.garcia@myscu.edu,Zachary,Garcia,"DATA219, DATA202, DATA211, DATA218, DATA217"
+matthew.lee@myscu.edu,Matthew,Lee,DATA216
+victor.vasquez@myscu.edu,Victor,Vasquez,"DATA213, DATA214, DATA218"
+daisy.johnson@myscu.edu,Daisy,Johnson,DATA219
+susan.hamilton@myscu.edu,Susan,Hamilton,"DATA209, DATA214, DATA207"
+chad.tyler@myscu.edu,Chad,Tyler,"DATA202, DATA206, DATA218, DATA219, DATA201"
+wendy.alexander@myscu.edu,Wendy,Alexander,"DATA210, DATA208, DATA209, DATA213"
+sheila.brown@myscu.edu,Sheila,Brown,"DATA218, DATA207, DATA204, DATA201, DATA205"
+lori.brock@myscu.edu,Lori,Brock,DATA216
+deanna.barton@myscu.edu,Deanna,Barton,DATA203
+heidi.scott@myscu.edu,Heidi,Scott,DATA210
+edward.serrano@myscu.edu,Edward,Serrano,"DATA206, DATA213, DATA215, DATA210, DATA207"
+james.scott@myscu.edu,James,Scott,DATA212
+raymond.hernandez@myscu.edu,Raymond,Hernandez,"DATA204, DATA208, DATA201, DATA211"
+amanda.morris@myscu.edu,Amanda,Morris,"DATA211, DATA203, DATA218"
+susan.watkins@myscu.edu,Susan,Watkins,DATA217
+brittany.fuller@myscu.edu,Brittany,Fuller,"DATA202, DATA217, DATA216"
+jessica.lawrence@myscu.edu,Jessica,Lawrence,"DATA211, DATA208, DATA218, DATA202"
+ronald.newman@myscu.edu,Ronald,Newman,"DATA211, DATA206, DATA216"
+joseph.miller@myscu.edu,Joseph,Miller,"DATA211, DATA210, DATA201"
+isaac.gillespie@myscu.edu,Isaac,Gillespie,DATA203
+yvonne.foley@myscu.edu,Yvonne,Foley,DATA215
+linda.gray@myscu.edu,Linda,Gray,"DATA219, DATA218, DATA214, DATA206, DATA203"
+lisa.zavala@myscu.edu,Lisa,Zavala,"DATA213, DATA214"
+johnathan.charles@myscu.edu,Johnathan,Charles,"DATA200, DATA217"
+elizabeth.soto@myscu.edu,Elizabeth,Soto,DATA210
+brenda.lewis@myscu.edu,Brenda,Lewis,"DATA202, DATA210, DATA217, DATA208"
+nichole.conley@myscu.edu,Nichole,Conley,"DATA203, DATA214, DATA216"
+carol.russell@myscu.edu,Carol,Russell,"DATA210, DATA218, DATA212, DATA205, DATA216"
+lori.waters@myscu.edu,Lori,Waters,"DATA200, DATA211, DATA216, DATA207"
+heather.miller@myscu.edu,Heather,Miller,"DATA217, DATA206, DATA210, DATA213"
+scott.lambert@myscu.edu,Scott,Lambert,"DATA202, DATA213, DATA209"
+tami.myers@myscu.edu,Tami,Myers,DATA217
+shelley.guzman@myscu.edu,Shelley,Guzman,"DATA210, DATA203, DATA202, DATA211"
+michael.mcdaniel@myscu.edu,Michael,Mcdaniel,"DATA200, DATA210"
+samantha.carter@myscu.edu,Samantha,Carter,"DATA210, DATA202, DATA205, DATA206, DATA208"
+monica.brooks@myscu.edu,Monica,Brooks,"DATA204, DATA202"
+sarah.norman@myscu.edu,Sarah,Norman,DATA213
+andrew.robinson@myscu.edu,Andrew,Robinson,"DATA211, DATA219, DATA203, DATA200"
+michelle.hall@myscu.edu,Michelle,Hall,"DATA216, DATA205, DATA200"
+amanda.chen@myscu.edu,Amanda,Chen,"DATA217, DATA203"
+angela.house@myscu.edu,Angela,House,"DATA210, DATA212, DATA204, DATA201"
+brendan.rodriguez@myscu.edu,Brendan,Rodriguez,"DATA219, DATA218, DATA217"
+randy.howard@myscu.edu,Randy,Howard,"DATA215, DATA211, DATA213"
+timothy.hernandez@myscu.edu,Timothy,Hernandez,"DATA213, DATA212, DATA215, DATA219, DATA205"
+andrew.mason@myscu.edu,Andrew,Mason,"DATA206, DATA219, DATA203, DATA213, DATA201"
+christy.flores@myscu.edu,Christy,Flores,DATA218
+austin.martinez@myscu.edu,Austin,Martinez,DATA216
+dawn.noble@myscu.edu,Dawn,Noble,"DATA210, DATA214, DATA200"
+melissa.hughes@myscu.edu,Melissa,Hughes,"DATA214, DATA213, DATA205"
+bethany.simpson@myscu.edu,Bethany,Simpson,"DATA219, DATA203"
+nina.tapia@myscu.edu,Nina,Tapia,"DATA215, DATA204"
+gregory.taylor@myscu.edu,Gregory,Taylor,DATA213
+brian.chang@myscu.edu,Brian,Chang,"DATA211, DATA213, DATA214"
+anna.adkins@myscu.edu,Anna,Adkins,"DATA218, DATA208, DATA217, DATA201, DATA214"
+dwayne.thomas@myscu.edu,Dwayne,Thomas,"DATA211, DATA212, DATA217, DATA207, DATA219"
+mark.cunningham@myscu.edu,Mark,Cunningham,"DATA212, DATA217, DATA211, DATA208"
+elizabeth.miller@myscu.edu,Elizabeth,Miller,"DATA202, DATA213, DATA209, DATA218, DATA203"
+christine.mason@myscu.edu,Christine,Mason,"DATA212, DATA213, DATA215, DATA208, DATA216"
+adrian.kelley@myscu.edu,Adrian,Kelley,"DATA213, DATA217, DATA214, DATA212, DATA204"
+gregory.collins@myscu.edu,Gregory,Collins,DATA204
+steven.fitzgerald@myscu.edu,Steven,Fitzgerald,"DATA219, DATA209, DATA203, DATA217, DATA211"
+laura.phelps@myscu.edu,Laura,Phelps,"DATA206, DATA207, DATA209, DATA211, DATA205"
+stephen.evans@myscu.edu,Stephen,Evans,"DATA217, DATA213, DATA201, DATA206, DATA219"
+eric.sullivan@myscu.edu,Eric,Sullivan,"DATA201, DATA204, DATA215"
+kristi.bruce@myscu.edu,Kristi,Bruce,"DATA200, DATA212, DATA205, DATA201"
+shelby.williams@myscu.edu,Shelby,Williams,DATA204
+harold.miller@myscu.edu,Harold,Miller,"DATA209, DATA200, DATA218, DATA203, DATA211"
+justin.edwards@myscu.edu,Justin,Edwards,"DATA201, DATA205, DATA209, DATA217"
+douglas.williams@myscu.edu,Douglas,Williams,"DATA216, DATA207, DATA203, DATA214, DATA204"
+maria.mcdonald@myscu.edu,Maria,Mcdonald,"DATA203, DATA212, DATA202, DATA208"
+nicholas.nichols@myscu.edu,Nicholas,Nichols,DATA203
+erika.phillips@myscu.edu,Erika,Phillips,"DATA209, DATA212, DATA203, DATA208"
+shane.hall@myscu.edu,Shane,Hall,"DATA217, DATA202, DATA209"
+jessica.gomez@myscu.edu,Jessica,Gomez,"DATA204, DATA207"
+megan.winters@myscu.edu,Megan,Winters,"DATA212, DATA219"
+daniel.webb@myscu.edu,Daniel,Webb,"DATA205, DATA200"
+sierra.nguyen@myscu.edu,Sierra,Nguyen,"DATA219, DATA205"
+emily.wagner@myscu.edu,Emily,Wagner,DATA214
+tracy.cooper@myscu.edu,Tracy,Cooper,"DATA200, DATA216"
+jessica.nichols@myscu.edu,Jessica,Nichols,"DATA215, DATA202, DATA210, DATA203, DATA211"
+alexa.ray@myscu.edu,Alexa,Ray,"DATA209, DATA216, DATA200, DATA214"
+andrea.campbell@myscu.edu,Andrea,Campbell,"DATA203, DATA208, DATA212, DATA218, DATA210"
+elizabeth.owens@myscu.edu,Elizabeth,Owens,DATA201
+mary.ashley@myscu.edu,Mary,Ashley,"DATA205, DATA218, DATA204, DATA207"
+andrea.horton@myscu.edu,Andrea,Horton,"DATA206, DATA204, DATA202, DATA209"
+alexander.bryant@myscu.edu,Alexander,Bryant,DATA201
+kenneth.kelly@myscu.edu,Kenneth,Kelly,"DATA204, DATA211, DATA207, DATA201"
+philip.berry@myscu.edu,Philip,Berry,"DATA208, DATA219, DATA202, DATA200, DATA217"
+daniel.price@myscu.edu,Daniel,Price,"DATA206, DATA204, DATA216"
+phillip.wright@myscu.edu,Phillip,Wright,"DATA203, DATA217, DATA206"
+samuel.petersen@myscu.edu,Samuel,Petersen,DATA219
+erin.thomas@myscu.edu,Erin,Thomas,"DATA217, DATA218, DATA213, DATA209, DATA204"
+daniel.young@myscu.edu,Daniel,Young,"DATA202, DATA217"
+amber.kent@myscu.edu,Amber,Kent,"DATA203, DATA206"
+michaela.bush@myscu.edu,Michaela,Bush,"DATA212, DATA217"
+thomas.dixon@myscu.edu,Thomas,Dixon,DATA212
+carla.edwards@myscu.edu,Carla,Edwards,"DATA219, DATA202, DATA200"
+connie.stephens@myscu.edu,Connie,Stephens,"DATA218, DATA204, DATA219"
+allison.carpenter@myscu.edu,Allison,Carpenter,DATA217
+anthony.howell@myscu.edu,Anthony,Howell,"DATA205, DATA208, DATA212, DATA209"
+richard.cabrera@myscu.edu,Richard,Cabrera,"DATA218, DATA201"
+james.cox@myscu.edu,James,Cox,"DATA208, DATA213, DATA210, DATA218, DATA215"
+donna.charles@myscu.edu,Donna,Charles,"DATA211, DATA205"
+amanda.rogers@myscu.edu,Amanda,Rogers,"DATA209, DATA200, DATA202, DATA219, DATA207"
+mark.mcdaniel@myscu.edu,Mark,Mcdaniel,"DATA203, DATA206, DATA212"
+james.ray@myscu.edu,James,Ray,"DATA218, DATA205, DATA211, DATA201"
+lindsey.green@myscu.edu,Lindsey,Green,"DATA205, DATA210, DATA208, DATA207"
+kimberly.smith@myscu.edu,Kimberly,Smith,"DATA201, DATA219, DATA209, DATA214"
+andrea.bell@myscu.edu,Andrea,Bell,"DATA204, DATA213, DATA217"
+dana.martin@myscu.edu,Dana,Martin,"DATA219, DATA218, DATA206, DATA204"
+jessica.franklin@myscu.edu,Jessica,Franklin,"DATA207, DATA219"
+michael.richardson@myscu.edu,Michael,Richardson,"DATA205, DATA213, DATA217"
+cameron.smith@myscu.edu,Cameron,Smith,"DATA205, DATA217"
+lisa.lambert@myscu.edu,Lisa,Lambert,"DATA203, DATA213, DATA212, DATA210, DATA201"
+christopher.robles@myscu.edu,Christopher,Robles,"DATA203, DATA210, DATA213"
+jessica.smith@myscu.edu,Jessica,Smith,"DATA214, DATA204"
+jennifer.wallace@myscu.edu,Jennifer,Wallace,"DATA208, DATA205, DATA206"
+sharon.lowe@myscu.edu,Sharon,Lowe,"DATA219, DATA200, DATA202, DATA201, DATA207"
+bradley.clark@myscu.edu,Bradley,Clark,"DATA217, DATA215, DATA201, DATA216"
+mario.thomas@myscu.edu,Mario,Thomas,"DATA205, DATA207, DATA214, DATA203, DATA218"
+david.hanson@myscu.edu,David,Hanson,"DATA202, DATA206"
+adam.martinez@myscu.edu,Adam,Martinez,"DATA216, DATA209, DATA206"
+chad.moran@myscu.edu,Chad,Moran,"DATA202, DATA205, DATA213"
+katherine.thompson@myscu.edu,Katherine,Thompson,"DATA211, DATA213, DATA207, DATA219, DATA208"
+victoria.stone@myscu.edu,Victoria,Stone,"DATA204, DATA208, DATA216"
+steven.byrd@myscu.edu,Steven,Byrd,"DATA209, DATA215, DATA217, DATA204"
+karen.smith@myscu.edu,Karen,Smith,"DATA212, DATA217, DATA201, DATA213, DATA211"
+jonathon.smith@myscu.edu,Jonathon,Smith,"DATA202, DATA206, DATA214, DATA212"
+kyle.anderson@myscu.edu,Kyle,Anderson,"DATA216, DATA202, DATA212"
+tracy.hanson@myscu.edu,Tracy,Hanson,"DATA209, DATA208"
+brian.jackson@myscu.edu,Brian,Jackson,"DATA211, DATA209"
+erika.wyatt@myscu.edu,Erika,Wyatt,"DATA214, DATA213, DATA203"
+erica.browning@myscu.edu,Erica,Browning,"DATA201, DATA205, DATA207, DATA216"
+michael.miller@myscu.edu,Michael,Miller,"DATA218, DATA202"
+george.johnston@myscu.edu,George,Johnston,"DATA204, DATA210, DATA207"
+brooke.sharp@myscu.edu,Brooke,Sharp,"DATA207, DATA218, DATA212, DATA210"
+ann.daniels@myscu.edu,Ann,Daniels,"DATA218, DATA217, DATA212, DATA210, DATA209"
+david.hall@myscu.edu,David,Hall,"DATA202, DATA207, DATA211, DATA215, DATA219"
+julia.blanchard@myscu.edu,Julia,Blanchard,DATA203
+anna.conrad@myscu.edu,Anna,Conrad,DATA201
+john.schwartz@myscu.edu,John,Schwartz,"DATA213, DATA217, DATA206, DATA215, DATA202"
+penny.west@myscu.edu,Penny,West,"DATA212, DATA204, DATA211, DATA215"
+victoria.morris@myscu.edu,Victoria,Morris,"DATA213, DATA216, DATA202, DATA214"
+todd.munoz@myscu.edu,Todd,Munoz,"DATA211, DATA206"
+matthew.krueger@myscu.edu,Matthew,Krueger,"DATA203, DATA205, DATA207"
+jason.flores@myscu.edu,Jason,Flores,"DATA211, DATA209, DATA212, DATA210"
+david.brown@myscu.edu,David,Brown,"DATA217, DATA200, DATA211, DATA205, DATA214"
+anna.peterson@myscu.edu,Anna,Peterson,"DATA209, DATA211, DATA210, DATA200"
+kimberly.clark@myscu.edu,Kimberly,Clark,"DATA216, DATA211"
+tammy.duncan@myscu.edu,Tammy,Duncan,"DATA209, DATA213, DATA211, DATA216, DATA215"
+dennis.rice@myscu.edu,Dennis,Rice,"DATA215, DATA210, DATA202, DATA204, DATA205"
+melinda.torres@myscu.edu,Melinda,Torres,"DATA201, DATA206"
+tyler.berry@myscu.edu,Tyler,Berry,"DATA210, DATA200, DATA214, DATA205"
+arthur.vaughan@myscu.edu,Arthur,Vaughan,"DATA209, DATA214, DATA218, DATA213"
+kristie.wilson@myscu.edu,Kristie,Wilson,DATA214
+richard.zhang@myscu.edu,Richard,Zhang,"DATA211, DATA218"
+travis.newton@myscu.edu,Travis,Newton,"DATA213, DATA200, DATA215, DATA219, DATA201"
+andrew.palmer@myscu.edu,Andrew,Palmer,"DATA216, DATA206"
+matthew.jones@myscu.edu,Matthew,Jones,"DATA213, DATA216, DATA201, DATA219"
+eric.mcgee@myscu.edu,Eric,Mcgee,"DATA204, DATA208, DATA201, DATA206, DATA203"
+nicole.mccarthy@myscu.edu,Nicole,Mccarthy,"DATA203, DATA217"
+kevin.myers@myscu.edu,Kevin,Myers,"DATA209, DATA203, DATA217"
+patrick.cook@myscu.edu,Patrick,Cook,"DATA217, DATA205"
+thomas.fuller@myscu.edu,Thomas,Fuller,"DATA201, DATA211, DATA208, DATA204"
+alicia.hernandez@myscu.edu,Alicia,Hernandez,"DATA201, DATA202, DATA205"
+tiffany.bailey@myscu.edu,Tiffany,Bailey,"DATA211, DATA218"
+david.wilson@myscu.edu,David,Wilson,"DATA219, DATA217, DATA202, DATA213, DATA212"
+nathan.day@myscu.edu,Nathan,Day,"DATA204, DATA212, DATA207"
+lacey.jimenez@myscu.edu,Lacey,Jimenez,"DATA219, DATA204"
+andrew.lopez@myscu.edu,Andrew,Lopez,"DATA212, DATA209"
+amanda.powell@myscu.edu,Amanda,Powell,"DATA214, DATA217"
+andrew.davis@myscu.edu,Andrew,Davis,"DATA201, DATA219, DATA216, DATA213"
+derek.white@myscu.edu,Derek,White,"DATA201, DATA206, DATA218, DATA213"
+nicholas.garrison@myscu.edu,Nicholas,Garrison,DATA210
+andrea.freeman@myscu.edu,Andrea,Freeman,DATA203
+robert.robinson@myscu.edu,Robert,Robinson,"DATA214, DATA202, DATA206"
+michael.smith@myscu.edu,Michael,Smith,"DATA216, DATA210, DATA214"
+joshua.morgan@myscu.edu,Joshua,Morgan,"DATA203, DATA205, DATA218, DATA207, DATA204"
+michael.perkins@myscu.edu,Michael,Perkins,"DATA201, DATA211"
+cody.davis@myscu.edu,Cody,Davis,"DATA213, DATA205, DATA210, DATA202"
+teresa.murphy@myscu.edu,Teresa,Murphy,DATA210
+cassandra.drake@myscu.edu,Cassandra,Drake,DATA200
+kathy.johnson@myscu.edu,Kathy,Johnson,"DATA204, DATA205, DATA201, DATA207, DATA213"
+heather.mullen@myscu.edu,Heather,Mullen,"DATA218, DATA212"
+james.thompson@myscu.edu,James,Thompson,"DATA208, DATA211, DATA219, DATA204, DATA205"
+robert.nunez@myscu.edu,Robert,Nunez,DATA202
+michael.king@myscu.edu,Michael,King,DATA208
+jeremy.smith@myscu.edu,Jeremy,Smith,"DATA205, DATA201, DATA214, DATA207"
+rhonda.lin@myscu.edu,Rhonda,Lin,DATA211
+paula.castillo@myscu.edu,Paula,Castillo,DATA219
+briana.frank@myscu.edu,Briana,Frank,"DATA218, DATA200, DATA201"
+phillip.snyder@myscu.edu,Phillip,Snyder,"DATA211, DATA212, DATA213"
+gary.foley@myscu.edu,Gary,Foley,"DATA200, DATA206, DATA201, DATA202"
+benjamin.morgan@myscu.edu,Benjamin,Morgan,"DATA214, DATA213"
+maria.wright@myscu.edu,Maria,Wright,"DATA213, DATA208"
+sandra.fowler@myscu.edu,Sandra,Fowler,"DATA204, DATA213"
+elizabeth.mendoza@myscu.edu,Elizabeth,Mendoza,"DATA200, DATA213, DATA214"
+joe.harris@myscu.edu,Joe,Harris,"DATA216, DATA204, DATA213"
+alexander.howard@myscu.edu,Alexander,Howard,"DATA217, DATA215, DATA213"
+kathleen.nguyen@myscu.edu,Kathleen,Nguyen,"DATA208, DATA219, DATA216, DATA211"
+ashley.miller@myscu.edu,Ashley,Miller,"DATA217, DATA202, DATA218, DATA201"
+ashley.rios@myscu.edu,Ashley,Rios,"DATA217, DATA212, DATA205, DATA219"
+jonathan.rowe@myscu.edu,Jonathan,Rowe,"DATA204, DATA201, DATA210, DATA208"
+warren.hampton@myscu.edu,Warren,Hampton,"DATA218, DATA217, DATA213, DATA215, DATA212"
+taylor.bell@myscu.edu,Taylor,Bell,DATA204
+zachary.lee@myscu.edu,Zachary,Lee,"DATA218, DATA211, DATA202, DATA201"
+denise.lawson@myscu.edu,Denise,Lawson,"DATA214, DATA200"
+kara.franklin@myscu.edu,Kara,Franklin,DATA209
+daniel.austin@myscu.edu,Daniel,Austin,"DATA219, DATA201, DATA210"
+todd.tyler@myscu.edu,Todd,Tyler,DATA211
+rebecca.shaw@myscu.edu,Rebecca,Shaw,"DATA207, DATA203"
+todd.smith@myscu.edu,Todd,Smith,DATA214
+deborah.warren@myscu.edu,Deborah,Warren,"DATA212, DATA217, DATA216"
+lance.powell@myscu.edu,Lance,Powell,DATA202
+jason.krueger@myscu.edu,Jason,Krueger,DATA214
+abigail.holmes@myscu.edu,Abigail,Holmes,DATA206
+lucas.perez@myscu.edu,Lucas,Perez,"DATA203, DATA210, DATA209, DATA211"
+daniel.patton@myscu.edu,Daniel,Patton,DATA209
+james.robinson@myscu.edu,James,Robinson,"DATA219, DATA214, DATA209"
+kelly.chaney@myscu.edu,Kelly,Chaney,"DATA207, DATA206, DATA217, DATA216, DATA203"
+mary.savage@myscu.edu,Mary,Savage,"DATA218, DATA211"
+alan.french@myscu.edu,Alan,French,"DATA216, DATA207, DATA215, DATA202, DATA219"
+colleen.taylor@myscu.edu,Colleen,Taylor,DATA208
+tony.brown@myscu.edu,Tony,Brown,"DATA206, DATA216, DATA207, DATA209"
+heather.garza@myscu.edu,Heather,Garza,DATA207
+sheila.freeman@myscu.edu,Sheila,Freeman,"DATA212, DATA205, DATA217, DATA207, DATA208"
+thomas.adams@myscu.edu,Thomas,Adams,"DATA209, DATA200"
+lisa.rodriguez@myscu.edu,Lisa,Rodriguez,"DATA200, DATA203, DATA215"
+jennifer.forbes@myscu.edu,Jennifer,Forbes,"DATA211, DATA200, DATA202"
+christopher.king@myscu.edu,Christopher,King,"DATA201, DATA214"
+stephen.wilson@myscu.edu,Stephen,Wilson,DATA211
+angela.warren@myscu.edu,Angela,Warren,DATA207
+nancy.mills@myscu.edu,Nancy,Mills,"DATA218, DATA209"
+rachael.santiago@myscu.edu,Rachael,Santiago,DATA211
+joshua.chen@myscu.edu,Joshua,Chen,"DATA215, DATA204, DATA213, DATA218"
+paul.martinez@myscu.edu,Paul,Martinez,"DATA200, DATA205, DATA218, DATA213, DATA206"
+christopher.acevedo@myscu.edu,Christopher,Acevedo,"DATA218, DATA203"
+angela.lane@myscu.edu,Angela,Lane,"DATA203, DATA208, DATA212, DATA205"
+alexandra.stout@myscu.edu,Alexandra,Stout,DATA212
+brittany.taylor@myscu.edu,Brittany,Taylor,DATA210
+james.brown@myscu.edu,James,Brown,"DATA217, DATA205, DATA219, DATA212"
+lauren.mullen@myscu.edu,Lauren,Mullen,"DATA204, DATA205, DATA200, DATA213, DATA208"
+lori.gonzales@myscu.edu,Lori,Gonzales,"DATA214, DATA202, DATA206, DATA208"
+michael.fernandez@myscu.edu,Michael,Fernandez,"DATA213, DATA218, DATA201, DATA217"
+tyler.williams@myscu.edu,Tyler,Williams,"DATA219, DATA208, DATA218, DATA206"
+tony.wright@myscu.edu,Tony,Wright,"DATA203, DATA217, DATA205"
+dylan.cox@myscu.edu,Dylan,Cox,"DATA202, DATA200"
+michael.watson@myscu.edu,Michael,Watson,"DATA215, DATA209, DATA202, DATA213"
+megan.miller@myscu.edu,Megan,Miller,"DATA204, DATA203, DATA219, DATA208, DATA200"
+michelle.fischer@myscu.edu,Michelle,Fischer,"DATA214, DATA203, DATA219, DATA205"
+gregory.garrett@myscu.edu,Gregory,Garrett,"DATA209, DATA203"
+chloe.gregory@myscu.edu,Chloe,Gregory,"DATA200, DATA208, DATA211"
+cheryl.gibson@myscu.edu,Cheryl,Gibson,DATA214
+margaret.lopez@myscu.edu,Margaret,Lopez,"DATA206, DATA207, DATA214"
+linda.reed@myscu.edu,Linda,Reed,"DATA215, DATA214, DATA218, DATA219, DATA212"
+diana.jacobson@myscu.edu,Diana,Jacobson,"DATA218, DATA201, DATA207, DATA217, DATA212"
+bradley.ross@myscu.edu,Bradley,Ross,"DATA201, DATA209"
+kristin.daniels@myscu.edu,Kristin,Daniels,"DATA219, DATA217, DATA203, DATA212, DATA205"
+alison.thomas@myscu.edu,Alison,Thomas,"DATA217, DATA209, DATA211, DATA205"
+leslie.taylor@myscu.edu,Leslie,Taylor,"DATA202, DATA217"
+ellen.hernandez@myscu.edu,Ellen,Hernandez,"DATA215, DATA207, DATA204, DATA214"
+sophia.mathis@myscu.edu,Sophia,Mathis,"DATA204, DATA203, DATA217, DATA218"
+jesus.miranda@myscu.edu,Jesus,Miranda,"DATA219, DATA205, DATA201"
+scott.wright@myscu.edu,Scott,Wright,"DATA200, DATA207"
+rachel.bowen@myscu.edu,Rachel,Bowen,"DATA201, DATA209"
+andrew.johnson@myscu.edu,Andrew,Johnson,DATA215
+isaiah.murphy@myscu.edu,Isaiah,Murphy,DATA201
+jennifer.kim@myscu.edu,Jennifer,Kim,"DATA215, DATA203, DATA209, DATA211, DATA212"
+felicia.sanders@myscu.edu,Felicia,Sanders,"DATA201, DATA217, DATA208, DATA206"
+cory.jackson@myscu.edu,Cory,Jackson,"DATA215, DATA209"
+jerry.harper@myscu.edu,Jerry,Harper,"DATA200, DATA211, DATA216"
+robert.clark@myscu.edu,Robert,Clark,DATA206
+terry.navarro@myscu.edu,Terry,Navarro,"DATA210, DATA200, DATA216"
+matthew.fletcher@myscu.edu,Matthew,Fletcher,"DATA206, DATA218"
+theresa.chavez@myscu.edu,Theresa,Chavez,"DATA214, DATA207, DATA218"
+sara.johnson@myscu.edu,Sara,Johnson,"DATA208, DATA218, DATA203"
+david.williams@myscu.edu,David,Williams,"DATA206, DATA218, DATA212, DATA203"
+ryan.arnold@myscu.edu,Ryan,Arnold,"DATA209, DATA204"
+ashley.scott@myscu.edu,Ashley,Scott,"DATA200, DATA210"
+james.martinez@myscu.edu,James,Martinez,"DATA200, DATA209, DATA204"
+lisa.wells@myscu.edu,Lisa,Wells,"DATA218, DATA204, DATA217, DATA206, DATA205"
+dylan.king@myscu.edu,Dylan,King,"DATA212, DATA205, DATA204"
+judith.garcia@myscu.edu,Judith,Garcia,"DATA200, DATA218, DATA209, DATA212"
+edward.hurst@myscu.edu,Edward,Hurst,"DATA205, DATA201, DATA202, DATA214, DATA216"
+jason.pennington@myscu.edu,Jason,Pennington,"DATA207, DATA201, DATA210, DATA205"
+sara.williamson@myscu.edu,Sara,Williamson,"DATA200, DATA209, DATA203, DATA206, DATA204"
+david.smith@myscu.edu,David,Smith,"DATA210, DATA216, DATA215, DATA208"
+chad.mckay@myscu.edu,Chad,Mckay,DATA217
+casey.page@myscu.edu,Casey,Page,"DATA210, DATA216, DATA203, DATA205"
+vickie.roberts@myscu.edu,Vickie,Roberts,"DATA218, DATA206, DATA201"
+mario.miller@myscu.edu,Mario,Miller,"DATA217, DATA205, DATA206, DATA213"
+kimberly.martinez@myscu.edu,Kimberly,Martinez,"DATA206, DATA214"
+daniel.townsend@myscu.edu,Daniel,Townsend,"DATA202, DATA208"
+joshua.sanders@myscu.edu,Joshua,Sanders,"DATA213, DATA207, DATA202"
+margaret.jackson@myscu.edu,Margaret,Jackson,"DATA216, DATA213, DATA203, DATA210, DATA204"
+ashley.ramos@myscu.edu,Ashley,Ramos,"DATA214, DATA219"
+marc.porter@myscu.edu,Marc,Porter,"DATA209, DATA204, DATA203, DATA215"
+john.hensley@myscu.edu,John,Hensley,"DATA212, DATA206, DATA216"
+james.gentry@myscu.edu,James,Gentry,"DATA206, DATA212"
+james.matthews@myscu.edu,James,Matthews,"DATA211, DATA212, DATA204, DATA202, DATA208"
+paul.lawson@myscu.edu,Paul,Lawson,"DATA211, DATA214"
+todd.woods@myscu.edu,Todd,Woods,"DATA217, DATA211"
+alyssa.davenport@myscu.edu,Alyssa,Davenport,DATA213
+jeffrey.spears@myscu.edu,Jeffrey,Spears,"DATA205, DATA217, DATA209, DATA216, DATA208"
+priscilla.brown@myscu.edu,Priscilla,Brown,"DATA200, DATA201, DATA204, DATA217, DATA211"
+mark.gross@myscu.edu,Mark,Gross,"DATA214, DATA209"
+cynthia.morgan@myscu.edu,Cynthia,Morgan,DATA211
+jill.franklin@myscu.edu,Jill,Franklin,"DATA211, DATA207, DATA206, DATA210, DATA215"
+amber.pennington@myscu.edu,Amber,Pennington,"DATA201, DATA218, DATA206"
+samuel.wood@myscu.edu,Samuel,Wood,DATA211
+sheila.roach@myscu.edu,Sheila,Roach,DATA213
+kathleen.walker@myscu.edu,Kathleen,Walker,"DATA218, DATA213, DATA204, DATA209"
+thomas.krause@myscu.edu,Thomas,Krause,"DATA201, DATA218, DATA213, DATA217"
+kayla.madden@myscu.edu,Kayla,Madden,"DATA209, DATA218"
+amanda.baxter@myscu.edu,Amanda,Baxter,DATA217
+gary.harrison@myscu.edu,Gary,Harrison,"DATA201, DATA216, DATA206, DATA200"
+crystal.blackwell@myscu.edu,Crystal,Blackwell,"DATA201, DATA207, DATA208"
+brenda.lee@myscu.edu,Brenda,Lee,DATA213
+crystal.wagner@myscu.edu,Crystal,Wagner,"DATA212, DATA206, DATA205, DATA219, DATA208"
+todd.oconnor@myscu.edu,Todd,Oconnor,"DATA213, DATA209"
+karen.henderson@myscu.edu,Karen,Henderson,DATA211
+dakota.anderson@myscu.edu,Dakota,Anderson,DATA207
+terri.nguyen@myscu.edu,Terri,Nguyen,DATA208
+lisa.knox@myscu.edu,Lisa,Knox,"DATA200, DATA202"
+christopher.sparks@myscu.edu,Christopher,Sparks,DATA214
+benjamin.andrews@myscu.edu,Benjamin,Andrews,"DATA201, DATA214, DATA213, DATA216, DATA209"
+howard.phillips@myscu.edu,Howard,Phillips,"DATA205, DATA212, DATA217"
+billy.flores@myscu.edu,Billy,Flores,DATA215
+matthew.porter@myscu.edu,Matthew,Porter,"DATA210, DATA214"
+jessica.rodriguez@myscu.edu,Jessica,Rodriguez,"DATA213, DATA217, DATA218, DATA211"
+justin.travis@myscu.edu,Justin,Travis,"DATA200, DATA217, DATA219"
+anthony.donaldson@myscu.edu,Anthony,Donaldson,"DATA207, DATA211, DATA218, DATA204, DATA212"
+mindy.hunter@myscu.edu,Mindy,Hunter,"DATA214, DATA207, DATA200, DATA210"
+alexander.johnson@myscu.edu,Alexander,Johnson,"DATA205, DATA210"
+kathryn.williams@myscu.edu,Kathryn,Williams,"DATA213, DATA202, DATA208, DATA210"
+laura.hickman@myscu.edu,Laura,Hickman,"DATA207, DATA216, DATA218, DATA219, DATA205"
+jennifer.palmer@myscu.edu,Jennifer,Palmer,DATA207
+rick.robinson@myscu.edu,Rick,Robinson,DATA202
+marilyn.smith@myscu.edu,Marilyn,Smith,"DATA204, DATA200, DATA212"
+mary.dyer@myscu.edu,Mary,Dyer,"DATA208, DATA202, DATA201, DATA217"
+hector.hill@myscu.edu,Hector,Hill,"DATA211, DATA215, DATA209, DATA213"
+cathy.james@myscu.edu,Cathy,James,"DATA218, DATA219, DATA205, DATA209"
+valerie.kirby@myscu.edu,Valerie,Kirby,"DATA212, DATA201"
+christopher.cross@myscu.edu,Christopher,Cross,"DATA203, DATA205, DATA214"
+derrick.baldwin@myscu.edu,Derrick,Baldwin,"DATA209, DATA200"
+kelsey.brown@myscu.edu,Kelsey,Brown,"DATA204, DATA214, DATA208, DATA210"
+leslie.holmes@myscu.edu,Leslie,Holmes,"DATA217, DATA219, DATA214, DATA211"
+alicia.williams@myscu.edu,Alicia,Williams,"DATA210, DATA209"
+monica.clark@myscu.edu,Monica,Clark,"DATA215, DATA206, DATA207"
+whitney.martinez@myscu.edu,Whitney,Martinez,"DATA216, DATA218"
+jonathan.mcdonald@myscu.edu,Jonathan,Mcdonald,DATA210
+rodney.hayes@myscu.edu,Rodney,Hayes,DATA209
+bruce.todd@myscu.edu,Bruce,Todd,"DATA202, DATA213, DATA204, DATA206"
+amanda.holmes@myscu.edu,Amanda,Holmes,"DATA201, DATA219, DATA206"
+cynthia.torres@myscu.edu,Cynthia,Torres,"DATA205, DATA215"
+timothy.parker@myscu.edu,Timothy,Parker,"DATA208, DATA216, DATA215"
+taylor.horn@myscu.edu,Taylor,Horn,"DATA216, DATA205, DATA206, DATA214"
+jessica.george@myscu.edu,Jessica,George,"DATA217, DATA210, DATA205"
+nancy.owen@myscu.edu,Nancy,Owen,DATA219
+ronald.best@myscu.edu,Ronald,Best,DATA201
+stephanie.jenkins@myscu.edu,Stephanie,Jenkins,"DATA203, DATA205, DATA212"
+kathy.king@myscu.edu,Kathy,King,"DATA206, DATA219"
+john.rhodes@myscu.edu,John,Rhodes,"DATA210, DATA217"
+mary.roberts@myscu.edu,Mary,Roberts,"DATA215, DATA209, DATA213, DATA217"
+debbie.montoya@myscu.edu,Debbie,Montoya,"DATA208, DATA218, DATA211, DATA215"
+melissa.craig@myscu.edu,Melissa,Craig,"DATA215, DATA204, DATA214"
+lawrence.johnson@myscu.edu,Lawrence,Johnson,DATA204
+alexander.morgan@myscu.edu,Alexander,Morgan,"DATA212, DATA211, DATA203, DATA205"
+nathan.sanchez@myscu.edu,Nathan,Sanchez,"DATA204, DATA207, DATA205"
+monica.rivers@myscu.edu,Monica,Rivers,DATA212
+jordan.gallagher@myscu.edu,Jordan,Gallagher,"DATA205, DATA203, DATA213"
+angela.cruz@myscu.edu,Angela,Cruz,"DATA201, DATA203"
+andrew.malone@myscu.edu,Andrew,Malone,"DATA217, DATA204, DATA213"
+monica.rogers@myscu.edu,Monica,Rogers,"DATA212, DATA214"
+james.walters@myscu.edu,James,Walters,"DATA215, DATA209, DATA207, DATA216, DATA201"
+john.dunlap@myscu.edu,John,Dunlap,"DATA213, DATA203, DATA202, DATA217"
+amy.warner@myscu.edu,Amy,Warner,"DATA205, DATA203, DATA216, DATA215"
+denise.howard@myscu.edu,Denise,Howard,"DATA210, DATA214, DATA202"
+joshua.johnson@myscu.edu,Joshua,Johnson,"DATA209, DATA206, DATA205, DATA218"
+pamela.bean@myscu.edu,Pamela,Bean,"DATA218, DATA201, DATA211"
+don.decker@myscu.edu,Don,Decker,"DATA219, DATA202, DATA209, DATA200"
+william.hughes@myscu.edu,William,Hughes,"DATA206, DATA200, DATA203, DATA215"
+maria.andrade@myscu.edu,Maria,Andrade,DATA205
+patricia.davis@myscu.edu,Patricia,Davis,"DATA213, DATA219, DATA200"
+dorothy.parker@myscu.edu,Dorothy,Parker,"DATA208, DATA207"
+kelsey.jones@myscu.edu,Kelsey,Jones,"DATA216, DATA200"
+michelle.davis@myscu.edu,Michelle,Davis,"DATA203, DATA211, DATA218, DATA217, DATA214"
+jonathan.gutierrez@myscu.edu,Jonathan,Gutierrez,"DATA212, DATA214, DATA216, DATA207"
+gabriel.fischer@myscu.edu,Gabriel,Fischer,DATA216
+natalie.parker@myscu.edu,Natalie,Parker,"DATA202, DATA208, DATA206, DATA214, DATA200"
+david.davis@myscu.edu,David,Davis,"DATA210, DATA217, DATA207, DATA205"
+jill.delacruz@myscu.edu,Jill,Delacruz,DATA211
+jessica.white@myscu.edu,Jessica,White,"DATA213, DATA209, DATA202, DATA204"
+kathleen.ortega@myscu.edu,Kathleen,Ortega,"DATA200, DATA204"
+eric.marks@myscu.edu,Eric,Marks,"DATA212, DATA204, DATA203, DATA218, DATA205"
+courtney.brown@myscu.edu,Courtney,Brown,"DATA214, DATA201"
+kevin.alvarez@myscu.edu,Kevin,Alvarez,"DATA213, DATA203, DATA216"
+sara.archer@myscu.edu,Sara,Archer,"DATA211, DATA207, DATA219, DATA216"
+jared.french@myscu.edu,Jared,French,"DATA207, DATA204, DATA209, DATA211, DATA218"
+raymond.robinson@myscu.edu,Raymond,Robinson,"DATA207, DATA201"
+mark.hamilton@myscu.edu,Mark,Hamilton,"DATA213, DATA201, DATA211, DATA202, DATA200"
+todd.giles@myscu.edu,Todd,Giles,"DATA200, DATA208, DATA206"
+francis.whitney@myscu.edu,Francis,Whitney,DATA208
+ralph.velazquez@myscu.edu,Ralph,Velazquez,"DATA202, DATA208, DATA210"
+ronald.delacruz@myscu.edu,Ronald,Delacruz,"DATA200, DATA206"
+scott.hebert@myscu.edu,Scott,Hebert,DATA205
+ann.harrington@myscu.edu,Ann,Harrington,"DATA210, DATA208, DATA212, DATA209, DATA217"
+sean.gibson@myscu.edu,Sean,Gibson,"DATA205, DATA208, DATA211, DATA204"
+ronald.martinez@myscu.edu,Ronald,Martinez,"DATA203, DATA200, DATA204, DATA212"
+martin.brown@myscu.edu,Martin,Brown,"DATA208, DATA201"
+charles.olsen@myscu.edu,Charles,Olsen,DATA211
+thomas.stephens@myscu.edu,Thomas,Stephens,DATA201
+lisa.burton@myscu.edu,Lisa,Burton,"DATA209, DATA203"
+sarah.spencer@myscu.edu,Sarah,Spencer,DATA203
+misty.green@myscu.edu,Misty,Green,DATA200
+robert.davis@myscu.edu,Robert,Davis,DATA200
+lindsay.franco@myscu.edu,Lindsay,Franco,DATA209
+michael.cruz@myscu.edu,Michael,Cruz,"DATA218, DATA211, DATA210"
+mallory.wagner@myscu.edu,Mallory,Wagner,"DATA211, DATA200, DATA202, DATA207, DATA210"
+ashley.ruiz@myscu.edu,Ashley,Ruiz,DATA216
+jesse.wheeler@myscu.edu,Jesse,Wheeler,"DATA209, DATA218, DATA217, DATA206"
+denise.henry@myscu.edu,Denise,Henry,"DATA213, DATA206"
+brandy.anderson@myscu.edu,Brandy,Anderson,"DATA217, DATA201, DATA208, DATA204"
+grace.cruz@myscu.edu,Grace,Cruz,"DATA214, DATA213"
+samantha.russo@myscu.edu,Samantha,Russo,"DATA216, DATA201, DATA204"
+ryan.williams@myscu.edu,Ryan,Williams,"DATA203, DATA205, DATA208, DATA202"
+willie.aguirre@myscu.edu,Willie,Aguirre,"DATA219, DATA209"
+danielle.todd@myscu.edu,Danielle,Todd,DATA218
+brian.cameron@myscu.edu,Brian,Cameron,"DATA212, DATA211, DATA218"
+jose.marshall@myscu.edu,Jose,Marshall,"DATA211, DATA215, DATA209"
+justin.lane@myscu.edu,Justin,Lane,"DATA216, DATA201, DATA205"
+charles.swanson@myscu.edu,Charles,Swanson,"DATA217, DATA211, DATA209"
+tina.smith@myscu.edu,Tina,Smith,DATA210
+christopher.salazar@myscu.edu,Christopher,Salazar,"DATA218, DATA216, DATA219, DATA213, DATA208"
+alec.ramirez@myscu.edu,Alec,Ramirez,"DATA211, DATA215"
+william.reeves@myscu.edu,William,Reeves,DATA211
+rhonda.mccann@myscu.edu,Rhonda,Mccann,"DATA205, DATA206, DATA218, DATA210"
+jason.oliver@myscu.edu,Jason,Oliver,DATA210
+marcus.thomas@myscu.edu,Marcus,Thomas,"DATA209, DATA205, DATA219, DATA215, DATA217"
+david.garcia@myscu.edu,David,Garcia,"DATA205, DATA210, DATA208, DATA212"
+willie.ward@myscu.edu,Willie,Ward,DATA207
+brianna.gilbert@myscu.edu,Brianna,Gilbert,"DATA208, DATA206"
+david.larsen@myscu.edu,David,Larsen,DATA215
+samantha.church@myscu.edu,Samantha,Church,"DATA201, DATA216"
+jennifer.robinson@myscu.edu,Jennifer,Robinson,DATA219
+kevin.bell@myscu.edu,Kevin,Bell,DATA211
+suzanne.stevens@myscu.edu,Suzanne,Stevens,"DATA217, DATA212, DATA207, DATA214"
+katie.lewis@myscu.edu,Katie,Lewis,DATA212
+jenny.diaz@myscu.edu,Jenny,Diaz,"DATA208, DATA201, DATA207"
+cody.gonzalez@myscu.edu,Cody,Gonzalez,DATA204
+alicia.sanders@myscu.edu,Alicia,Sanders,"DATA217, DATA200, DATA213, DATA207"
+daniel.olson@myscu.edu,Daniel,Olson,"DATA201, DATA208, DATA206"
+andrew.fox@myscu.edu,Andrew,Fox,DATA209
+adam.robertson@myscu.edu,Adam,Robertson,DATA211
+katie.fletcher@myscu.edu,Katie,Fletcher,"DATA200, DATA207, DATA204"
+lauren.clayton@myscu.edu,Lauren,Clayton,DATA216
+andrew.rogers@myscu.edu,Andrew,Rogers,"DATA217, DATA201, DATA216"
+megan.atkinson@myscu.edu,Megan,Atkinson,"DATA213, DATA214, DATA204, DATA216"
+jeremy.ramirez@myscu.edu,Jeremy,Ramirez,"DATA218, DATA211, DATA212"
+tonya.hansen@myscu.edu,Tonya,Hansen,"DATA218, DATA213"
+nicole.montgomery@myscu.edu,Nicole,Montgomery,"DATA210, DATA215"
+jennifer.saunders@myscu.edu,Jennifer,Saunders,"DATA205, DATA207, DATA204, DATA210"
+jeff.donaldson@myscu.edu,Jeff,Donaldson,"DATA201, DATA219, DATA203, DATA202"
+emily.reyes@myscu.edu,Emily,Reyes,"DATA209, DATA217"
+raymond.ford@myscu.edu,Raymond,Ford,"DATA216, DATA219, DATA212, DATA200"
+shannon.randall@myscu.edu,Shannon,Randall,"DATA217, DATA206, DATA215, DATA207"
+david.brown@myscu.edu,David,Brown,"DATA216, DATA201, DATA202, DATA205, DATA217"
+michael.stone@myscu.edu,Michael,Stone,DATA214
+lisa.adams@myscu.edu,Lisa,Adams,"DATA204, DATA206, DATA209, DATA210"
+luke.simpson@myscu.edu,Luke,Simpson,"DATA215, DATA200"
+jennifer.torres@myscu.edu,Jennifer,Torres,"DATA213, DATA204, DATA206, DATA216, DATA203"
+julie.alvarado@myscu.edu,Julie,Alvarado,"DATA209, DATA203, DATA212, DATA218"
+russell.day@myscu.edu,Russell,Day,"DATA212, DATA215, DATA218"
+shawn.richards@myscu.edu,Shawn,Richards,"DATA212, DATA211, DATA207, DATA205, DATA217"
+andrew.benjamin@myscu.edu,Andrew,Benjamin,"DATA203, DATA200, DATA202"
+amy.thomas@myscu.edu,Amy,Thomas,"DATA204, DATA212"
+jennifer.vargas@myscu.edu,Jennifer,Vargas,DATA209
+tony.foster@myscu.edu,Tony,Foster,"DATA215, DATA203, DATA201"
+pamela.smith@myscu.edu,Pamela,Smith,DATA212
+jessica.johnston@myscu.edu,Jessica,Johnston,"DATA206, DATA217, DATA219, DATA215"
+angela.ruiz@myscu.edu,Angela,Ruiz,"DATA218, DATA205, DATA208"
+timothy.flores@myscu.edu,Timothy,Flores,"DATA205, DATA207"
+erik.martin@myscu.edu,Erik,Martin,"DATA214, DATA218, DATA209, DATA201, DATA217"
+joseph.watson@myscu.edu,Joseph,Watson,"DATA206, DATA211, DATA203, DATA214, DATA201"
+stephen.kemp@myscu.edu,Stephen,Kemp,DATA205
+denise.lane@myscu.edu,Denise,Lane,"DATA209, DATA200"
+robert.holloway@myscu.edu,Robert,Holloway,"DATA207, DATA216, DATA212, DATA219"
+william.marshall@myscu.edu,William,Marshall,"DATA204, DATA203, DATA200, DATA215"
+anthony.scott@myscu.edu,Anthony,Scott,"DATA209, DATA217"
+vincent.allen@myscu.edu,Vincent,Allen,DATA215
+sonya.carter@myscu.edu,Sonya,Carter,"DATA208, DATA217, DATA207"
+adriana.carroll@myscu.edu,Adriana,Carroll,"DATA206, DATA200"
+cody.mcdonald@myscu.edu,Cody,Mcdonald,"DATA214, DATA208, DATA219"
+linda.stewart@myscu.edu,Linda,Stewart,"DATA205, DATA213, DATA219"
+daniel.wallace@myscu.edu,Daniel,Wallace,DATA206
+kevin.collins@myscu.edu,Kevin,Collins,"DATA204, DATA208"
+philip.walters@myscu.edu,Philip,Walters,"DATA217, DATA204, DATA213"
+kelsey.thomas@myscu.edu,Kelsey,Thomas,"DATA214, DATA218, DATA209"
+stephen.morales@myscu.edu,Stephen,Morales,"DATA206, DATA208, DATA209, DATA207, DATA205"
+kaitlyn.sweeney@myscu.edu,Kaitlyn,Sweeney,"DATA200, DATA207, DATA201, DATA217"
+michael.escobar@myscu.edu,Michael,Escobar,DATA202
+jason.kent@myscu.edu,Jason,Kent,"DATA214, DATA206, DATA204, DATA210"
+meagan.hobbs@myscu.edu,Meagan,Hobbs,"DATA216, DATA212, DATA202"
+michael.rodriguez@myscu.edu,Michael,Rodriguez,"DATA216, DATA208, DATA201, DATA200"
+thomas.lambert@myscu.edu,Thomas,Lambert,"DATA200, DATA216, DATA209"
+anne.beard@myscu.edu,Anne,Beard,"DATA210, DATA213, DATA212, DATA204"
+shannon.gonzales@myscu.edu,Shannon,Gonzales,DATA217
+joseph.howard@myscu.edu,Joseph,Howard,"DATA205, DATA212, DATA217, DATA211, DATA208"
+evan.perez@myscu.edu,Evan,Perez,"DATA213, DATA217, DATA216, DATA200, DATA201"
+john.nelson@myscu.edu,John,Nelson,"DATA201, DATA213, DATA219, DATA209"
+grace.jones@myscu.edu,Grace,Jones,DATA214
+ronald.short@myscu.edu,Ronald,Short,"DATA219, DATA201"
+jessica.lopez@myscu.edu,Jessica,Lopez,"DATA209, DATA208, DATA213, DATA202"
+karina.hayes@myscu.edu,Karina,Hayes,DATA208
+william.peck@myscu.edu,William,Peck,"DATA208, DATA206, DATA211, DATA207, DATA204"
+maria.deleon@myscu.edu,Maria,Deleon,"DATA216, DATA205, DATA214, DATA209, DATA219"
+taylor.merritt@myscu.edu,Taylor,Merritt,"DATA217, DATA208, DATA204, DATA203"
+christopher.johnson@myscu.edu,Christopher,Johnson,DATA212
+john.harris@myscu.edu,John,Harris,"DATA215, DATA205, DATA218, DATA219"
+sharon.jones@myscu.edu,Sharon,Jones,DATA218
+amanda.daniel@myscu.edu,Amanda,Daniel,"DATA216, DATA215, DATA209, DATA218, DATA213"
+phillip.velasquez@myscu.edu,Phillip,Velasquez,"DATA219, DATA212, DATA210, DATA216"
+matthew.jones@myscu.edu,Matthew,Jones,"DATA219, DATA215, DATA200"
+kyle.burgess@myscu.edu,Kyle,Burgess,"DATA218, DATA204"
+darlene.chapman@myscu.edu,Darlene,Chapman,"DATA216, DATA219, DATA204"
+cynthia.cross@myscu.edu,Cynthia,Cross,"DATA213, DATA211, DATA209, DATA201, DATA208"
+katrina.hunt@myscu.edu,Katrina,Hunt,"DATA200, DATA210, DATA201, DATA202, DATA209"
+kelly.morrison@myscu.edu,Kelly,Morrison,"DATA215, DATA219"
+tanya.nash@myscu.edu,Tanya,Nash,"DATA209, DATA207, DATA215, DATA203"
+tyler.rodriguez@myscu.edu,Tyler,Rodriguez,"DATA217, DATA219"
+claudia.moreno@myscu.edu,Claudia,Moreno,"DATA218, DATA210, DATA216, DATA215, DATA203"
+kyle.evans@myscu.edu,Kyle,Evans,"DATA204, DATA219, DATA207"
+kevin.roth@myscu.edu,Kevin,Roth,"DATA211, DATA210"
+lauren.foster@myscu.edu,Lauren,Foster,"DATA219, DATA209, DATA206, DATA210"
+justin.brooks@myscu.edu,Justin,Brooks,"DATA212, DATA219, DATA218, DATA210, DATA216"
+barry.johnson@myscu.edu,Barry,Johnson,"DATA207, DATA211, DATA213, DATA219"
+glenda.hanna@myscu.edu,Glenda,Hanna,"DATA211, DATA210, DATA200, DATA214"
+lori.klein@myscu.edu,Lori,Klein,"DATA202, DATA204"
+desiree.smith@myscu.edu,Desiree,Smith,"DATA207, DATA208, DATA218, DATA219"
+ronnie.morris@myscu.edu,Ronnie,Morris,"DATA215, DATA217, DATA210"
+scott.thornton@myscu.edu,Scott,Thornton,"DATA200, DATA206, DATA219, DATA201"
+kimberly.jones@myscu.edu,Kimberly,Jones,DATA202
+andrew.manning@myscu.edu,Andrew,Manning,"DATA202, DATA215, DATA209"
+elizabeth.thomas@myscu.edu,Elizabeth,Thomas,"DATA204, DATA202, DATA203"
+michael.butler@myscu.edu,Michael,Butler,DATA218
+mark.roberts@myscu.edu,Mark,Roberts,DATA200
+sharon.dickerson@myscu.edu,Sharon,Dickerson,DATA215
+ronald.lee@myscu.edu,Ronald,Lee,"DATA212, DATA217, DATA204, DATA205"
+keith.le@myscu.edu,Keith,Le,"DATA214, DATA217, DATA207, DATA208, DATA219"
+douglas.french@myscu.edu,Douglas,French,"DATA203, DATA209, DATA213, DATA217"
+rachel.mora@myscu.edu,Rachel,Mora,DATA214
+benjamin.riley@myscu.edu,Benjamin,Riley,DATA214
+matthew.noble@myscu.edu,Matthew,Noble,DATA202
+kristi.glass@myscu.edu,Kristi,Glass,"DATA211, DATA216, DATA201"
+michael.mckay@myscu.edu,Michael,Mckay,"DATA210, DATA205, DATA203, DATA216"
+heather.white@myscu.edu,Heather,White,"DATA216, DATA206, DATA214"
+mark.scott@myscu.edu,Mark,Scott,DATA213
+ana.brooks@myscu.edu,Ana,Brooks,"DATA213, DATA212, DATA214, DATA215"
+jacob.armstrong@myscu.edu,Jacob,Armstrong,"DATA200, DATA219"
+john.lamb@myscu.edu,John,Lamb,"DATA213, DATA214, DATA219, DATA216, DATA209"
+kimberly.haney@myscu.edu,Kimberly,Haney,"DATA216, DATA213, DATA207, DATA203, DATA209"
+julia.williams@myscu.edu,Julia,Williams,DATA204
+adam.johnson@myscu.edu,Adam,Johnson,"DATA215, DATA207"
+elaine.moody@myscu.edu,Elaine,Moody,DATA201
+morgan.castro@myscu.edu,Morgan,Castro,DATA211
+john.knapp@myscu.edu,John,Knapp,"DATA212, DATA204, DATA207"
+jennifer.mcgee@myscu.edu,Jennifer,Mcgee,"DATA206, DATA213"
+holly.callahan@myscu.edu,Holly,Callahan,"DATA214, DATA209"
+frank.kirk@myscu.edu,Frank,Kirk,"DATA215, DATA201, DATA203, DATA206"
+anthony.brock@myscu.edu,Anthony,Brock,"DATA219, DATA205, DATA211, DATA215, DATA206"
+caitlyn.best@myscu.edu,Caitlyn,Best,"DATA206, DATA215, DATA208, DATA217"
+joshua.adams@myscu.edu,Joshua,Adams,"DATA217, DATA205, DATA209, DATA207, DATA208"
+anthony.kennedy@myscu.edu,Anthony,Kennedy,"DATA215, DATA200, DATA202, DATA211, DATA208"
+gloria.fischer@myscu.edu,Gloria,Fischer,"DATA208, DATA204, DATA202, DATA207"
+jasmine.bolton@myscu.edu,Jasmine,Bolton,"DATA205, DATA209, DATA216"
+lisa.gilmore@myscu.edu,Lisa,Gilmore,"DATA201, DATA210, DATA211, DATA203"
+kevin.smith@myscu.edu,Kevin,Smith,"DATA200, DATA208, DATA210, DATA211"
+david.parrish@myscu.edu,David,Parrish,"DATA201, DATA217, DATA200"
+nicole.smith@myscu.edu,Nicole,Smith,"DATA202, DATA201, DATA206"
+lauren.smith@myscu.edu,Lauren,Smith,"DATA210, DATA205, DATA201"
+molly.fernandez@myscu.edu,Molly,Fernandez,DATA216
+christina.foster@myscu.edu,Christina,Foster,"DATA214, DATA207, DATA215"
+michael.vega@myscu.edu,Michael,Vega,"DATA202, DATA203"
+rachel.thomas@myscu.edu,Rachel,Thomas,"DATA209, DATA210, DATA214, DATA211"
+marisa.colon@myscu.edu,Marisa,Colon,"DATA215, DATA210"
+johnny.torres@myscu.edu,Johnny,Torres,"DATA204, DATA211"
+johnny.mccormick@myscu.edu,Johnny,Mccormick,DATA200
+kristen.cohen@myscu.edu,Kristen,Cohen,"DATA212, DATA217, DATA207"
+heidi.ibarra@myscu.edu,Heidi,Ibarra,DATA205
+michael.williams@myscu.edu,Michael,Williams,"DATA214, DATA208"
+sarah.davis@myscu.edu,Sarah,Davis,DATA208
+william.byrd@myscu.edu,William,Byrd,"DATA206, DATA212, DATA201"
+bradley.farmer@myscu.edu,Bradley,Farmer,"DATA205, DATA202, DATA212, DATA200, DATA204"
+heather.martin@myscu.edu,Heather,Martin,"DATA206, DATA212"
+michael.hughes@myscu.edu,Michael,Hughes,"DATA203, DATA205, DATA218"
+nicole.miller@myscu.edu,Nicole,Miller,"DATA206, DATA203, DATA209"
+isabella.marsh@myscu.edu,Isabella,Marsh,DATA208
+donald.williams@myscu.edu,Donald,Williams,"DATA217, DATA200"
+peter.mckinney@myscu.edu,Peter,Mckinney,DATA200
+valerie.benson@myscu.edu,Valerie,Benson,"DATA217, DATA213"
+brooke.clark@myscu.edu,Brooke,Clark,"DATA200, DATA210"
+christina.thomas@myscu.edu,Christina,Thomas,DATA218
+makayla.garcia@myscu.edu,Makayla,Garcia,"DATA201, DATA204, DATA217, DATA219, DATA215"
+sandra.stout@myscu.edu,Sandra,Stout,"DATA212, DATA211"
+ann.burton@myscu.edu,Ann,Burton,"DATA203, DATA209, DATA210, DATA205"
+victoria.franklin@myscu.edu,Victoria,Franklin,"DATA204, DATA207"
+tony.jackson@myscu.edu,Tony,Jackson,"DATA210, DATA212, DATA214"
+matthew.moore@myscu.edu,Matthew,Moore,"DATA212, DATA207"
+megan.robertson@myscu.edu,Megan,Robertson,"DATA217, DATA215"
+jessica.price@myscu.edu,Jessica,Price,"DATA217, DATA202, DATA206"
+katherine.simon@myscu.edu,Katherine,Simon,DATA211
+deanna.moody@myscu.edu,Deanna,Moody,DATA217
+sara.roberts@myscu.edu,Sara,Roberts,"DATA216, DATA200"
+wesley.francis@myscu.edu,Wesley,Francis,"DATA209, DATA217, DATA200, DATA212"
+sandra.eaton@myscu.edu,Sandra,Eaton,"DATA200, DATA212, DATA214, DATA204"
+charles.roberts@myscu.edu,Charles,Roberts,"DATA214, DATA218, DATA210, DATA216"
+rachel.hernandez@myscu.edu,Rachel,Hernandez,DATA210
+lori.wilson@myscu.edu,Lori,Wilson,"DATA209, DATA210, DATA208, DATA203"
+lisa.frazier@myscu.edu,Lisa,Frazier,DATA204
+andrew.smith@myscu.edu,Andrew,Smith,"DATA213, DATA217"
+chase.rodriguez@myscu.edu,Chase,Rodriguez,"DATA208, DATA216, DATA200, DATA202, DATA213"
+patricia.salazar@myscu.edu,Patricia,Salazar,"DATA203, DATA209, DATA200, DATA215, DATA217"
+tyler.hawkins@myscu.edu,Tyler,Hawkins,"DATA205, DATA206"
+tyrone.jones@myscu.edu,Tyrone,Jones,"DATA212, DATA206, DATA211"
+daniel.peck@myscu.edu,Daniel,Peck,"DATA202, DATA212"
+cynthia.horne@myscu.edu,Cynthia,Horne,"DATA217, DATA204, DATA213, DATA219, DATA201"
+tracey.cisneros@myscu.edu,Tracey,Cisneros,"DATA207, DATA218, DATA208, DATA212"
+lee.brown@myscu.edu,Lee,Brown,DATA218
+sandra.jones@myscu.edu,Sandra,Jones,DATA208
+jackie.terry@myscu.edu,Jackie,Terry,"DATA206, DATA207, DATA200"
+jeremy.wagner@myscu.edu,Jeremy,Wagner,"DATA218, DATA211, DATA201"
+matthew.garner@myscu.edu,Matthew,Garner,"DATA211, DATA207, DATA200, DATA210"
+elizabeth.mccoy@myscu.edu,Elizabeth,Mccoy,"DATA203, DATA201"
+patrick.saunders@myscu.edu,Patrick,Saunders,"DATA200, DATA215, DATA209, DATA214, DATA216"
+shirley.jones@myscu.edu,Shirley,Jones,"DATA209, DATA215"
+candice.graham@myscu.edu,Candice,Graham,DATA214
+danielle.miller@myscu.edu,Danielle,Miller,"DATA206, DATA219, DATA208, DATA210, DATA216"
+tracey.lewis@myscu.edu,Tracey,Lewis,"DATA210, DATA202"
+debra.snow@myscu.edu,Debra,Snow,DATA215
+kristen.boyd@myscu.edu,Kristen,Boyd,"DATA213, DATA216, DATA219, DATA212"
+antonio.velez@myscu.edu,Antonio,Velez,"DATA209, DATA218, DATA219"
+william.johnson@myscu.edu,William,Johnson,"DATA216, DATA205"
+donald.contreras@myscu.edu,Donald,Contreras,"DATA206, DATA207, DATA215, DATA200"
+ashley.franklin@myscu.edu,Ashley,Franklin,"DATA202, DATA211, DATA213, DATA219, DATA209"
+jennifer.boyd@myscu.edu,Jennifer,Boyd,"DATA205, DATA215, DATA219, DATA207, DATA204"
+daniel.mcguire@myscu.edu,Daniel,Mcguire,"DATA205, DATA202"
+norman.stevenson@myscu.edu,Norman,Stevenson,"DATA206, DATA203, DATA218, DATA212"
+gwendolyn.jones@myscu.edu,Gwendolyn,Jones,"DATA210, DATA205, DATA204, DATA209, DATA208"
+lynn.brown@myscu.edu,Lynn,Brown,"DATA216, DATA208, DATA204"
+sierra.shaw@myscu.edu,Sierra,Shaw,"DATA213, DATA217, DATA202"
+david.graves@myscu.edu,David,Graves,"DATA216, DATA213, DATA200, DATA206, DATA208"
+evan.mcguire@myscu.edu,Evan,Mcguire,"DATA219, DATA208, DATA209"
+todd.townsend@myscu.edu,Todd,Townsend,DATA211
+jamie.baker@myscu.edu,Jamie,Baker,"DATA204, DATA203, DATA216, DATA206, DATA214"
+douglas.williamson@myscu.edu,Douglas,Williamson,"DATA219, DATA205, DATA201"
+marissa.baker@myscu.edu,Marissa,Baker,"DATA209, DATA205"
+david.fernandez@myscu.edu,David,Fernandez,DATA202
+michelle.white@myscu.edu,Michelle,White,"DATA215, DATA212, DATA207, DATA214"
+william.armstrong@myscu.edu,William,Armstrong,"DATA217, DATA218, DATA208, DATA216"
+michelle.boyle@myscu.edu,Michelle,Boyle,"DATA217, DATA213, DATA210"
+allen.lloyd@myscu.edu,Allen,Lloyd,"DATA207, DATA213"
+amanda.rubio@myscu.edu,Amanda,Rubio,DATA205
+william.mckay@myscu.edu,William,Mckay,DATA202
+jennifer.wilson@myscu.edu,Jennifer,Wilson,"DATA209, DATA218, DATA200, DATA216, DATA217"
+patricia.george@myscu.edu,Patricia,George,"DATA209, DATA200, DATA215"
+john.miller@myscu.edu,John,Miller,"DATA215, DATA216, DATA200, DATA218, DATA203"
+kathleen.ward@myscu.edu,Kathleen,Ward,"DATA210, DATA217, DATA212, DATA216, DATA207"
+alicia.thomas@myscu.edu,Alicia,Thomas,"DATA209, DATA201, DATA200, DATA219, DATA210"
+douglas.harrison@myscu.edu,Douglas,Harrison,"DATA205, DATA212, DATA219, DATA214"
+emily.estrada@myscu.edu,Emily,Estrada,DATA204
+jeffrey.lynch@myscu.edu,Jeffrey,Lynch,"DATA204, DATA215, DATA202"
+laura.price@myscu.edu,Laura,Price,"DATA216, DATA209"
+derek.hampton@myscu.edu,Derek,Hampton,"DATA200, DATA204, DATA205, DATA219"
+james.pacheco@myscu.edu,James,Pacheco,"DATA202, DATA212, DATA207, DATA208"
+amanda.murray@myscu.edu,Amanda,Murray,"DATA217, DATA219, DATA218"
+ronnie.archer@myscu.edu,Ronnie,Archer,"DATA202, DATA209"
+matthew.smith@myscu.edu,Matthew,Smith,"DATA206, DATA210"
+brianna.anderson@myscu.edu,Brianna,Anderson,"DATA219, DATA207, DATA211, DATA217"
+colin.black@myscu.edu,Colin,Black,"DATA214, DATA203, DATA211, DATA218"
+robert.wolfe@myscu.edu,Robert,Wolfe,DATA207
+kenneth.allen@myscu.edu,Kenneth,Allen,"DATA207, DATA202, DATA208, DATA205, DATA213"
+joshua.cook@myscu.edu,Joshua,Cook,"DATA215, DATA201"
+valerie.herrera@myscu.edu,Valerie,Herrera,"DATA204, DATA210, DATA219, DATA203"
+margaret.smith@myscu.edu,Margaret,Smith,DATA211
+david.wilson@myscu.edu,David,Wilson,"DATA217, DATA205"
+melissa.long@myscu.edu,Melissa,Long,"DATA201, DATA212, DATA209, DATA219"
+joel.chen@myscu.edu,Joel,Chen,"DATA207, DATA201"
+cynthia.shepherd@myscu.edu,Cynthia,Shepherd,"DATA215, DATA218"
+jessica.velazquez@myscu.edu,Jessica,Velazquez,"DATA212, DATA201, DATA219, DATA208"
+timothy.pearson@myscu.edu,Timothy,Pearson,"DATA202, DATA209, DATA213, DATA211, DATA204"
+darrell.sandoval@myscu.edu,Darrell,Sandoval,"DATA208, DATA212, DATA216, DATA204"
+jeffery.mcfarland@myscu.edu,Jeffery,Mcfarland,"DATA217, DATA205, DATA203, DATA207, DATA206"
+patricia.morrow@myscu.edu,Patricia,Morrow,DATA208
+kelly.park@myscu.edu,Kelly,Park,"DATA200, DATA203, DATA213, DATA215"
+hannah.smith@myscu.edu,Hannah,Smith,"DATA213, DATA208, DATA207, DATA200, DATA201"
+bryan.craig@myscu.edu,Bryan,Craig,DATA202
+angel.dickerson@myscu.edu,Angel,Dickerson,"DATA219, DATA211"
+evelyn.king@myscu.edu,Evelyn,King,"DATA211, DATA207, DATA218, DATA206, DATA202"
+jacob.gutierrez@myscu.edu,Jacob,Gutierrez,DATA202
+jeffrey.adams@myscu.edu,Jeffrey,Adams,"DATA211, DATA204, DATA218"
+jason.mcdaniel@myscu.edu,Jason,Mcdaniel,"DATA215, DATA208, DATA214"
+katie.perry@myscu.edu,Katie,Perry,"DATA212, DATA208, DATA206, DATA203"
+brett.ballard@myscu.edu,Brett,Ballard,"DATA210, DATA207"
+jennifer.woods@myscu.edu,Jennifer,Woods,DATA217
+rachael.brown@myscu.edu,Rachael,Brown,"DATA214, DATA200, DATA211, DATA212, DATA217"
+lisa.garcia@myscu.edu,Lisa,Garcia,"DATA207, DATA213, DATA209, DATA217, DATA218"
+jasmine.martinez@myscu.edu,Jasmine,Martinez,"DATA205, DATA203"
+kenneth.bailey@myscu.edu,Kenneth,Bailey,"DATA200, DATA211, DATA204, DATA218"
+matthew.patel@myscu.edu,Matthew,Patel,"DATA217, DATA212, DATA208, DATA215, DATA204"
+clifford.miranda@myscu.edu,Clifford,Miranda,"DATA212, DATA205, DATA214, DATA204, DATA207"
+ashley.scott@myscu.edu,Ashley,Scott,"DATA214, DATA217, DATA208"
+stephanie.cox@myscu.edu,Stephanie,Cox,"DATA219, DATA214"
+jennifer.ballard@myscu.edu,Jennifer,Ballard,"DATA219, DATA206"
+stephanie.spencer@myscu.edu,Stephanie,Spencer,"DATA209, DATA210"
+dorothy.marshall@myscu.edu,Dorothy,Marshall,"DATA203, DATA204, DATA207"
+kenneth.johnson@myscu.edu,Kenneth,Johnson,DATA216
+tyler.lewis@myscu.edu,Tyler,Lewis,"DATA216, DATA206, DATA217, DATA214"
+robert.moore@myscu.edu,Robert,Moore,DATA215
+michelle.chapman@myscu.edu,Michelle,Chapman,"DATA210, DATA212, DATA213"
+nathaniel.hendrix@myscu.edu,Nathaniel,Hendrix,"DATA204, DATA210, DATA208"
+brittany.mcfarland@myscu.edu,Brittany,Mcfarland,"DATA212, DATA210, DATA203, DATA208, DATA202"
+jonathan.stark@myscu.edu,Jonathan,Stark,"DATA200, DATA204"
+kathryn.ward@myscu.edu,Kathryn,Ward,"DATA207, DATA213, DATA203, DATA211"
+nicholas.gray@myscu.edu,Nicholas,Gray,"DATA214, DATA213, DATA204, DATA203"
+suzanne.michael@myscu.edu,Suzanne,Michael,"DATA218, DATA208"
+donald.brown@myscu.edu,Donald,Brown,"DATA205, DATA219, DATA218, DATA210"
+christopher.short@myscu.edu,Christopher,Short,"DATA209, DATA217, DATA213"
+roberto.williams@myscu.edu,Roberto,Williams,"DATA216, DATA210, DATA200"
+tina.brown@myscu.edu,Tina,Brown,DATA207
+michael.hicks@myscu.edu,Michael,Hicks,"DATA210, DATA207, DATA200"
+timothy.cunningham@myscu.edu,Timothy,Cunningham,"DATA219, DATA216, DATA215, DATA209"
+sarah.rush@myscu.edu,Sarah,Rush,"DATA211, DATA214"
+christine.pierce@myscu.edu,Christine,Pierce,"DATA202, DATA208, DATA207"
+kevin.santiago@myscu.edu,Kevin,Santiago,"DATA200, DATA211, DATA218, DATA212"
+nicole.fox@myscu.edu,Nicole,Fox,"DATA203, DATA204, DATA211, DATA213, DATA219"
+andrew.sullivan@myscu.edu,Andrew,Sullivan,"DATA212, DATA216, DATA205, DATA203, DATA213"
+kimberly.delgado@myscu.edu,Kimberly,Delgado,"DATA218, DATA214"
+rachel.carter@myscu.edu,Rachel,Carter,DATA204
+heather.bradford@myscu.edu,Heather,Bradford,DATA216
+thomas.stevens@myscu.edu,Thomas,Stevens,"DATA208, DATA203"
+eduardo.nielsen@myscu.edu,Eduardo,Nielsen,"DATA210, DATA200, DATA204, DATA216"
+bianca.clark@myscu.edu,Bianca,Clark,"DATA201, DATA204"
+erica.mora@myscu.edu,Erica,Mora,"DATA217, DATA211, DATA219, DATA212"
+lindsay.meadows@myscu.edu,Lindsay,Meadows,"DATA202, DATA216"
+cheryl.logan@myscu.edu,Cheryl,Logan,"DATA203, DATA217, DATA212, DATA207"
+brian.patrick@myscu.edu,Brian,Patrick,"DATA208, DATA219"
+joshua.clark@myscu.edu,Joshua,Clark,"DATA209, DATA217, DATA208, DATA205, DATA200"
+deborah.jackson@myscu.edu,Deborah,Jackson,"DATA211, DATA217, DATA219, DATA202"
+jessica.mcdonald@myscu.edu,Jessica,Mcdonald,"DATA205, DATA213, DATA219"
+jacqueline.stevenson@myscu.edu,Jacqueline,Stevenson,"DATA215, DATA212, DATA218, DATA208"
+thomas.smith@myscu.edu,Thomas,Smith,"DATA218, DATA203"
+connie.avery@myscu.edu,Connie,Avery,"DATA211, DATA207, DATA215, DATA210"
+jennifer.wilson@myscu.edu,Jennifer,Wilson,"DATA217, DATA203, DATA219"
+pamela.scott@myscu.edu,Pamela,Scott,DATA218
+sheena.smith@myscu.edu,Sheena,Smith,"DATA206, DATA200"
+michael.benson@myscu.edu,Michael,Benson,"DATA209, DATA215, DATA219, DATA208"
+angela.warren@myscu.edu,Angela,Warren,"DATA204, DATA219"
+elizabeth.miller@myscu.edu,Elizabeth,Miller,"DATA209, DATA203, DATA217, DATA219"
+kristin.richard@myscu.edu,Kristin,Richard,"DATA214, DATA207, DATA216, DATA210"
+krista.williams@myscu.edu,Krista,Williams,"DATA209, DATA210"
+timothy.sanchez@myscu.edu,Timothy,Sanchez,DATA216
+laura.roman@myscu.edu,Laura,Roman,"DATA205, DATA208, DATA217"
+jacqueline.richards@myscu.edu,Jacqueline,Richards,"DATA218, DATA216"
+karen.cook@myscu.edu,Karen,Cook,"DATA216, DATA214"
+jeffrey.brennan@myscu.edu,Jeffrey,Brennan,"DATA216, DATA206, DATA219"
+jason.harper@myscu.edu,Jason,Harper,"DATA216, DATA209, DATA214, DATA219"
+emily.gonzales@myscu.edu,Emily,Gonzales,"DATA219, DATA210, DATA213"
+tracy.calderon@myscu.edu,Tracy,Calderon,"DATA201, DATA203, DATA215, DATA205"
+elizabeth.hensley@myscu.edu,Elizabeth,Hensley,"DATA216, DATA204, DATA215"
+kimberly.jackson@myscu.edu,Kimberly,Jackson,"DATA215, DATA202, DATA210, DATA218"
+stacey.scott@myscu.edu,Stacey,Scott,DATA218
+ronald.evans@myscu.edu,Ronald,Evans,DATA210
+amanda.tran@myscu.edu,Amanda,Tran,"DATA218, DATA210, DATA217, DATA215"
+michael.price@myscu.edu,Michael,Price,DATA219
+sylvia.floyd@myscu.edu,Sylvia,Floyd,"DATA205, DATA206, DATA202, DATA215, DATA212"
+renee.ramsey@myscu.edu,Renee,Ramsey,"DATA208, DATA210, DATA203"
+robert.holder@myscu.edu,Robert,Holder,"DATA200, DATA208, DATA211, DATA215, DATA214"
+krista.garcia@myscu.edu,Krista,Garcia,"DATA217, DATA202, DATA215, DATA208, DATA212"
+melissa.robertson@myscu.edu,Melissa,Robertson,"DATA210, DATA215, DATA218"
+tonya.stein@myscu.edu,Tonya,Stein,"DATA206, DATA217, DATA210, DATA204"
+bruce.perez@myscu.edu,Bruce,Perez,"DATA218, DATA208, DATA213"
+maria.hicks@myscu.edu,Maria,Hicks,"DATA210, DATA202, DATA216"
+ralph.wall@myscu.edu,Ralph,Wall,"DATA211, DATA201"
+jennifer.santos@myscu.edu,Jennifer,Santos,"DATA212, DATA208, DATA215, DATA207"
+anna.munoz@myscu.edu,Anna,Munoz,"DATA205, DATA203, DATA214"
+sarah.ayala@myscu.edu,Sarah,Ayala,"DATA202, DATA206, DATA203"
+roberta.mccullough@myscu.edu,Roberta,Mccullough,"DATA204, DATA201, DATA203, DATA208"
+elizabeth.hayes@myscu.edu,Elizabeth,Hayes,"DATA207, DATA215"
+michael.cruz@myscu.edu,Michael,Cruz,"DATA212, DATA213, DATA210"
+john.edwards@myscu.edu,John,Edwards,"DATA207, DATA215, DATA218, DATA209"
+william.chambers@myscu.edu,William,Chambers,DATA209
+sarah.wilson@myscu.edu,Sarah,Wilson,"DATA216, DATA208"
+carol.johnson@myscu.edu,Carol,Johnson,"DATA206, DATA203, DATA202, DATA214, DATA208"

@@ -18,40 +18,43 @@ class Grades:
         self.grades = grades 
         self.marks = marks 
 
-    def display_all_grades_records(self):
-        """ Display all the grades details, sorted by specific field
-        Parameters:
-            sorted_by (str): The field to sort the grades by
-            -- Options: "student_id", "course_id", "grades", "marks"
+    def display_all_grades_records(self, sort_by="name"):
         """
+        Display all the grades details, sorted by a specific field.
 
+        Parameters:
+            sort_by (str): The field to sort the grades by.
+                Options: "name", "grades", "marks". Default is "name".
+        """
         if not grades:
             print("No grades records found.")
             return
-        
-        # Validate the sorted_by field
-        if sort_by not in ["student_id", "course_id", "grades", "marks"]:
-            print("Invalid field to sort by. Sorting by student_id by default.")
-            sort_by = "student_id"
 
-        # Conver the grades dictionary to a list of grades for sorting
+        # Validate the sort_by field
+        if sort_by not in ["name", "grades", "marks"]:
+            print("Invalid field to sort by. Sorting by name by default.")
+            sort_by = "name"
+
+        # Convert the grades dictionary to a list of grades for sorting
         grades_list = list(grades.values())
 
         # Sort the grades by the specified field
-        if sort_by == "student_id":
-            grades_list.sort(key=lambda x: x.student_id)
-        elif sort_by == "course_id":
-            grades_list.sort(key=lambda x: x.course_id)
+        if sort_by == "name":
+            # Sort by student name
+            grades_list.sort(key=lambda grade: (students[grade.student_id].first_name, students[grade.student_id].last_name))
         elif sort_by == "grades":
-            grades_list.sort(key=lambda x: x.grades)
+            # Sort by grades (e.g., A, B, C)
+            grades_list.sort(key=lambda grade: grade.grades)
         elif sort_by == "marks":
-            grades_list.sort(key=lambda x: x.marks)
+            # Sort by marks (numerical value)
+            grades_list.sort(key=lambda grade: grade.marks)
 
         # Display the sorted grades
         print(f"\nDisplaying all grades records (sorted by {sort_by}):")
         for grade in grades_list:
-            print(f"Student ID: {grade.student_id}, Course ID: {grade.course_id}, Grades: {grade.grades}, Marks: {grade.marks}")
-            print("-" * 30)
+            student = students[grade.student_id]
+            student_name = f"{student.first_name} {student.last_name}"
+            print(f"Student ID: {grade.student_id}, Name: {student_name}, Course ID: {grade.course_id}, Grades: {grade.grades}, Marks: {grade.marks}")
         
     def display_chosen_grade_records(self):
         # Display the chosen grade's details and measure lookup time
@@ -95,6 +98,155 @@ class Grades:
         elapsed_time = end_time - start_time
         print(f"Time taken to lookup the grade: {elapsed_time:.6f} seconds")
 
+    def display_professor_grades(self, email_id, sort_by="name"):
+        """
+        Display the grades for all courses taught by a professor, with optional sorting.
+
+        Args:
+            email_id (str): The email ID of the professor.
+            sort_by (str): The sorting criteria. Options: "name", "grades", "marks". Default is "name".
+        """
+        if email_id not in professors:
+            print(f"No professor found with email ID: {email_id}")
+            return
+
+        professor = professors[email_id]
+        professor_course_ids = professor.courses
+        print(f"\nDisplaying grades for Professor {professor.name} (Professor ID: {email_id})")
+
+        for course_id in professor_course_ids:
+            print(f"\nCourse ID: {course_id}")
+            course_grades = [grade for key, grade in grades.items() if key[1] == course_id]
+
+            if not course_grades:
+                print("No grades available for this course.")
+                continue
+
+            # Sort grades based on the specified criteria
+            if sort_by == "name":
+                # Sort by student name
+                course_grades.sort(key=lambda grade: (students[grade.student_id].first_name, students[grade.student_id].last_name))
+            elif sort_by == "grades":
+                # Sort by grades (e.g., A, B, C)
+                course_grades.sort(key=lambda grade: grade.grades)
+            elif sort_by == "marks":
+                # Sort by marks (numerical value)
+                course_grades.sort(key=lambda grade: grade.marks)
+            else:
+                print(f"Invalid sort_by value: {sort_by}. Defaulting to sorting by name.")
+                course_grades.sort(key=lambda grade: (students[grade.student_id].first_name, students[grade.student_id].last_name))
+
+            # Display sorted grades
+            for grade in course_grades:
+                if grade.student_id not in students:
+                    print(f"  Student ID: {grade.student_id} not found in students database.")
+                    continue
+
+                student = students[grade.student_id]
+                student_name = f"{student.first_name} {student.last_name}"
+                print(f"  Student ID: {grade.student_id}, Name: {student_name}, Grades: {grade.grades}, Marks: {grade.marks}")
+
+    def display_professor_chosen_grades(self, email_id, course_id, sort_by="name"):
+        """
+        Display grades for a chosen course taught by a professor, with optional statistics.
+
+        Args:
+            email_id (str): The email ID of the professor.
+            course_id (str): The ID of the course to display grades for.
+            sort_by (str): The field to sort the grades by. Options: "name", "grades", "marks". Default is "name".
+        """
+        if email_id not in professors:
+            print(f"No professor found with email ID: {email_id}")
+            return
+
+        professor = professors[email_id]
+        if course_id not in professor.courses:
+            print(f"Course ID {course_id} is not taught by Professor {professor.name}.")
+            return
+
+        # Get all grades for the chosen course
+        course_grades = [grade for key, grade in grades.items() if key[1] == course_id]
+
+        if not course_grades:
+            print(f"No grades available for Course ID: {course_id}.")
+            return
+
+        # Validate the sort_by field
+        if sort_by not in ["name", "grades", "marks"]:
+            print("Invalid field to sort by. Sorting by name by default.")
+            sort_by = "name"
+
+        # Sort the grades by the specified field
+        if sort_by == "name":
+            # Sort by student name
+            course_grades.sort(key=lambda grade: (students[grade.student_id].first_name, students[grade.student_id].last_name))
+        elif sort_by == "grades":
+            # Sort by grades (e.g., A, B, C)
+            course_grades.sort(key=lambda grade: grade.grades)
+        elif sort_by == "marks":
+            # Sort by marks (numerical value)
+            course_grades.sort(key=lambda grade: grade.marks)
+
+        # Display sorted grades
+        print(f"\nDisplaying grades for Course ID: {course_id} (Taught by Professor {professor.name}, Sorted by {sort_by})")
+        for grade in course_grades:
+            if grade.student_id not in students:
+                print(f"  Student ID: {grade.student_id} not found in students database.")
+                continue
+
+            student = students[grade.student_id]
+            student_name = f"{student.first_name} {student.last_name}"
+            print(f"  Student ID: {grade.student_id}, Name: {student_name}, Grades: {grade.grades}, Marks: {grade.marks}")
+
+        # Ask the user if they want to see statistics
+        while True:
+            user_input = input("\nDo you want to see statistics? (yes/no): ").strip().lower()
+            if user_input in ["yes", "no"]:
+                break
+            print("Invalid input. Please enter 'yes' or 'no'.")
+
+        if user_input == "yes":
+            # Calculate statistics
+            marks_list = [grade.marks for grade in course_grades]
+            average_mark = sum(marks_list) / len(marks_list)
+            median_mark = sorted(marks_list)[len(marks_list) // 2] if len(marks_list) % 2 != 0 else (
+                sorted(marks_list)[len(marks_list) // 2 - 1] + sorted(marks_list)[len(marks_list) // 2]) / 2
+            highest_mark = max(marks_list)
+            lowest_mark = min(marks_list)
+
+            # Display statistics options
+            print("\nChoose statistics to display:")
+            print("1. Average Mark")
+            print("2. Median Mark")
+            print("3. Highest Mark")
+            print("4. Lowest Mark")
+            print("5. All of the above")
+
+            while True:
+                try:
+                    choice = int(input("Enter your choice (1-5): "))
+                    if 1 <= choice <= 5:
+                        break
+                    print("Invalid choice. Please enter a number between 1 and 5.")
+                except ValueError:
+                    print("Invalid input. Please enter a number.")
+
+            # Display selected statistics
+            if choice == 1:
+                print(f"\nAverage Mark: {average_mark:.2f}")
+            elif choice == 2:
+                print(f"\nMedian Mark: {median_mark}")
+            elif choice == 3:
+                print(f"\nHighest Mark: {highest_mark}")
+            elif choice == 4:
+                print(f"\nLowest Mark: {lowest_mark}")
+            elif choice == 5:
+                print(f"\nAll Statistics:")
+                print(f"1. Average Mark: {average_mark:.2f}")
+                print(f"2. Median Mark: {median_mark}")
+                print(f"3. Highest Mark: {highest_mark}")
+                print(f"4. Lowest Mark: {lowest_mark}")
+    
     def add_new_grade(self, role, email_id):
         # Add a grade for a student in a course by a professor or admin
         student_id = input("Enter the student ID: ").strip()
@@ -416,3 +568,5 @@ def load_grades_data():
 
 # Load grades data when the module is imported
 load_grades_data()
+
+
