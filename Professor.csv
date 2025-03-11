@@ -1,11 +1,11 @@
 Professor_id,Professor Name,Rank,Course_id
-dennis.davis@myscu.edu,Dennis Davis,Assistant Professor,"DATA200, DATA205"
-patrick.wright@myscu.edu,Patrick Wright,Assistant Professor,"DATA213, DATA215, DATA209"
-ricky.warren@myscu.edu,Ricky Warren,Associate Professor,"DATA212, DATA207"
-kristine.zamora@myscu.edu,Kristine Zamora,Senior Professor,"DATA206, DATA202, DATA214, DATA214"
-travis.simmons@myscu.edu,Travis Simmons,Assistant Professor,"DATA210, DATA210, DATA204"
-charles.lawson@myscu.edu,Charles Lawson,Assistant Professor,"DATA203, DATA200, DATA202"
-chad.peters@myscu.edu,Chad Peters,Senior Professor,"DATA218, DATA209, DATA218, DATA208"
-susan.harris@myscu.edu,Susan Harris,Assistant Professor,"DATA216, DATA201, DATA219"
-kathryn.thomas@myscu.edu,Kathryn Thomas,Associate Professor,"DATA215, DATA211"
-joshua.howell@myscu.edu,Joshua Howell,Senior Professor,"DATA201, DATA205, DATA208, DATA217"
+emily.marquez@myscu.edu,Emily Marquez,Assistant Professor,"DATA208, DATA216, DATA212"
+gary.mcdonald@myscu.edu,Gary Mcdonald,Senior Professor,"DATA214, DATA202"
+alexis.fields@myscu.edu,Alexis Fields,Associate Professor,"DATA203, DATA200, DATA210"
+michael.lopez@myscu.edu,Michael Lopez,Associate Professor,"DATA211, DATA217"
+megan.martinez@myscu.edu,Megan Martinez,Assistant Professor,DATA209
+wendy.tucker@myscu.edu,Wendy Tucker,Associate Professor,"DATA201, DATA213, DATA205"
+katie.johnson@myscu.edu,Katie Johnson,Assistant Professor,"DATA206, DATA219"
+cheryl.novak@myscu.edu,Cheryl Novak,Assistant Professor,"DATA207, DATA215"
+debra.gonzalez@myscu.edu,Debra Gonzalez,Assistant Professor,DATA218
+kayla.ward@myscu.edu,Kayla Ward,Associate Professor,DATA204

@@ -1,6 +1,6 @@
 import csv
 import time
-from course import Course, courses # Import the Course class and the courses dictionary
+from course import courses # Import the Course class and the courses dictionary
 
 ##### Initialize data #####
 # Use a dictionary (harsh table) to store all the professors

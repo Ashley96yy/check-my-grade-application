@@ -1,8 +1,5 @@
 from login_user import LoginUser
-from course import Course, courses # Import the Course class and the courses dictionary
-from student import Student, students # Import the Student class and the students dictionary
-from professor import Professor, professors # Import the Professor class and the professors dictionary
-from grades import Grades, grades # Import the Grades class and the grades dictionary
+from common import Student,students, Professor, professors, Course, courses, Grades, grades
 import getpass
 import shutil
 
@@ -64,8 +61,8 @@ def admin_menu(role, email_id):
 
         if choice == "1":
             print("\n Display Student Records Menu:")
-            print("1. Display all students details")
-            print("2. Display chosen student details")
+            print("1. Display all students' details")
+            print("2. Display chosen student's details")
             print("3. Return to previous menu")
             sub_choice = input("Enter your choice: ").strip()
 

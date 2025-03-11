@@ -4,10 +4,6 @@ import random
 import csv
 from encdyc import TextSecurity
 
-# Function to generate a random password
-def generate_random_password(length=12):
-    characters = string.ascii_letters + string.digits + string.punctuation
-    return ''.join(random.choices(characters, k=length))
 
 ##### Course Information #####
 # Function to generate sequential course IDs
@@ -58,10 +54,16 @@ def save_courses_to_csv(filename, start_id, num_courses, prefix="DATA"):
             writer.writerow([course_id, course_name, course_description])
 
 # Save 20 courses starting from DATA200 to courses.csv
-save_courses_to_csv("Courses.csv", 200, 20, "DATA")
-print("Courses saved to 'Courses.csv'")
+save_courses_to_csv("Course.csv", 200, 20, "DATA")
+print("Courses saved to 'Course.csv'")
+
 
 ##### User Information #####
+# Function to generate a random password
+def generate_random_password(length=12):
+    characters = string.ascii_letters + string.digits + string.punctuation
+    return ''.join(random.choices(characters, k=length))
+
 # Roles and their respective counts
 roles = {
     "admin": 5,
@@ -104,20 +106,21 @@ with open("Login.csv", mode="w", newline="") as file:
     writer.writerows(data_encrypted)
 print("User information saved to 'Login.csv'")
 
+
 ##### Student Information #####
 # Function to assign random course IDs to students, ensuring each student has at least one course
 def assign_courses_to_students(num_students, course_ids, min_students_per_course=20, min_courses=1, max_courses=5):
     student_courses = [[] for _ in range(num_students)]  # List to store courses for each student
     course_student_counts = {course_id: 0 for course_id in course_ids}  # Track how many students are assigned to each course
     
-    # Step 1: Ensure each student has at least one course
+    # Ensure each student has at least one course
     for student_index in range(num_students):
         # Randomly assign at least one course to each student
         course_id = random.choice(course_ids)
         student_courses[student_index].append(course_id)
         course_student_counts[course_id] += 1
     
-    # Step 2: Ensure each course has at least `min_students_per_course` students
+    # Ensure each course has at least `min_students_per_course` students
     for course_id in course_ids:
         while course_student_counts[course_id] < min_students_per_course:
             # Find a student who hasn't been assigned this course yet
@@ -126,7 +129,7 @@ def assign_courses_to_students(num_students, course_ids, min_students_per_course
                 student_courses[student_index].append(course_id)
                 course_student_counts[course_id] += 1
     
-    # Step 3: Assign additional courses to students
+    # Assign additional courses to students
     for student_index in range(num_students):
         # Randomly decide how many additional courses this student will take
         num_additional = random.randint(min_courses - 1, max_courses - 1)
@@ -172,33 +175,31 @@ print("Student information saved to 'Student.csv'")
 # Define professor ranks
 professor_ranks = ["Assistant Professor", "Associate Professor", "Senior Professor"]
 
-# Function to assign courses to professors, ensuring all courses are taught by at least one professor
+# Function to assign courses to professors, ensuring each course is taught by only one professor
 def assign_courses_to_professors(num_professors, course_ids, min_courses=1, max_courses=3):
-    professor_courses = []
-    # Ensure all courses are assigned at least once
-    all_courses = course_ids.copy()
-    random.shuffle(all_courses)
-    
+    professor_courses = [[] for _ in range(num_professors)]  # List to store courses for each professor
+    all_courses = course_ids.copy()  # Create a copy of course_ids
+    random.shuffle(all_courses)  # Shuffle the courses to assign them randomly
+
     # Assign at least one course to each professor
     for i in range(num_professors):
         if all_courses:
-            assigned_courses = [all_courses.pop()]  # Assign one course
+            assigned_course = all_courses.pop()  # Assign one course
+            professor_courses[i].append(assigned_course)
         else:
-            assigned_courses = []
-        # Add additional courses if needed
+            break  # No more courses to assign
+
+    # Assign additional courses to professors
+    for i in range(num_professors):
+        # Randomly decide how many additional courses this professor will teach
         num_additional = random.randint(min_courses - 1, max_courses - 1)
-        additional_courses = random.sample(course_ids, min(num_additional, len(course_ids)))
-        assigned_courses.extend(additional_courses)
-        professor_courses.append(assigned_courses)
-    
-    # If there are still unassigned courses, distribute them among professors
-    while all_courses:
-        for i in range(num_professors):
-            if all_courses:
-                professor_courses[i].append(all_courses.pop())
-            else:
-                break
-    
+        # Randomly select additional courses from the remaining courses
+        additional_courses = random.sample(all_courses, min(num_additional, len(all_courses)))
+        professor_courses[i].extend(additional_courses)
+        # Remove the assigned courses from the pool of available courses
+        for course in additional_courses:
+            all_courses.remove(course)
+
     return professor_courses
 
 # Assign courses to professors

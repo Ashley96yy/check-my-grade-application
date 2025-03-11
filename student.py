@@ -1,8 +1,8 @@
 import csv
 import time
-from course import Course, courses # Import the Course class and the courses dictionary
-from professor import Professor, professors # Import the Professor class and the professors dictionary
-from grades import Grades, grades # Import the grades dictionary
+from course import courses # Import the Course class and the courses dictionary
+from professor import professors # Import the Professor class and the professors dictionary
+from grades import grades # Import the grades dictionary
 
 ##### Initialize data #####
 # Use a dictionary (hash table) to store all the students
@@ -67,7 +67,7 @@ class Student:
 
         if student_id in students: # Check if the student ID exists
             student = students[student_id]
-            print(f"Student ID: {student.student_id}, Name: {student.first_name} {student.last_name}")
+            print(f"\nStudent ID: {student.student_id}, Name: {student.first_name} {student.last_name}")
             for course in student.courses:
                 print(f"  Course ID: {course['course_id']}")
         else:
@@ -76,6 +76,7 @@ class Student:
         end_time = time.time() # Record the end time
         elapsed_time = end_time - start_time # Calculate the elapsed time
         print(f"Time taken to lookup student information: {elapsed_time:.6f} seconds")
+        print("-" * 30)
     
     def display_professor_student_records(self, email_id, sorted_by="student_id"):
         """ Display the professor's students' details, sorted by student ID 
