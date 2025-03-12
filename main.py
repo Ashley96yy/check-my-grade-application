@@ -392,7 +392,7 @@ def professor_menu(role, email_id):
             professor_instance = Professor()
             professor_instance.modify_professor_details(email_id)
 
-        elif choice == "6": #只能删除、修改自己教授的课程,一旦教授增加课程，代表默认上该课程
+        elif choice == "6":
             print("\n Add/Delete/Modify Course Menu:")
             print("1. Add new course")
             print("2. Delete course")

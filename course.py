@@ -1,6 +1,6 @@
 import csv
 import time
-from professor import professors
+from professor import Professor, professors
 
 ##### Initialize data ######
 # Use a dictionary (hash table) to store all the courses

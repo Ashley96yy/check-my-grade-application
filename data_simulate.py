@@ -4,6 +4,8 @@ import random
 import csv
 from encdyc import TextSecurity
 
+# Set random seed for reproducibility
+random.seed(42)  # You can use any integer value as the seed
 
 ##### Course Information #####
 # Function to generate sequential course IDs
@@ -57,7 +59,6 @@ def save_courses_to_csv(filename, start_id, num_courses, prefix="DATA"):
 save_courses_to_csv("Course.csv", 200, 20, "DATA")
 print("Courses saved to 'Course.csv'")
 
-
 ##### User Information #####
 # Function to generate a random password
 def generate_random_password(length=12):
@@ -73,6 +74,9 @@ roles = {
 
 # Initialize Faker instance
 fake = faker.Faker()
+
+# Set Faker seed for reproducibility using class method
+faker.Faker.seed(42)  # Use the class method to set the seed
 
 # Prepare data to be written to CSV
 data = []
@@ -105,7 +109,6 @@ with open("Login.csv", mode="w", newline="") as file:
     # Write data rows
     writer.writerows(data_encrypted)
 print("User information saved to 'Login.csv'")
-
 
 ##### Student Information #####
 # Function to assign random course IDs to students, ensuring each student has at least one course
