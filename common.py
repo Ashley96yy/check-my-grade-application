@@ -430,7 +430,7 @@ class Student:
         print(f"Time taken to lookup student information: {elapsed_time:.6f} seconds")
         print("-" * 80)
     
-    def display_professor_student_records(self, email_id, sorted_by="student_id"):
+    def display_professor_student_records(self, email_id, sort_by="student_id"):
         """ Display the professor's students' details, sorted by student ID 
         Parameters:
             sorted_by (str): The field to sort the students by
@@ -444,6 +444,7 @@ class Student:
         # Get the professor's courses
         professor = professors[email_id]
         professor_courses = professor.courses
+        professor_courses = [course["course_id"] for course in professor_courses]
         for course_id in professor_courses:
             print(f"\nCourse ID: {course_id}")
 
@@ -1218,7 +1219,7 @@ grades = {}
 ##### Class Grades #####
 class Grades:
 
-    def __init__(self, student_id, course_id, grade_input, marks_input):
+    def __init__(self, student_id=None, course_id=None, grade_input=None, marks_input=None):
         self.student_id = student_id # Unique student ID # Composite primary key (student_id, course_id)
         self.course_id = course_id # Unique course ID # Composite primary key (student_id, course_id)
         self.grade_input = grade_input # Grade input (A, B, C, D, F)
@@ -1316,6 +1317,7 @@ class Grades:
 
         professor = professors[email_id]
         professor_course_ids = professor.courses
+        professor_course_ids = [course["course_id"] for course in professor_course_ids]
         print(f"\nDisplaying grades for Professor {professor.name} (Professor ID: {email_id})")
 
         for course_id in professor_course_ids:
@@ -1382,10 +1384,10 @@ class Grades:
             course_grades.sort(key=lambda grade: grade.student_id)
         elif sort_by == "grades":
             # Sort by grades (e.g., A, B, C)
-            course_grades.sort(key=lambda grade: grade.grades)
+            course_grades.sort(key=lambda grade: grade.grade_input) 
         elif sort_by == "marks":
             # Sort by marks (numerical value)
-            course_grades.sort(key=lambda grade: grade.marks)
+            course_grades.sort(key=lambda grade: grade.marks_input)
 
         # Display sorted grades
         print(f"\nDisplaying grades for Course ID: {course_id} (Taught by Professor {professor.name}, Sorted by {sort_by})")
@@ -1647,6 +1649,7 @@ class Grades:
         student_first_name = student.first_name
         student_last_name = student.last_name
         student_course_ids = student.courses
+        student_course_ids = [course['course_id'] for course in student_course_ids]
 
         print(f"\nGrade Report for {student_first_name} {student_last_name} (Student ID: {student_id})")
         
@@ -1657,6 +1660,7 @@ class Grades:
                 student_grade = grades[(student_id, course_id)].grade_input
                 student_marks = grades[(student_id, course_id)].marks_input
                 print(f"  Course ID: {course_id}, Grade: {student_grade}, Marks: {student_marks}")
+                print("-"*60)
                 grade_list.append(float(student_marks))
             else:
                 print(f"  Course ID: {course_id}, Grade: Not Available, Marks: Not Available")
@@ -1689,6 +1693,7 @@ class Grades:
             print("You do not have the right to generate a grade report.")
         
         professor_course_ids = professors[professor_id].courses
+        professor_course_ids = [course["course_id"] for course in professor_course_ids]
         professor_name = professors[professor_id].name
         print(f"\nGrade Report for {professor_name} (Professor ID: {professor_id})")
 
@@ -1763,7 +1768,8 @@ def load_grades_data():
         for row in reader:
             student_id, course_id, grade_input, marks_input = row
             # Use (student_id, course_id) as the key
-            grades[(student_id, course_id)] = Grades(student_id, course_id, grade_input, marks_input)
+            key = (str(student_id), str(course_id))
+            grades[key] = Grades(student_id, course_id, grade_input, marks_input)
 
 # Load grades data when the module is imported
 load_grades_data()

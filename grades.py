@@ -12,7 +12,7 @@ grades = {}
 ##### Class Grades #####
 class Grades:
 
-    def __init__(self, student_id, course_id, grade_input, marks_input):
+    def __init__(self, student_id=None, course_id=None, grade_input=None, marks_input=None):
         self.student_id = student_id # Unique student ID # Composite primary key (student_id, course_id)
         self.course_id = course_id # Unique course ID # Composite primary key (student_id, course_id)
         self.grade_input = grade_input # Grade input (A, B, C, D, F)

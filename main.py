@@ -31,11 +31,9 @@ def main_menu():
                 if role == "admin":
                     admin_menu(role, email_id)
                 elif role == "professor":
-                    pass
-                    # professor_menu(professor, grades)
+                    professor_menu(role, email_id)
                 elif role == "student":
-                    pass
-                    # student_menu(student, grades)
+                    student_menu(role, email_id)
             elif choice == "2":
                 login.change_password()    
             elif choice == "3":
@@ -59,7 +57,7 @@ def admin_menu(role, email_id):
         print("10. Return to main menu")
         choice = input("Enter your choice: ").strip()
 
-        if choice == "1":
+        if choice == "1": # have tested
             print("\n Display Student Records Menu:")
             print("1. Display all students' details")
             print("2. Display chosen student's details")
@@ -79,7 +77,7 @@ def admin_menu(role, email_id):
             else:
                 print("Invalid choice, please enter again.")
         
-        elif choice == "2": 
+        elif choice == "2": # have tested
             print("\n Display Professor Records Menu:")
             print("1. Display all professors details")
             print("2. Display chosen professor details")
@@ -98,7 +96,7 @@ def admin_menu(role, email_id):
             else:
                 print("Invalid choice, please enter again.")
         
-        elif choice == "3": 
+        elif choice == "3": # have tested
             print("\n Display Course Records Menu:")
             print("1. Display all courses details")
             print("2. Display chosen course details")
@@ -118,7 +116,7 @@ def admin_menu(role, email_id):
             else:
                 print("Invalid choice, please enter again.")
         
-        elif choice == "4": 
+        elif choice == "4": # have tested
             print("\n Display Grades Records Menu:")
             print("1. Display all grades details")
             print("2. Display chosen grade details")
@@ -242,7 +240,7 @@ def admin_menu(role, email_id):
             else:
                 print("Invalid choice, please enter again.")
         
-        elif choice == "9":#展示成绩的同时，还需要统计所选课程数量、平均分，中位数、学生数量、最高分、最低分
+        elif choice == "9": # have tested
             print("\n Generate Grade Report Menu:")
             print("1. Generate grade report for a student")
             print("2. Generate grade report for a professor")
@@ -298,8 +296,8 @@ def professor_menu(role, email_id):
 
             if sub_choice == "1":
                 sort_by = input("Enter the sort by (student_id, first_name, last_name): ").strip()
-                professor_instance = Professor()
-                professor_instance.display_professor_student_records(sort_by)
+                student_instance = Student()
+                student_instance.display_professor_student_records(email_id, sort_by)
 
             elif sub_choice == "2":
                 sort_by = input("Enter the sort by (student_id, first_name, last_name): ").strip()
