@@ -66,7 +66,15 @@ def admin_menu(role, email_id):
 
             if sub_choice == "1":
                 sort_by = input("Enter the sort by (student_id, first_name, last_name): ").strip()
-                students[list(students.keys())[0]].display_all_students_records(sort_by)
+                reverse_input  = input("Enter True, sort in descending order, enter False, sort in ascending order): ").strip().lower()
+                if reverse_input == "true":
+                    reverse = True
+                elif reverse_input == "false":
+                    reverse = False
+                else:
+                    print("Invalid input for reverse. Defaulting to False.")
+                    reverse = False
+                students[list(students.keys())[0]].display_all_students_records(sort_by, reverse)
 
             elif sub_choice == "2":
                 students[list(students.keys())[0]].display_chosen_student_records()
@@ -86,13 +94,22 @@ def admin_menu(role, email_id):
 
             if sub_choice == "1":
                 sort_by = input("Enter the sort by (professor_id, name): ").strip()
-                professors[list(professors.keys())[0]].display_all_professors_records(sort_by)
+                reverse_input  = input("Enter True, sort in descending order, enter False, sort in ascending order): ").strip().lower()
+                if reverse_input == "true":
+                    reverse = True
+                elif reverse_input == "false":
+                    reverse = False
+                else:
+                    print("Invalid input for reverse. Defaulting to False.")
+                    reverse = False
+                professors[list(professors.keys())[0]].display_all_professors_records(sort_by, reverse)
 
             elif sub_choice == "2":
                 professors[list(professors.keys())[0]].display_chosen_professor_records()
 
             elif sub_choice == "3":
                 continue # Return to previous menu
+
             else:
                 print("Invalid choice, please enter again.")
         
@@ -105,7 +122,15 @@ def admin_menu(role, email_id):
 
             if sub_choice == "1":
                 sort_by = input("Enter the sort by (course_id, course_name): ").strip()
-                courses[list(courses.keys())[0]].display_all_courses_records(sort_by)
+                reverse_input  = input("Enter True, sort in descending order, enter False, sort in ascending order): ").strip().lower()
+                if reverse_input == "true":
+                    reverse = True
+                elif reverse_input == "false":
+                    reverse = False
+                else:
+                    print("Invalid input for reverse. Defaulting to False.")
+                    reverse = False
+                courses[list(courses.keys())[0]].display_all_courses_records(sort_by, reverse)
 
             elif sub_choice == "2":
                 courses[list(courses.keys())[0]].display_chosen_course_records()
@@ -125,7 +150,16 @@ def admin_menu(role, email_id):
 
             if sub_choice == "1":
                 sort_by = input("Enter the sort by (student_id, course_id, grades, marks): ").strip()
-                grades[list(grades.keys())[0]].display_all_grades_records(sort_by)
+                reverse_input  = input("Enter True, sort in descending order, enter False, sort in ascending order): ").strip().lower()
+                if reverse_input == "true":
+                    reverse = True
+                elif reverse_input == "false":
+                    reverse = False
+                else:
+                    print("Invalid input for reverse. Defaulting to False.")
+                    reverse = False
+                grades_instance = Grades()
+                grades_instance.display_all_grades_records(sort_by, reverse)
 
             elif sub_choice == "2":
                 grades[list(grades.keys())[0]].display_chosen_grade_records()
@@ -136,7 +170,7 @@ def admin_menu(role, email_id):
             else:
                 print("Invalid choice, please enter again.")
 
-        elif choice == "5":###有空加一个2次确认的功能
+        elif choice == "5":
             print("\n Add/Delete/Modify Student Menu:")
             print("1. Add new student")
             print("2. Delete student")
@@ -207,7 +241,7 @@ def admin_menu(role, email_id):
 
             elif sub_choice == "3":
                 course_instance = Course()
-                course_instance.modify_course()
+                course_instance.modify_course(role, email_id)
 
             elif sub_choice == "4":
                 continue # Return to previous menu
@@ -233,7 +267,7 @@ def admin_menu(role, email_id):
 
             elif sub_choice == "3":
                 grades_instance = Grades()
-                grades_instance.modify_grade(role, email_id)
+                grades_instance.display_all_grades_records(role, email_id)
 
             elif sub_choice == "4":
                 continue # Return to previous menu
@@ -279,10 +313,10 @@ def professor_menu(role, email_id):
         print("2. Display Professor Records")
         print("3. Display Course Records")
         print("4. Display Grades Records")
-        print("5. Modify My Details") #只能修改教授自己的个人信息
+        print("5. Modify My Details") 
         print("6. Add/Delete/Modify Course")
         print("7. Add/Delete/Modify Grades")
-        print("8. Generate Grade Report") #查看自己教授课程的成绩，分为全部课程和特定课程
+        print("8. Generate Grade Report") 
         print("9. Return to main menu")
         choice = input("Enter your choice: ").strip()
 
@@ -296,12 +330,29 @@ def professor_menu(role, email_id):
 
             if sub_choice == "1":
                 sort_by = input("Enter the sort by (student_id, first_name, last_name): ").strip()
+                reverse_input  = input("Enter True, sort in descending order, enter False, sort in ascending order): ").strip().lower()
+                if reverse_input == "true":
+                    reverse = True
+                elif reverse_input == "false":
+                    reverse = False
+                else:
+                    print("Invalid input for reverse. Defaulting to False.")
+                    reverse = False
                 student_instance = Student()
-                student_instance.display_professor_student_records(email_id, sort_by)
+                student_instance.display_professor_student_records(email_id, sort_by, reverse)
 
             elif sub_choice == "2":
                 sort_by = input("Enter the sort by (student_id, first_name, last_name): ").strip()
-                students[list(students.keys())[0]].display_all_students_records(sort_by)
+                reverse_input  = input("Enter True, sort in descending order, enter False, sort in ascending order): ").strip().lower()
+                if reverse_input == "true":
+                    reverse = True
+                elif reverse_input == "false":
+                    reverse = False
+                else:
+                    print("Invalid input for reverse. Defaulting to False.")
+                    reverse = False
+                student_instance = Student()
+                student_instance.display_all_students_records(sort_by, reverse)
 
             elif sub_choice == "3":
                 students[list(students.keys())[0]].display_chosen_student_records()
@@ -315,7 +366,7 @@ def professor_menu(role, email_id):
         elif choice == "2":
             print("\n Display Professor Records Menu:")
             print("1. Display my details")
-            print("2. Display all professors details")#sort
+            print("2. Display all professors details")
             print("3. Display chosen professor details")
             print("4. Return to previous menu")
             sub_choice = input("Enter your choice: ").strip()
@@ -326,7 +377,16 @@ def professor_menu(role, email_id):
 
             elif sub_choice == "2":
                 sort_by = input("Enter the sort by (professor_id, name): ").strip()
-                professors[list(professors.keys())[0]].display_all_professors_records(sort_by)
+                reverse_input  = input("Enter True, sort in descending order, enter False, sort in ascending order): ").strip().lower()
+                if reverse_input == "true":
+                    reverse = True
+                elif reverse_input == "false":
+                    reverse = False
+                else:
+                    print("Invalid input for reverse. Defaulting to False.")
+                    reverse = False
+                professor_instance = Professor()
+                professor_instance.display_all_professors_records(sort_by, reverse)
 
             elif sub_choice == "3":
                 professors[list(professors.keys())[0]].display_chosen_professor_records()
@@ -347,11 +407,20 @@ def professor_menu(role, email_id):
 
             if sub_choice == "1":
                 course_instance = Course()
-                course_instance.display_professor_course_records(email_id)
+                course_instance.display_course_taught_by_professor_records(email_id)
 
             elif sub_choice == "2":
                 sort_by = input("Enter the sort by (course_id, course_name): ").strip()
-                courses[list(courses.keys())[0]].display_all_courses_records(sort_by)
+                reverse_input  = input("Enter True, sort in descending order, enter False, sort in ascending order): ").strip().lower()
+                if reverse_input == "true":
+                    reverse = True
+                elif reverse_input == "false":
+                    reverse = False
+                else:
+                    print("Invalid input for reverse. Defaulting to False.")
+                    reverse = False
+                course_instance = Course()
+                course_instance.display_all_courses_records(sort_by, reverse)
 
             elif sub_choice == "3":
                 courses[list(courses.keys())[0]].display_chosen_course_records()
@@ -370,15 +439,31 @@ def professor_menu(role, email_id):
             sub_choice = input("Enter your choice: ").strip()
             
             if sub_choice == "1":
-                sort_by = input("Enter the sort by (name, grades, marks): ").strip()
+                sort_by = input("Enter the sort by (student_id, grades, marks): ").strip()
+                reverse_input  = input("Enter True, sort in descending order, enter False, sort in ascending order): ").strip().lower()
+                if reverse_input == "true":
+                    reverse = True
+                elif reverse_input == "false":
+                    reverse = False
+                else:
+                    print("Invalid input for reverse. Defaulting to False.")
+                    reverse = False
                 grades_instance = Grades()
-                grades_instance.display_professor_grades(email_id, sort_by)
+                grades_instance.display_professor_grades(email_id, sort_by, reverse)
 
             elif sub_choice == "2":
                 course_id = input("Enter the course ID: ").strip()
-                sort_by = input("Enter the sort by (name, grades, marks): ").strip()
+                sort_by = input("Enter the sort by (student_id, grades, marks): ").strip()
+                reverse_input  = input("Enter True, sort in descending order, enter False, sort in ascending order): ").strip().lower()
+                if reverse_input == "true":
+                    reverse = True
+                elif reverse_input == "false":
+                    reverse = False
+                else:
+                    print("Invalid input for reverse. Defaulting to False.")
+                    reverse = False
                 grades_instance = Grades()
-                grades_instance.display_professor_chosen_grades(email_id, course_id, sort_by)
+                grades_instance.display_professor_chosen_grades(email_id, course_id, sort_by, reverse)
         
             elif sub_choice == "3":
                 break # Return to previous menu
@@ -452,9 +537,8 @@ def professor_menu(role, email_id):
                 grades_instance.grade_report_professor(role, email_id)
 
             elif sub_choice == "2":
-                course_id = input("Enter the course ID: ").strip()
                 grades_instance = Grades()
-                grades_instance.grade_report_professor_course(role, email_id, course_id)
+                grades_instance.grade_report_course(role, email_id)
         
         elif choice == "9":
             break
@@ -465,13 +549,13 @@ def professor_menu(role, email_id):
 def student_menu(role, email_id):
     while True:
         print("\nStudent Menu:")
-        print("1. Display My Records")#显示学生的基本信息,不包括成绩
-        print("2. Modify My Details")#只能修改自己的基本信息,不包括课程、成绩,课程因为已经获取分数，并不能增删
+        print("1. Display My Records")
+        print("2. Modify My Details")
         print("3. Check My Grades")
         print("4. Check My Marks")
-        print("5. Generate My Grade Report")#报告需展示学生平均分、最高分、最低分
-        print("6. Discover Courses") #展示所有课程或者输入课程ID查看课程详情
-        print("7. Discover Professors") #展示所有教授或者输入教授ID查看教授详情
+        print("5. Generate My Grade Report")
+        print("6. Discover Courses") 
+        print("7. Discover Professors") 
         print("8. Return to main menu")
         choice = input("Enter your choice: ").strip()
 
@@ -504,13 +588,23 @@ def student_menu(role, email_id):
 
             if choice == "1":
                 sort_by = input("Enter the sort by (course_id, course_name): ").strip()
-                courses[list(courses.keys())[0]].display_all_courses_records(sort_by)
+                reverse_input  = input("Enter True, sort in descending order, enter False, sort in ascending order): ").strip().lower()
+                if reverse_input == "true":
+                    reverse = True
+                elif reverse_input == "false":
+                    reverse = False
+                else:
+                    print("Invalid input for reverse. Defaulting to False.")
+                    reverse = False
+                course_instance = Course()
+                course_instance.display_all_courses_records(sort_by, reverse)
 
             elif choice == "2":
                 courses[list(courses.keys())[0]].display_chosen_course_records()
 
             elif choice == "3":
                 break
+
             else:
                 print("Invalid choice, please enter again.")
 
@@ -523,7 +617,16 @@ def student_menu(role, email_id):
 
             if choice == "1":
                 sort_by = input("Enter the sort by (professor_id, name): ").strip()
-                professors[list(professors.keys())[0]].display_all_professors_records(sort_by)
+                reverse_input  = input("Enter True, sort in descending order, enter False, sort in ascending order): ").strip().lower()
+                if reverse_input == "true":
+                    reverse = True
+                elif reverse_input == "false":
+                    reverse = False
+                else:
+                    print("Invalid input for reverse. Defaulting to False.")
+                    reverse = False
+                professor_instance = Professor()
+                professor_instance.display_all_professors_records(sort_by, reverse)
 
             elif choice == "2":
                 professors[list(professors.keys())[0]].display_chosen_professor_records()

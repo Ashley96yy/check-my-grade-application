@@ -10,16 +10,17 @@ courses = {}
 ##### Class Course #####
 class Course:
    
-    def __init__(self, course_id, course_name, description):
+    def __init__(self, course_id=None, course_name=None, description=None):
         self.course_id = course_id # Unique course ID
         self.course_name = course_name # Course name
         self.description = description # Course description
         
-    def display_all_courses_records(self, sort_by="course_id"):
+    def display_all_courses_records(self, sort_by="course_id", reverse=False):
         """ Display all the courses details, sorted by specific field
         Parameters:
             sorted_by (str): The field to sort the course by
             -- Options: "course_id", "course_name"
+            reverse (bool): Whether to sort in reverse order (default: False)
         """
 
         if not courses:
@@ -36,15 +37,15 @@ class Course:
         
         # Sort the courses by the specified field
         if sort_by == "course_id":
-            courses_list.sort(key=lambda x: x.course_id)
+            courses_list.sort(key=lambda x: x.course_id, reverse=reverse)
         elif sort_by == "course_name":
-            courses_list.sort(key=lambda x: x.course_name)
+            courses_list.sort(key=lambda x: x.course_name, reverse=reverse)
         
         # Display the sorted courses
         print(f"\nDisplaying all courses records (sorted by {sort_by}):")
         for course in courses_list:
             print(f"Course ID: {course.course_id}, Course Name: {course.course_name}, Description: {course.description}")
-            print("-" * 30)
+            print("-" * 80)
         
     def display_chosen_course_records(self):
         """ Display the chosen course's details and measure lookup time"""
@@ -53,7 +54,9 @@ class Course:
 
         if course_id in courses: # Check if the course ID exists
             course = courses[course_id]
+            print("-" * 80) # Print a line for better readability
             print(f"Course ID: {course.course_id}, Course Name: {course.course_name}, Description: {course.description}")
+            print("-" * 80) # Print a line for better readability
         else:
             print(f"Course ID {course_id} not found.")
         
@@ -65,6 +68,8 @@ class Course:
         """ Display the courses taught by the professor"""
         professor_id = email_id
         professor_course_ids = professors[professor_id].courses
+        professor_course_ids = [course["course_id"] for course in professor_course_ids] # Get the list of course IDs taught by the professor
+        print()
         for course_id in professor_course_ids:
             if course_id in courses:
                 course = courses[course_id]
@@ -95,7 +100,8 @@ class Course:
                 return
 
             professor = professors[email_id]
-            if modify_course_id not in professor.courses:
+            professor_course_ids = [course["course_id"] for course in professor.courses]
+            if modify_course_id not in professor_course_ids:
                 print(f"Professor {professor.name} does not teach Course ID {modify_course_id}. Modification not allowed.")
                 return
 
@@ -189,7 +195,7 @@ class Course:
 
         # Assign the course to the professor
         professor = professors[email_id]
-        professor.courses.append(course_id)
+        professor.courses.append({"course_id":course_id})
 
         # Save the new course data to Course.csv
         with open("Course.csv", mode="a", newline="") as file:
@@ -197,18 +203,19 @@ class Course:
             writer.writerow([course_id, course_name, description])
 
         # Update the professor's data in professors.csv
-        with open("professors.csv", mode="r") as file:
+        with open("Professor.csv", mode="r") as file:
             reader = csv.reader(file)
             rows = list(reader)
 
         # Find the professor and update their courses
         for row in rows:
-            if row[0] == email_id:  # Assuming email_id is the first column
-                row[3] = ",".join(professor.courses)  # Assuming courses are stored in the 4th column
+            if row[0] == email_id:  
+                professor_courses = [course["course_id"] for course in professor.courses]
+                row[3] = ",".join(professor_courses)  
                 break
 
         # Write the updated data back to professors.csv
-        with open("professors.csv", mode="w", newline="") as file:
+        with open("Professor.csv", mode="w", newline="") as file:
             writer = csv.writer(file)
             writer.writerows(rows)
 
@@ -237,7 +244,8 @@ class Course:
                 return
 
             professor = professors[email_id]
-            if course_id not in professor.courses:
+            professor_course_ids = [course["course_id"] for course in professor.courses]
+            if course_id not in professor_course_ids:
                 print(f"Professor {professor.name} does not teach Course ID {course_id}. Deletion not allowed.")
                 return
 
@@ -376,11 +384,12 @@ class Student:
                 "course_id": course_id, # Add course ID to the list
             })
     
-    def display_all_students_records(self, sort_by="student_id"):
+    def display_all_students_records(self, sort_by="student_id", reverse=False):
         """ Display all the students details, sorted by the specific field 
         Parameters:
             sorted_by (str): The field to sort the students by
             -- Options: "student_id", "first_name", "last_name"
+            reverse (bool): Whether to sort in reverse order (default: False)
         """
 
         if not students: # Check if the students dictionary is empty
@@ -397,11 +406,11 @@ class Student:
 
         # Sort the students based on the specific field
         if sort_by == "student_id":
-            students_list.sort(key=lambda x: x.student_id)
+            students_list.sort(key=lambda x: x.student_id, reverse=reverse)
         elif sort_by == "first_name":
-            students_list.sort(key=lambda x: x.first_name)
+            students_list.sort(key=lambda x: x.first_name, reverse=reverse)
         elif sort_by == "last_name":
-            students_list.sort(key=lambda x: x.last_name)
+            students_list.sort(key=lambda x: x.last_name, reverse=reverse)
 
         # Display the sorted students records
         print(f"\nDisplaying all students records (sorted by {sort_by}):")
@@ -430,13 +439,14 @@ class Student:
         print(f"Time taken to lookup student information: {elapsed_time:.6f} seconds")
         print("-" * 80)
     
-    def display_professor_student_records(self, email_id, sort_by="student_id"):
+    def display_professor_student_records(self, email_id, sort_by="student_id", reverse=False):
         """ Display the professor's students' details, sorted by student ID 
         Parameters:
-            sorted_by (str): The field to sort the students by
+            sort_by (str): The field to sort the students by
             -- Options: "student_id", "first_name", "last_name"
+            reverse (bool): Whether to sort in reverse order (default: False)
         """
-        # Validate the sorted_by field
+        # Validate the sort_by field
         if sort_by not in ["student_id", "first_name", "last_name"]:
             print("Invalid field to sort by. Sorting by student_id by default.")
             sort_by = "student_id"
@@ -459,11 +469,11 @@ class Student:
                 continue
             # Sort the students based on the specific field
             if sort_by == "student_id":
-                students_in_course.sort(key=lambda x: x.student_id)
+                students_in_course.sort(key=lambda x: x.student_id, reverse=reverse) 
             elif sort_by == "first_name":   
-                students_in_course.sort(key=lambda x: x.first_name)
+                students_in_course.sort(key=lambda x: x.first_name, reverse=reverse)
             elif sort_by == "last_name":
-                students_in_course.sort(key=lambda x: x.last_name)
+                students_in_course.sort(key=lambda x: x.last_name, reverse=reverse)
             # Display the sorted students records
             print(f"\nDisplaying all students records for course {course_id} (sorted by {sort_by}):")
             for student in students_in_course:
@@ -474,11 +484,11 @@ class Student:
 
         # Sort the students based on the specific field
         if sort_by == "student_id":
-            students_list.sort(key=lambda x: x.student_id)
+            students_list.sort(key=lambda x: x.student_id, reverse=reverse)
         elif sort_by == "first_name":
-            students_list.sort(key=lambda x: x.first_name)
+            students_list.sort(key=lambda x: x.first_nam, reverse=reverse)
         elif sort_by == "last_name":
-            students_list.sort(key=lambda x: x.last_name)
+            students_list.sort(key=lambda x: x.last_name, reverse=reverse)
 
         # Display the sorted students records
         print(f"\nDisplaying all students records (sorted by {sort_by}):")
@@ -486,11 +496,12 @@ class Student:
             print(f"Student ID: {student.student_id}, Name: {student.first_name} {student.last_name}")
             for course in student.courses:
                 print(f"  Course ID: {course['course_id']}")
-            print("-" * 30)
+            print("-" * 80)
 
     def display_student_himself_records(self, email_id):
         """ Display the student's own details """
         student = students[email_id]
+        print() # Print a blank line for better readability
         print(f"Student ID: {student.student_id}, Name: {student.first_name} {student.last_name}")
         for course in student.courses:
             print(f"  Course ID: {course['course_id']}")
@@ -501,20 +512,38 @@ class Student:
             print("1. Check grades for all courses you took.")
             print("2. Check grades for a specific course you took.")
             choice = input("Enter you choice: ").strip()
+
             if choice == "1":
+                print() # Print a blank line for better readability
                 print(f"Grades for {students[email_id].first_name} {students[email_id].last_name}:")
-                for course in students[email_id].courses:
-                    student_grade = grades[(email_id, course)].grades
+                student_courses = students[email_id].courses
+                student_courses = [course["course_id"] for course in student_courses]
+                for course in student_courses:
+                    # Check if the grade record exists
+                    if (email_id, course) in grades:
+                        student_grade = grades[(email_id, course)].grade_input
+                    else:
+                        student_grade = "N/A"
                     print(f"  Course ID: {course}, Grade: {student_grade}")
+                return
 
             elif choice == "2":
                 course_id = input("Enter the course ID: ").strip()
-                for course in students[email_id].courses:
-                    if course == course_id:
-                        student_grade = grades[(email_id, course)].grades
-                        print(f"Course ID: {course}, Grade: {student_grade}")
-                        return
-                    print(f"No grades found for course ID: {course_id}")
+                print() # Print a blank line for better readability
+                print(f"Grades for {students[email_id].first_name} {students[email_id].last_name}:")
+                student_courses = students[email_id].courses
+                student_courses = [course["course_id"] for course in student_courses]
+                if course_id not in student_courses:
+                    print(f"Course ID {course_id} not found in your courses.")
+                    return
+
+                if (email_id, course_id) in grades:
+                    student_grade = grades[(email_id, course_id)].grade_input
+                else:
+                    student_grade = "N/A"
+                print(f"  Course ID: {course_id}, Grade: {student_grade}")
+                return
+                
             else:
                 print("Invalid choice. Please try again.")
 
@@ -525,21 +554,40 @@ class Student:
             print("2. Check marks for a specific course you took.")
             choice = input("Enter you choice: ").strip()
             if choice == "1":
+                print()
                 print(f"Grades for {students[email_id].first_name} {students[email_id].last_name}:")
-                for course in self.courses:
-                    student_grade = grades[(email_id, course)].grades
-                    student_mark = grades[(email_id, course)].marks
+                student_courses = students[email_id].courses
+                student_courses = [course["course_id"] for course in student_courses]
+                for course in student_courses:
+                    # Check if the grade record exists
+                    if (email_id, course) in grades:
+                        student_grade = grades[(email_id, course)].grade_input
+                        student_mark = grades[(email_id, course)].marks_input
+                    else:
+                        student_grade = "N/A"
+                        student_mark = "N/A"
                     print(f"  Course ID: {course}, Grade: {student_grade}, Mark: {student_mark}")
+                return
 
             elif choice == "2":
                 course_id = input("Enter the course ID: ").strip()
-                for course in students[email_id].courses:
-                    student_grade = grades[(email_id, course)].grades
-                    student_mark = grades[(email_id, course)].marks
-                    if course == course_id:
-                        print(f"Course ID: {course}, Grade: {student_grade}, Mark: {student_mark}")
-                        return
-                    print(f"No grades found for course ID: {course_id}")
+                print()
+                print(f"Grades for {students[email_id].first_name} {students[email_id].last_name}:")
+                student_courses = students[email_id].courses
+                student_courses = [course["course_id"] for course in student_courses]
+                if course_id not in student_courses:
+                    print(f"Course ID {course_id} not found in your courses.")
+                    return
+                
+                if (email_id, course_id) in grades:
+                    student_grade = grades[(email_id, course_id)].grade_input
+                    student_mark = grades[(email_id, course_id)].marks_input
+                else:
+                    student_grade = "N/A"
+                    student_mark = "N/A"
+                print(f"  Course ID: {course_id}, Grade: {student_grade}, Mark: {student_mark}")
+                return
+            
             else:
                 print("Invalid choice. Please try again.")
 
@@ -563,6 +611,30 @@ class Student:
         if invalid_courses_ids:
             print(f"Invalid course IDs: {', '.join(invalid_courses_ids)}")
             return
+
+        # Save the grade data to Grades.csv
+        for course_id in course_ids:
+            grade_input = input(f"Enter the grade (A, B, C, D, F) for course ID {course_id} (or leave blank if not available): ").strip()
+            marks_input = input(f"Enter the mark (0-100) for course ID {course_id} (or leave blank if not available): ").strip()
+
+            # Check if the grade and marks are valid
+            if grade_input and grade_input not in ["A", "B", "C", "D", "F", "N/A"]:
+                print(f"Invalid grade for course ID {course_id}. Please enter a valid grade.")
+                return
+            
+            if marks_input:
+                try:
+                    marks_input = int(marks_input)
+                    if marks_input <0 or marks_input > 100:
+                        print(f"Invalid mark for course ID {course_id}. Please enter a mark between 0 and 100.")
+                        return
+                except ValueError:
+                    print(f"Invalid mark for course ID {course_id}. Please enter a valid number.")
+                    return
+            else:
+                marks_input = None
+            
+            self.save_grades_to_csv(student_id, course_id, grade_input, marks_input) # Save the grade data to Grades.csv    
         
         # Add the new student to the students dictionary
         students[student_id] = Student(student_id, first_name, last_name)
@@ -570,13 +642,6 @@ class Student:
 
         # Save the new student data to Student.csv
         self.save_students_to_csv(student_id, first_name, last_name, course_ids)
-
-        # Save the grade data to Grades.csv
-        for course_id in course_ids:
-            grades = input(f"Enter the grade for course ID {course_id} (or leave blank if not available): ").strip()
-            marks_input = input(f"Enter the mark for course ID {course_id} (or leave blank if not available): ").strip()
-            marks = float(marks_input) if marks_input else None # Handle empty input
-            self.save_grades_to_csv(student_id, course_id, grades, marks)
 
         print(f"New student {first_name} {last_name} added successfully.")  
 
@@ -601,20 +666,20 @@ class Student:
             
             with open("Student.csv", mode="w", newline="") as student_file:
                 writer = csv.writer(student_file)
-                writer.writerow(rows) # Write the remaining rows back to the file
+                writer.writerows(rows) # Write the remaining rows back to the file
             print(f"Student ID: {student_id} deleted successfully from Student.csv")
         except Exception as e:
             print(f"Error deleting student from Student.csv: {e}")
         
         # Delete the student's courses and grades from Grades.csv
         try:
-            with open("Grades.csv", mode="w", newline="") as grades_file:
+            with open("Grades.csv", mode="r") as grades_file:
                 reader = csv.reader(grades_file)
                 rows = [row for row in reader if row[0] != student_id] # Filter out the student
             
             with open("Grades.csv", mode="w", newline="") as grades_file:
                 writer = csv.writer(grades_file)
-                writer.writerow(rows) # Write the remaining rows back to the file
+                writer.writerows(rows) # Write the remaining rows back to the file
             print(f"Student ID: {student_id} deleted successfully from Grades.csv")
         except Exception as e:
             print(f"Error deleting student from Grades.csv: {e}")
@@ -750,11 +815,30 @@ class Student:
                 if role == "admin":
                     grade = input(f"Enter the grade for course ID {new_course_id} (or leave blank if not available): ").strip()
                     mark_input = input(f"Enter the mark for course ID {new_course_id} (or leave blank if not available): ").strip()
-                    mark = float(mark_input) if mark_input else None
-                    self.save_grades_to_csv(student_id, new_course_id, grade, mark)
+                    mark = int(mark_input) if mark_input else None
+                    try:
+                        with open("Grades.csv", mode="a", newline="") as grades_file:
+                            writer = csv.writer(grades_file)
+                            # Use "N/A" as a placeholder for missing grades and marks
+                            grade = grade if grade else "N/A"
+                            mark = mark if mark else "N/A"
+                            writer.writerow([student_id, new_course_id, grade, mark])
+                            
+                    except Exception as e:
+                        print(f"Error saving grades data to CSV: {e}")
+
                 else:
                     # Students cannot input grades or marks
                     print("Students cannot input grades or marks. Please contact an administrator.")
+                    grade = "N/A"
+                    mark = "N/A"
+                    try:
+                        with open("Grades.csv", mode="a", newline="") as grades_file:
+                            writer = csv.writer(grades_file)
+                            writer.writerow([student_id, new_course_id, grade, mark])
+                            
+                    except Exception as e:
+                        print(f"Error saving grades data to CSV: {e}")
 
             else:
                 print("Invalid choice. Please try again.")
@@ -768,6 +852,8 @@ class Student:
         try:
             with open("Student.csv", mode="w", newline="") as student_file:
                 writer = csv.writer(student_file)
+                # Write the header row
+                writer.writerow(["Email_address", "First_name", "Last_name", "Course_ids"])
                 for student in students.values():
                     # Convert course IDs to a comma-separated string
                     course_ids_str = ",".join([course["course_id"] for course in student.courses])
@@ -848,11 +934,12 @@ class Professor:
                 "course_id": course_id, # Add course ID to the list
             })
 
-    def display_all_professors_records(self, sort_by="professor_id"):
+    def display_all_professors_records(self, sort_by="professor_id", reverse=False):
         """ Display all the professors details, sorted by specific field
         Parameters:
-            sorted_by (str): The field to sort the professor by
+            sort_by (str): The field to sort the professor by
             -- Options: "student_id", "name"
+            reverse (bool): Whether to sort in reverse order (default: False)
         """
 
         if not professors:
@@ -869,9 +956,9 @@ class Professor:
         
         # Sort the professors by the specified field
         if sort_by == "professor_id":
-            professors_list.sort(key=lambda x: x.professor_id)
+            professors_list.sort(key=lambda x: x.professor_id, reverse=reverse) 
         elif sort_by == "name":
-            professors_list.sort(key=lambda x: x.name)
+            professors_list.sort(key=lambda x: x.name, reverse=reverse)
         
         # Display the sorted professors
         print(f"\nDisplaying all professors records (sorted by {sort_by}):")
@@ -923,11 +1010,23 @@ class Professor:
             return
         
         # Check if all course IDs in courses (if provided)
-        invalid_course_ids = [cid for cid in new_course_id_str if cid not in courses]
+        new_course_ids = [cid.strip() for cid in new_course_id_str.split(",")] if new_course_id_str else []
+        invalid_course_ids = [cid for cid in new_course_ids if cid not in courses]
         if invalid_course_ids:
             print(f"The following course IDs do not exist: {', '.join(invalid_course_ids)}")
             return
         
+        # Check if any course ID is already assigned to another professor
+        assigned_courses = []
+        for professor_id, professor in professors.items():
+            for course in professor.courses:
+                if course["course_id"] in new_course_ids:
+                    assigned_courses.append(course["course_id"])
+        if assigned_courses:
+            print(f"The following course IDs are already assigned to another professor: {', '.join(assigned_courses)}")
+            print("Please choose other courses.")
+            return
+
         # Create new Professor object
         professors[new_professor_id] = Professor(new_professor_id, new_name, new_rank)
         if new_course_id_str:
@@ -1024,7 +1123,7 @@ class Professor:
                 print(f"Course ID {course} removed from courses dictionary.")
 
     def modify_professor_details(self, professor_id=None):
-        """ Delete a professor and his/her related course data from all files """
+        """ Modify a professor's name, rank, or course IDs."""
         if professor_id in professors:
             professor = professors[professor_id]
             print("1. Modify professor name")
@@ -1058,8 +1157,21 @@ class Professor:
                     new_course_id = input("Enter the new course ID: ").strip()
 
                     # Check if the new course ID exists in courses
-                    if new_course_id not in courses:
+                    courses_list = list(courses.keys())
+                    if new_course_id not in courses_list:
                         print(f"Course ID: {new_course_id} does not exist.")
+                        return
+
+                    # Check if the new course ID is already assigned to another professor
+                    assigned_professors = []
+                    for pid, prof in professors.items():
+                        if pid != professor_id:  # Skip the current professor
+                            for course in prof.courses:
+                                if course["course_id"] == new_course_id:
+                                    assigned_professors.append(pid)
+                    if assigned_professors:
+                        print(f"Course ID {new_course_id} is already assigned to the following professors: {', '.join(assigned_professors)}")
+                        print("Please choose another course.")
                         return
                     
                     # Check if the new course ID already exists in the professor's courses
@@ -1086,6 +1198,18 @@ class Professor:
                         print(f"Course ID: {new_course_id} does not exist.")
                         return
 
+                    # Check if the new course ID is already assigned to another professor
+                    assigned_professors = []
+                    for pid, prof in professors.items():
+                        if pid != professor_id:
+                            for course in prof.courses:
+                                if course["course_id"] == new_course_id:
+                                    assigned_professors.append(pid)
+                    if assigned_professors:
+                        print(f"Course ID {new_course_id} is already assigned to the following professors: {', '.join(assigned_professors)}")
+                        print("Please choose another course.")
+                        return
+                    
                     # Check if the new course ID already exists in the professor's courses
                     if new_course_id in [course["course_id"] for course in professor.courses]:
                         print(f"Course ID {new_course_id} already exists in the professor's course list.")
@@ -1170,7 +1294,7 @@ class Professor:
                 return
             
             # Save the data to CSV file
-            Professor.save_professors_to_csv("Professor.csv")
+            Professor.save_professors_to_csv()
         else:
             print(f"Professor ID: {professor_id} not found.")
 
@@ -1225,13 +1349,14 @@ class Grades:
         self.grade_input = grade_input # Grade input (A, B, C, D, F)
         self.marks_input = marks_input # Marks input (0-100)
 
-    def display_all_grades_records(self, sort_by="name"):
+    def display_all_grades_records(self, sort_by="name", reverse=False):
         """
         Display all the grades details, sorted by a specific field.
 
         Parameters:
             sort_by (str): The field to sort the grades by.
                 Options: "name", "grades", "marks". Default is "name".
+            reverse (bool): Whether to sort in reverse order. Default is False.
         """
         if not grades:
             print("No grades records found.")
@@ -1248,13 +1373,20 @@ class Grades:
         # Sort the grades by the specified field
         if sort_by == "student_id":
             # Sort by student ID
-            grades_list.sort(key=lambda grade: grade.student_id)
+            grades_list.sort(key=lambda grade: grade.student_id, reverse=reverse)
         elif sort_by == "grades":
             # Sort by grades (e.g., A, B, C)
-            grades_list.sort(key=lambda grade: grade.grade_input)
+            grades_list.sort(key=lambda grade: grade.grade_input, reverse=reverse)
         elif sort_by == "marks":
             # Sort by marks (numerical value)
-            grades_list.sort(key=lambda grade: grade.grade_input)
+            grades_list.sort(
+                key=lambda grade: (
+                    float('inf')  
+                    if grade.marks_input.lower() in ['n/a', 'f', 'unknown', '']  
+                    else float(grade.marks_input)  
+                ),
+                reverse=reverse
+            )
 
         # Display the sorted grades
         print(f"\nDisplaying all grades records (sorted by {sort_by}):")
@@ -1271,16 +1403,20 @@ class Grades:
             # Case 1: Both student_id and course_id are provided
             if (student_id, course_id) in grades:
                 grade = grades[(student_id, course_id)]
+                print("-" * 80)
                 print(f"Student ID: {grade.student_id}, Course ID: {grade.course_id}, Grades: {grade.grade_input}, Marks: {grade.marks_input}")
+                print("-" * 80)
             else:
                 print("Grade not found.")
         
         elif student_id:
             # Case 2: Only student_id is provided
             found = False
+            print("-" * 80)
+            print(f"Displaying grades for Student ID: {student_id}")
             for key, grade in grades.items():
                 if key[0] == student_id:
-                    print(f"Student ID: {grade.student_id}, Course ID: {grade.course_id}, Grades: {grade.grade_input}, Marks: {grade.marks_input}")
+                    print(f"Course ID: {grade.course_id}, Grades: {grade.grade_input}, Marks: {grade.marks_input}")
                     found = True
             if not found:
                 print("No grades found for the student.")
@@ -1303,13 +1439,14 @@ class Grades:
         elapsed_time = end_time - start_time
         print(f"Time taken to lookup the grade: {elapsed_time:.6f} seconds")
 
-    def display_professor_grades(self, email_id, sort_by="student_id"):
+    def display_professor_grades(self, email_id, sort_by="student_id", reverse=False):
         """
         Display the grades for all courses taught by a professor, with optional sorting.
 
         Args:
             email_id (str): The email ID of the professor.
-            sort_by (str): The sorting criteria. Options: "student_id", "grades", "marks". Default is "name".
+            sort_by (str): The sorting criteria. Options: "student_id", "grades", "marks". Default is "student_id".
+            reverse (bool): Whether to sort in reverse order. Default is False.
         """
         if email_id not in professors:
             print(f"No professor found with email ID: {email_id}")
@@ -1331,13 +1468,13 @@ class Grades:
             # Sort grades based on the specified criteria
             if sort_by == "student_id":
                 # Sort by student ID
-                course_grades.sort(key=lambda grade: grade.student_id)
+                course_grades.sort(key=lambda grade: grade.student_id, reverse=reverse)
             elif sort_by == "grades":
                 # Sort by grades (e.g., A, B, C)
-                course_grades.sort(key=lambda grade: grade.grades)
+                course_grades.sort(key=lambda grade: grade.grade_input, reverse=reverse)
             elif sort_by == "marks":
                 # Sort by marks (numerical value)
-                course_grades.sort(key=lambda grade: grade.marks)
+                course_grades.sort(key=lambda grade: int(grade.marks_input), reverse=reverse)
 
             # Display sorted grades
             for grade in course_grades:
@@ -1348,7 +1485,7 @@ class Grades:
                 student = students[grade.student_id]
                 print(f"  Student ID: {grade.student_id}, Grades: {grade.grade_input}, Marks: {grade.marks_input}")
 
-    def display_professor_chosen_grades(self, email_id, course_id, sort_by="student_id"):
+    def display_professor_chosen_grades(self, email_id, course_id, sort_by="student_id", reverse=False):
         """
         Display grades for a chosen course taught by a professor, with optional statistics.
 
@@ -1356,13 +1493,17 @@ class Grades:
             email_id (str): The email ID of the professor.
             course_id (str): The ID of the course to display grades for.
             sort_by (str): The field to sort the grades by. Options: "student_id", "grades", "marks". Default is "student_id".
+            reverse (bool): Whether to sort in reverse order. Default is False.
         """
         if email_id not in professors:
             print(f"No professor found with email ID: {email_id}")
             return
 
         professor = professors[email_id]
-        if course_id not in professor.courses:
+        professor_course_ids = professor.courses
+        professor_course_ids = [course["course_id"] for course in professor_course_ids]
+        print(professor_course_ids)
+        if course_id not in professor_course_ids:
             print(f"Course ID {course_id} is not taught by Professor {professor.name}.")
             return
 
@@ -1381,13 +1522,13 @@ class Grades:
         # Sort the grades by the specified field
         if sort_by == "student_id":
             # Sort by student name
-            course_grades.sort(key=lambda grade: grade.student_id)
+            course_grades.sort(key=lambda grade: grade.student_id, reverse=reverse)
         elif sort_by == "grades":
             # Sort by grades (e.g., A, B, C)
-            course_grades.sort(key=lambda grade: grade.grade_input) 
+            course_grades.sort(key=lambda grade: grade.grade_input, reverse=reverse) 
         elif sort_by == "marks":
             # Sort by marks (numerical value)
-            course_grades.sort(key=lambda grade: grade.marks_input)
+            course_grades.sort(key=lambda grade: int(grade.marks_input), reverse=reverse)
 
         # Display sorted grades
         print(f"\nDisplaying grades for Course ID: {course_id} (Taught by Professor {professor.name}, Sorted by {sort_by})")
@@ -1408,14 +1549,14 @@ class Grades:
 
         if user_input == "yes":
             # Calculate statistics
-            marks_list = [grade.marks_input for grade in course_grades]
+            marks_list = [int(grade.marks_input) for grade in course_grades]
+            print(type(marks_list)) 
             average_mark = sum(marks_list) / len(marks_list)
             median_mark = sorted(marks_list)[len(marks_list) // 2] if len(marks_list) % 2 != 0 else (
                 sorted(marks_list)[len(marks_list) // 2 - 1] + sorted(marks_list)[len(marks_list) // 2]) / 2
             highest_mark = max(marks_list)
             lowest_mark = min(marks_list)
 
-            # Display statistics options
             print("\nChoose statistics to display:")
             print("1. Average Mark")
             print("2. Median Mark")
@@ -1452,8 +1593,8 @@ class Grades:
         # Add a grade for a student in a course by a professor or admin
         student_id = input("Enter the student ID: ").strip()
         course_id = input("Enter the course ID: ").strip()
-        grade_input = input("Enter the grades (A, B, C, D, F): ").strip()
-        marks_input = input("Enter the marks (0-100): ").strip()
+        grade_input = input("Enter the grades (A, B, C, D, F, or N/A): ").strip()
+        marks_input = input("Enter the marks (0-100, or N/A): ").strip()
 
         # Check if the student exists
         if student_id not in students:
@@ -1469,14 +1610,21 @@ class Grades:
         if (student_id, course_id) not in grades:
             print("Student is not enrolled in the course.")
             return
+        
+        # Check if the student's current grades and marks are N/A
+        current_grade = grades[((student_id, course_id))].grade_input
+        current_marks = grades[((student_id, course_id))].marks_input
+        if current_grade != "N/A" or current_marks != "N/A":
+            print("The student already has a grade or marks for this course. Cannot overwrite. Please use modify grade function to update the grade.")
+            return
 
         # Check if the grades are valid
-        if grade_input not in ["A", "B", "C", "D", "F"]:
-            print("Invalid grades. Please enter A, B, C, D, or F.")
+        if grade_input not in ["A", "B", "C", "D", "F", "N/A"]:
+            print("Invalid grades. Please enter A, B, C, D, F, or N/A.")
             return
         
         # Check if the marks are valid
-        if not marks_input.isdigit() or int(marks_input) < 0 or int(marks_input) > 100:
+        if marks_input != "N/A" and (not marks_input.isdigit() or int(marks_input) < 0 or int(marks_input) > 100):
             print("Invalid marks. Please enter a number between 0 and 100.")
             return
         
@@ -1484,26 +1632,32 @@ class Grades:
         if role == "professor":
             # Check if the professor is teaching the course
             professor = professors[email_id]
-            professor_course_ids = professor["courses"]
+            professor_course_ids = professor.courses
+            professor_course_ids = [course["course_id"] for course in professor_course_ids]
             if course_id not in professor_course_ids:
                 print("You do not have the right to add a grade for this course.")
                 return
             # Add the grade
             grades[(student_id, course_id)] = Grades(student_id, course_id, grade_input, marks_input)
             # Save the grades to the CSV file
-            with open("Grades.csv", "a") as grades_file:
+            with open("Grades.csv", "w") as grades_file:
                 writer = csv.writer(grades_file)
-                writer.writerow([student_id, course_id, grade_input, marks_input])
-            print("Grade added successfully.")
+                writer.writerow(["Student_id", "Course_id", "Grades", "Marks"])
+                for key, grade in grades.items():
+                    writer.writerow([grade.student_id, grade.course_id, grade.grade_input, grade.marks_input])
+            print("Grade modified successfully.")
 
         elif role == "admin":
-            # Admin can add a grade for any course
+            # Admin can add a grade for the course
             grades[(student_id, course_id)] = Grades(student_id, course_id, grade_input, marks_input)
-            # Save the grades to the CSV file 
-            with open("Grades.csv", "a") as grades_file:
+            
+            # Save the grades to the CSV file
+            with open("Grades.csv", "w") as grades_file:
                 writer = csv.writer(grades_file)
-                writer.writerow([student_id, course_id, grade_input, marks_input])
-            print("Grade added successfully.")
+                writer.writerow(["Student_id", "Course_id", "Grades", "Marks"])
+                for key, grade in grades.items():
+                    writer.writerow([grade.student_id, grade.course_id, grade.grade_input, grade.marks_input])
+            print("Grade modified successfully.")
 
         else:
             print("You do not have the right to add a grade.")
@@ -1520,7 +1674,8 @@ class Grades:
         if role == "professor":
             # Check if the professor is teaching the course
             professor = professors[email_id]
-            professor_course_ids = professor["courses"]
+            professor_course_ids = professor.courses
+            professor_course_ids = [course["course_id"] for course in professor_course_ids]
     
             if course_id not in professor_course_ids:
                 print("You do not have the right to delete a grade for this course.")
@@ -1561,7 +1716,8 @@ class Grades:
         if role == "professor":
             # Check if the professor is teaching the course
             professor = professors[email_id]
-            professor_course_ids = professor["courses"]
+            professor_course_ids = professor.courses
+            professor_course_ids = [course["course_id"] for course in professor_course_ids]
     
             if course_id not in professor_course_ids:
                 print("You do not have the right to modify a grade for this course.")
@@ -1727,6 +1883,7 @@ class Grades:
             # Professor can only see their own grades
             professor = professors[email_id]
             professor_course_ids = professor.courses
+            professor_course_ids = [course["course_id"] for course in professor_course_ids]
             course_id = input("Enter the course ID: ").strip()
             if course_id not in professor_course_ids:
                 print("You do not have the right to generate a grade report for this course.")

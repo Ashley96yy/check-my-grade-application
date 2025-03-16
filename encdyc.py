@@ -26,10 +26,10 @@ class TextSecurity:
         """ Return encrypted string """
         return self._convert(text, -self.shifter) 
 
-# if __name__ == '__main__':
-#     cipher = TextSecurity(5)
-#     message = "x4L*~WGc0jmn"
-#     coded = cipher.encrypt(message)
-#     print('Secret: ', coded)
-#     answer = cipher.decrypt(coded)
-#     print('Message:', answer)
+if __name__ == '__main__':
+    cipher = TextSecurity(5)
+    message = "678901"
+    coded = cipher.encrypt(message)
+    print('Secret: ', coded)
+    answer = cipher.decrypt(coded)
+    print('Message:', answer)

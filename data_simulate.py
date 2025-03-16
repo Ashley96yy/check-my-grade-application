@@ -169,7 +169,7 @@ for i, user in enumerate(data):
 with open("Student.csv", mode="w", newline="", encoding="utf-8") as file:
     writer = csv.writer(file)
     # Write header
-    writer.writerow(["Email", "First Name", "Last Name", "Course IDs"])
+    writer.writerow(["Email_address", "First_name", "Last_name", "Course_ids"])
     # Write data rows
     writer.writerows(student_data)
 print("Student information saved to 'Student.csv'")

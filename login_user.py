@@ -40,7 +40,9 @@ class LoginUser:
             check_new_password = getpass.getpass("Please enter your new password again: ").strip()
             if new_password == check_new_password:
                 self.user_info.loc[self.user_info.User_id == self.email_id, "Password"] = cipher.encrypt(new_password)
-                self.user_info.to_csv("Login_encrypted.csv", index = False) # save to CSV file
+                self.user_info.to_csv("Login.csv", index = False) # save to CSV file
+                self.user_info.loc[self.user_info.User_id == self.email_id, "Password"] = new_password
+                self.user_info.to_csv("Login_decrypted.csv", index = False)
                 print("Changing password successfully!") 
                 return True
             else:
