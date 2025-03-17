@@ -62,7 +62,7 @@ class Course:
         
         end_time = time.time() # Record the end time
         elapsed_time = end_time - start_time
-        print(f"Time taken to loopuo the course: {elapsed_time:.6f} seconds")
+        print(f"Time taken to lookup the course: {elapsed_time:.6f} seconds")
     
     def display_course_taught_by_professor_records(self, email_id):
         """ Display the courses taught by the professor"""
