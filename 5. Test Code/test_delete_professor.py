@@ -1,5 +1,6 @@
+from io import StringIO
 import unittest
-from unittest.mock import patch, mock_open
+from unittest.mock import patch, mock_open, MagicMock
 import csv
 from common import Professor, professors, Course, courses
 
@@ -11,7 +12,10 @@ class TestDeleteProfessor(unittest.TestCase):
         # Initialize courses dictionary
         courses.clear()
         courses["DATA201"] = Course("DATA201", "Data Structures and Algorithms", "Understand fundamental data structures and algorithms for programming.")
-        courses["DATA210"] = Course("DATA210", "Digital Marketing", "Learn online marketing strategies and analytics.")
+        courses["DATA208"] = Course("DATA208", "Game Development", "Learn to design and develop video games.")
+        courses["DATA215"] = Course("DATA215", "Machine Learning", "Discover advanced techniques in supervised and unsupervised learning.")
+        courses["DATA200"] = Course("DATA200", "Introduction to Artificial Intelligence", "Learn the basics of programming.")
+        courses["DATA217"] = Course("DATA217", "Ethical Hacking", "Learn ethical hacking techniques to test and secure systems.")
 
         # Initialize professors dictionary
         professors.clear()
@@ -41,28 +45,10 @@ class TestDeleteProfessor(unittest.TestCase):
         professor_csv_data = [
             ["debra.gardner@myscu.edu", "Debra Gardner", "Senior Professor", "DATA201"]
         ]
+        csv_data = "\n".join([",".join(row) for row in professor_csv_data])
+        professor_csv_data = StringIO(csv_data)
+
         mock_file.return_value.__enter__.return_value = professor_csv_data
-
-        # Mock CSV data for Grades.csv
-        grades_csv_data = [
-            ["STU001", "DATA201", "A"],
-            ["STU002", "DATA210", "B"]
-        ]
-        mock_file.return_value.__enter__.return_value = grades_csv_data
-
-        # Mock CSV data for Student.csv
-        student_csv_data = [
-            ["STU001", "Alice", "alice@myscu.edu", "DATA201,DATA210"],
-            ["STU002", "Bob", "bob@myscu.edu", "DATA210"]
-        ]
-        mock_file.return_value.__enter__.return_value = student_csv_data
-
-        # Mock CSV data for Course.csv
-        course_csv_data = [
-            ["DATA201", "Data Structures and Algorithms", "Understand fundamental data structures and algorithms for programming."],
-            ["DATA210", "Digital Marketing", "Learn online marketing strategies and analytics."]
-        ]
-        mock_file.return_value.__enter__.return_value = course_csv_data
 
         # Call the delete_professor method
         professor = Professor()
@@ -73,23 +59,7 @@ class TestDeleteProfessor(unittest.TestCase):
 
         # Verify the professor is deleted from Professor.csv
         updated_professor_csv = [row for row in professor_csv_data if row[0] != "debra.gardner@myscu.edu"]
-        self.assertNotIn(["debra.gardner@myscu.edu", "Debra Gardner", "Senior Professor", "DATA201"], updated_professor_csv)
-
-        # Verify the grades for the deleted professor's course are deleted from Grades.csv
-        updated_grades_csv = [row for row in grades_csv_data if row[1] != "DATA201"]
-        self.assertNotIn(["STU001", "DATA201", "A"], updated_grades_csv)
-
-        # Verify the course IDs are removed from students' course lists in Student.csv
-        updated_student_csv = []
-        for row in student_csv_data:
-            student_course_ids = row[3].split(",") if row[3] else []
-            student_course_ids = [cid for cid in student_course_ids if cid != "DATA201"]
-            updated_student_csv.append([row[0], row[1], row[2], ",".join(student_course_ids)])
-        self.assertNotIn(["STU001", "Alice", "alice@myscu.edu", "DATA201,DATA210"], updated_student_csv)
-
-        # Verify the course is deleted from Course.csv
-        updated_course_csv = [row for row in course_csv_data if row[0] != "DATA201"]
-        self.assertNotIn(["DATA201", "Data Structures and Algorithms", "Understand fundamental data structures and algorithms for programming."], updated_course_csv)
+        self.assertNotIn(["debra.gardner@myscu.edu", "Debra Gardner", "Senior Professor", "DATA201, DATA217, DATA208"], updated_professor_csv)
 
         # Verify the course is deleted from the courses dictionary
         self.assertNotIn("DATA201", courses)

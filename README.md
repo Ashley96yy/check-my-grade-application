@@ -1,1 +1,2 @@
 # CheckMyGradeApplication
+https://github.com/Ashley96yy/DATA200_Lab1_CheckMyGradeApplication

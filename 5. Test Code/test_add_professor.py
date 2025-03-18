@@ -20,7 +20,7 @@ class TestAddProfessor(unittest.TestCase):
             name="Debra Gardner",
             rank="Senior Professor"
         )
-        professors["debra.gardner@myscu.edu"].add_course("DATA201, DATA217, DATA208") 
+        professors["debra.gardner@myscu.edu"].add_course("DATA201, DATA210") 
 
     def setUp(self):
         """Reset test data before each test."""
@@ -31,12 +31,12 @@ class TestAddProfessor(unittest.TestCase):
             name="Debra Gardner",
             rank="Senior Professor"
         )
-        professors["debra.gardner@myscu.edu"].add_course("DATA201, DATA217, DATA208") 
+        professors["debra.gardner@myscu.edu"].add_course("DATA201, DATA210") 
 
     def test_add_new_professor(self):
         """Test adding a new professor."""
         # Simulate user input
-        with patch("builtins.input", side_effect=["john.doe@myscu.edu", "John Doe", "Assistant Professor", "DATA220"]):
+        with patch("builtins.input", side_effect=["john.doe@myscu.edu", "John Doe", "Assistant Professor", "DATA216"]):
             professor = Professor()  # Create a Professor instance
             professor.add_new_professor()
 
@@ -44,7 +44,7 @@ class TestAddProfessor(unittest.TestCase):
         self.assertIn("john.doe@myscu.edu", professors)
         self.assertEqual(professors["john.doe@myscu.edu"].name, "John Doe")
         self.assertEqual(professors["john.doe@myscu.edu"].rank, "Assistant Professor")
-        self.assertEqual([course["course_id"] for course in professors["john.doe@myscu.edu"].courses], ["DATA220"])
+        self.assertEqual([course["course_id"] for course in professors["john.doe@myscu.edu"].courses], ["DATA216"])
 
     def test_add_existing_professor(self):
         """Test adding an existing professor."""
