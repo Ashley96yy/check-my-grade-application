@@ -26,16 +26,17 @@ First login: open Login_decrypted.csv, pick any row (email + role + plaintext pa
 The app verifies against the obfuscated Login.csv.
 
 ## Repository layout
-data_simulate.py   # one-click data generator (CSV files)
-main.py            # entry point; login + role-specific menus
-login_user.py      # login / change-password logic (reads Login.csv)
-encdyc.py          # simple Caesar cipher (educational)
-common.py          # domain classes & CSV helpers (students, professors, courses, grades)
+data_simulate.py   — one-click data generator (CSV files)
+main.py            — entry point; login + role-specific menus
+login_user.py      — login / change-password logic (uses Login.csv)
+encdyc.py          — simple Caesar cipher (educational only)
+common.py          — domain classes & CSV helpers (students, professors, courses, grades)
 
 ## Notes
-This is a local demo for learning workflows (data generation → access control → basic reporting).
-No confidential or real data. The Caesar cipher is for demonstration only.
-If you prefer zero extra packages, only pandas is required at runtime; faker is used to generate sample data.
+- Demo only: all data are synthetic; no confidential information.
+- Passwords are obfuscated with a basic Caesar shift (not secure; for learning).
+- Runtime needs `pandas`; `faker` is used only to generate sample data.
 
 ## License
 MIT
+
